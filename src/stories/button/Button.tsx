@@ -1,42 +1,74 @@
 import React from 'react';
 
 interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
+  href: string,
+  to: string,
+  isStartButton: boolean,
+  disabled: boolean,
+  className: string,
+  preventDoubleClick: boolean,
+  name: string,
+  type: string,
+  children: any,
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
+  href,
+  name,
+  type,
+  disabled = false,
+  isStartButton = false,
+  preventDoubleClick,
+  className,
+  children
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  let buttonAttributes: any = {
+    name,
+    type,
+    href,
+    'data-module': 'govuk-button',
+  };
+
+  const classProps = `govuk-button ${className || ''}${
+      disabled ? ' govuk-button--disabled' : ''
+  } ${isStartButton ? 'govuk-button--start' : ''}`;
+
+  let iconHtml;
+  if (isStartButton) {
+    iconHtml = (
+      <svg
+        className="govuk-button__start-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="17.5"
+        height="19"
+        viewBox="0 0 33 40"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+      </svg>
+    );
+  }
+
+  if (preventDoubleClick) {
+    buttonAttributes['data-prevent-double-click'] = preventDoubleClick;
+  }
+
+  if (disabled) {
+    buttonAttributes = {
+      ...buttonAttributes,
+      'aria-disabled': true,
+      disabled: 'disabled',
+    };
+  }
+
   return (
-    <button className="govuk-button" data-module="govuk-button">
-      Save and continue
+    <button {...buttonAttributes} className={classProps}>
+      {children}
+      {iconHtml}
     </button>
   );
 };
