@@ -1,6 +1,6 @@
 {
-  "name": "govuk-frontend-react",
-  "private": true,
+  "name": "govuk-frontend-ui",
+  "private": false,
   "version": "0.0.0",
   "scripts": {
     "start": "storybook dev -p 6006",
