@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface ButtonProps {
-  href: string,
-  to: string,
-  isStartButton: boolean,
-  disabled: boolean,
-  className: string,
-  preventDoubleClick: boolean,
-  name: string,
-  type: string,
+  href?: string,
+  to?: string,
+  isStartButton?: boolean,
+  disabled?: boolean,
+  className?: string,
+  preventDoubleClick?: boolean,
+  name?: string,
+  type?: string,
   children: any,
 }
 
@@ -19,8 +19,8 @@ export const Button = ({
   href,
   name,
   type,
-  disabled = false,
-  isStartButton = false,
+  disabled,
+  isStartButton,
   preventDoubleClick,
   className,
   children
