@@ -38,6 +38,8 @@ bower_components
 build/Release
 
 # Dependency directories
+.DS_Store
+storybook-static/
 node_modules/
 jspm_packages/
 
