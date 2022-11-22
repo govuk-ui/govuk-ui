@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "start": "storybook dev -p 6006",
+    "build": "storybook build"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
