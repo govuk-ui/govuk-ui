@@ -1,16 +1,5 @@
 import React from 'react';
-
-interface ButtonProps {
-  href?: string,
-  to?: string,
-  isStartButton?: boolean,
-  disabled?: boolean,
-  className?: string,
-  preventDoubleClick?: boolean,
-  name?: string,
-  type?: string,
-  children: any,
-}
+import ButtonProps from './Button.types';
 
 export const Button = ({
   href,

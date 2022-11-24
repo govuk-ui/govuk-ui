@@ -1,8 +1,10 @@
+const { babel } = require('@rollup/plugin-babel');
 const resolve = require('@rollup/plugin-node-resolve');
-const commonjs = require('@rollup/plugin-commonjs');
 const typescript = require('@rollup/plugin-typescript');
 const { terser } = require('rollup-plugin-terser');
 const external = require('rollup-plugin-peer-deps-external');
+const dts = require('rollup-plugin-dts');
+const postcss = require('rollup-plugin-postcss');
 
 const packageJson = require('./package.json');
 
@@ -20,13 +22,22 @@ const config =  [
       }
     ],
     plugins: [
+      babel({
+        exclude: "node_modules/**",
+        presets: ["@babel/preset-react"],
+      }),
       external(),
       resolve(),
-      commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
-      terser()
+      postcss()
     ]
-  }
+  },
+  {
+    input: 'dist/esm/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: "esm" }],
+    external: [/\.s?css$/],
+    plugins: [dts.default()],
+  },
 ]
 
 module.exports = config;

@@ -1,1 +1,2 @@
-export { default as Button } from './components/Button'
+import './css/styles.css';
+export * from './components';
