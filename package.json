@@ -7,9 +7,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "npm run build-sass && storybook build",
     "build-ts": "tsc",
-    "build-sass": "sass ./src/scss:src/css",
+    "build-sass": "sass ./src/scss:.storybook",
     "build-rollup": "rollup -c",
     "build-lib": "npm-run-all build-rollup"
   },
@@ -39,14 +39,14 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "sass": "^1.56.1",
     "storybook": "^7.0.0-alpha.51",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "@rollup/plugin-babel": "^6.0.2",
+    "deep-iterator": "^1.1.0",
+    "npm-run-all": "^4.1.5",
+    "react-html-parser": "^2.0.2"
   },
   "peerDependencies": {
     "govuk-frontend": "^4.4.0",
     "react": "^18.2.0"
-  },
-  "dependencies": {
-    "@rollup/plugin-babel": "^6.0.2",
-    "npm-run-all": "^4.1.5"
   }
 }
