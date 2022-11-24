@@ -1,10 +1,8 @@
 const { babel } = require('@rollup/plugin-babel');
 const resolve = require('@rollup/plugin-node-resolve');
 const typescript = require('@rollup/plugin-typescript');
-const { terser } = require('rollup-plugin-terser');
 const external = require('rollup-plugin-peer-deps-external');
 const dts = require('rollup-plugin-dts');
-const postcss = require('rollup-plugin-postcss');
 
 const packageJson = require('./package.json');
 
@@ -29,7 +27,6 @@ const config =  [
       external(),
       resolve(),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss()
     ]
   },
   {

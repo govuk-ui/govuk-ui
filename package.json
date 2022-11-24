@@ -11,7 +11,7 @@
     "build-ts": "tsc",
     "build-sass": "sass ./src/scss:src/css",
     "build-rollup": "rollup -c",
-    "build-lib": "npm-run-all build-sass build-rollup"
+    "build-lib": "npm-run-all build-rollup"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -37,9 +37,6 @@
     "rollup": "^3.4.0",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-scss": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.56.1",
     "storybook": "^7.0.0-alpha.51",
     "typescript": "^4.6.4"
