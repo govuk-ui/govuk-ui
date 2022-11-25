@@ -3,7 +3,7 @@ export default interface ButtonProps {
   to?: string,
   isStartButton?: boolean,
   disabled?: boolean,
-  className?: string,
+  classes?: string,
   preventDoubleClick?: boolean,
   name?: string,
   type?: 'input' | 'button',

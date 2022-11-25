@@ -8,7 +8,7 @@ export const Button = ({
   disabled,
   isStartButton,
   preventDoubleClick,
-  className,
+  classes,
   children
 }: ButtonProps) => {
   let buttonAttributes: any = {
@@ -18,7 +18,7 @@ export const Button = ({
     'data-module': 'govuk-button',
   };
 
-  const classProps = `govuk-button ${className || ''}${
+  const classProps = `govuk-button ${classes || ''}${
       disabled ? ' govuk-button--disabled' : ''
   } ${isStartButton ? 'govuk-button--start' : ''}`;
 
