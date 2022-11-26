@@ -44,4 +44,26 @@ componentsToGen.forEach(c => {
     }`;
     fs.writeFileSync(typeFilePath, typeFileContent);
   }
+
+  // component file
+  const componentFilePath = path.resolve(componentPath, `${casedComponent}.tsx`);
+  if (!fs.existsSync(componentFilePath)) {
+    console.log(`... writing component file for ${casedComponent} component`);
+    const componentFileContent = `
+    import React from 'react';
+    import ${casedComponent}Props from './${casedComponent}.types';
+    
+    export const ${casedComponent} = ({
+      name,
+    }: ${casedComponent}Props) => {
+      return (
+        <div>
+          Component Not Implemented
+        </div>
+      );
+    }
+    
+    export default ${casedComponent};`;
+    fs.writeFileSync(componentFilePath, componentFileContent);
+  }
 });
