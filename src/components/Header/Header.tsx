@@ -3,7 +3,18 @@
     import HeaderProps from './Header.types';
     
     export const Header = ({
-      name,
+      serviceName,
+      serviceUrl,
+      navigation,
+      navigationLabel,
+      menuButtonText,
+      menuButtonLabel,
+      navigationClasses,
+      productName,
+      containerClasses,
+      attributes,
+      classes,
+      homepageUrl,
     }: HeaderProps) => {
       return (
         <div>

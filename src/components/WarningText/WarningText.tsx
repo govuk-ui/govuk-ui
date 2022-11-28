@@ -3,7 +3,11 @@
     import WarningTextProps from './WarningText.types';
     
     export const WarningText = ({
-      name,
+      text,
+      iconFallbackText,
+      attributes,
+      classes,
+      html,
     }: WarningTextProps) => {
       return (
         <div>

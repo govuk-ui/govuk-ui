@@ -3,7 +3,12 @@
     import FieldsetProps from './Fieldset.types';
     
     export const Fieldset = ({
-      name,
+      legend,
+      html,
+      describedBy,
+      classes,
+      role,
+      attributes,
     }: FieldsetProps) => {
       return (
         <div>

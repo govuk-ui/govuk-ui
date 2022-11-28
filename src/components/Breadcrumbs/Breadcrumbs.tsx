@@ -3,7 +3,10 @@
     import BreadcrumbsProps from './Breadcrumbs.types';
     
     export const Breadcrumbs = ({
-      name,
+      items,
+      collapseOnMobile,
+      classes,
+      attributes,
     }: BreadcrumbsProps) => {
       return (
         <div>

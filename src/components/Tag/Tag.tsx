@@ -3,7 +3,10 @@
     import TagProps from './Tag.types';
     
     export const Tag = ({
-      name,
+      text,
+      classes,
+      attributes,
+      html,
     }: TagProps) => {
       return (
         <div>

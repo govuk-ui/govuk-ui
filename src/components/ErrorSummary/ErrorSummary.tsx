@@ -3,7 +3,14 @@
     import ErrorSummaryProps from './ErrorSummary.types';
     
     export const ErrorSummary = ({
-      name,
+      titleText,
+      errorList,
+      descriptionText,
+      titleHtml,
+      descriptionHtml,
+      classes,
+      attributes,
+      disableAutoFocus,
     }: ErrorSummaryProps) => {
       return (
         <div>

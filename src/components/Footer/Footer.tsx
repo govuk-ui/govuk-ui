@@ -3,7 +3,13 @@
     import FooterProps from './Footer.types';
     
     export const Footer = ({
-      name,
+      contentLicence,
+      copyright,
+      meta,
+      navigation,
+      attributes,
+      classes,
+      containerClasses,
     }: FooterProps) => {
       return (
         <div>

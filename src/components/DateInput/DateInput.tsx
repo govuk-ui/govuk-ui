@@ -3,7 +3,15 @@
     import DateInputProps from './DateInput.types';
     
     export const DateInput = ({
-      name,
+      id,
+      namePrefix,
+      fieldset,
+      hint,
+      items,
+      errorMessage,
+      formGroup,
+      classes,
+      attributes,
     }: DateInputProps) => {
       return (
         <div>

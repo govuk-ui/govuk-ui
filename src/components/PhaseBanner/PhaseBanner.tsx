@@ -3,7 +3,11 @@
     import PhaseBannerProps from './PhaseBanner.types';
     
     export const PhaseBanner = ({
-      name,
+      tag,
+      html,
+      text,
+      classes,
+      attributes,
     }: PhaseBannerProps) => {
       return (
         <div>

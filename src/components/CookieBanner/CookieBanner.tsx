@@ -3,7 +3,11 @@
     import CookieBannerProps from './CookieBanner.types';
     
     export const CookieBanner = ({
-      name,
+      messages,
+      ariaLabel,
+      hidden,
+      classes,
+      attributes,
     }: CookieBannerProps) => {
       return (
         <div>

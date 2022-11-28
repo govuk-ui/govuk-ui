@@ -3,7 +3,12 @@
     import TabsProps from './Tabs.types';
     
     export const Tabs = ({
-      name,
+      items,
+      classes,
+      id,
+      title,
+      attributes,
+      idPrefix,
     }: TabsProps) => {
       return (
         <div>

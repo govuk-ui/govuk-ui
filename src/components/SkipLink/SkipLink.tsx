@@ -3,7 +3,11 @@
     import SkipLinkProps from './SkipLink.types';
     
     export const SkipLink = ({
-      name,
+      text,
+      href,
+      classes,
+      html,
+      attributes,
     }: SkipLinkProps) => {
       return (
         <div>

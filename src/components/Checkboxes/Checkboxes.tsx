@@ -4,6 +4,16 @@
     
     export const Checkboxes = ({
       name,
+      items,
+      values,
+      fieldset,
+      hint,
+      errorMessage,
+      idPrefix,
+      formGroup,
+      classes,
+      attributes,
+      describedBy,
     }: CheckboxesProps) => {
       return (
         <div>

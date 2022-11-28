@@ -4,6 +4,15 @@
     
     export const Radios = ({
       name,
+      hint,
+      items,
+      idPrefix,
+      classes,
+      fieldset,
+      errorMessage,
+      value,
+      formGroup,
+      attributes,
     }: RadiosProps) => {
       return (
         <div>

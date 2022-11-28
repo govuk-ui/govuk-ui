@@ -3,7 +3,13 @@
     import TableProps from './Table.types';
     
     export const Table = ({
-      name,
+      rows,
+      head,
+      caption,
+      captionClasses,
+      firstCellIsHeader,
+      classes,
+      attributes,
     }: TableProps) => {
       return (
         <div>

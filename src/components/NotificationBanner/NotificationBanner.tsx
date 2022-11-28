@@ -3,7 +3,17 @@
     import NotificationBannerProps from './NotificationBanner.types';
     
     export const NotificationBanner = ({
-      name,
+      text,
+      html,
+      type,
+      disableAutoFocus,
+      role,
+      attributes,
+      titleText,
+      titleHtml,
+      titleHeadingLevel,
+      titleId,
+      classes,
     }: NotificationBannerProps) => {
       return (
         <div>

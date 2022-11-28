@@ -3,7 +3,11 @@
     import HintProps from './Hint.types';
     
     export const Hint = ({
-      name,
+      text,
+      html,
+      id,
+      classes,
+      attributes,
     }: HintProps) => {
       return (
         <div>

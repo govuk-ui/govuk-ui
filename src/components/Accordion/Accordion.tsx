@@ -3,7 +3,17 @@
     import AccordionProps from './Accordion.types';
     
     export const Accordion = ({
-      name,
+      id,
+      items,
+      hideAllSectionsText,
+      showAllSectionsText,
+      hideSectionText,
+      hideSectionAriaLabelText,
+      showSectionText,
+      showSectionAriaLabelText,
+      classes,
+      attributes,
+      headingLevel,
     }: AccordionProps) => {
       return (
         <div>

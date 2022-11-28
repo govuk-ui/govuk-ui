@@ -3,7 +3,12 @@
     import LabelProps from './Label.types';
     
     export const Label = ({
-      name,
+      text,
+      classes,
+      isPageHeading,
+      html,
+      for,
+      attributes,
     }: LabelProps) => {
       return (
         <div>

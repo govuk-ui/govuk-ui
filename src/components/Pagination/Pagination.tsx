@@ -3,7 +3,10 @@
     import PaginationProps from './Pagination.types';
     
     export const Pagination = ({
-      name,
+      previous,
+      next,
+      items,
+      landmarkLabel,
     }: PaginationProps) => {
       return (
         <div>

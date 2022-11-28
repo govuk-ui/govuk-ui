@@ -3,7 +3,12 @@
     import ErrorMessageProps from './ErrorMessage.types';
     
     export const ErrorMessage = ({
-      name,
+      text,
+      visuallyHiddenText,
+      html,
+      id,
+      classes,
+      attributes,
     }: ErrorMessageProps) => {
       return (
         <div>

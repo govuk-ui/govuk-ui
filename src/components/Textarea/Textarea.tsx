@@ -4,6 +4,18 @@
     
     export const Textarea = ({
       name,
+      id,
+      label,
+      hint,
+      errorMessage,
+      value,
+      rows,
+      formGroup,
+      autocomplete,
+      spellcheck,
+      classes,
+      attributes,
+      describedBy,
     }: TextareaProps) => {
       return (
         <div>

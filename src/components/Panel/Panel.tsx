@@ -3,7 +3,13 @@
     import PanelProps from './Panel.types';
     
     export const Panel = ({
-      name,
+      titleHtml,
+      text,
+      titleText,
+      headingLevel,
+      html,
+      classes,
+      attributes,
     }: PanelProps) => {
       return (
         <div>

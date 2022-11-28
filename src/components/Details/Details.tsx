@@ -3,7 +3,14 @@
     import DetailsProps from './Details.types';
     
     export const Details = ({
-      name,
+      summaryText,
+      text,
+      id,
+      open,
+      html,
+      summaryHtml,
+      classes,
+      attributes,
     }: DetailsProps) => {
       return (
         <div>

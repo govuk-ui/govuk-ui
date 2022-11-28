@@ -18,7 +18,11 @@ components.forEach(component => {
 componentsList.forEach(component => {
   const storyPath = path.resolve(__dirname, `../stories/${component}.stories.tsx`);
   const kebabedComponent = component.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
-  const storyFileContent = `
+  const fixturesFilePath = path.resolve(__dirname, `../../node_modules/govuk-frontend/govuk/components/${kebabedComponent}/fixtures.json`);
+  const fixtures = fs.readFileSync(fixturesFilePath);
+  const fixtureData = JSON.parse(fixtures);
+
+  let storyFileContent = `
   import type { Meta, StoryObj } from '@storybook/react';
 
   import ${component} from '../components/${component}';
@@ -30,20 +34,38 @@ componentsList.forEach(component => {
   };
 
   export default meta;
-  type Story = StoryObj<typeof ${component}>;
+  type Story = StoryObj<typeof ${component}>;`
 
-  const primary: Story = { name: 'default' };
+  const fixtureNames = [];
+  fixtureData.fixtures.forEach(fixture => {
+    let fixtureName = fixture.name.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
+    fixtureName = fixtureName.replace(/\s/g, "");
+    fixtureName = fixtureName.replace('-', '');
+    fixtureName = fixtureName.replace(',', '');
+    fixtureName = fixtureName.trim();
+    fixtureName = fixtureName[0].toLowerCase() + fixtureName.substring(1);
+    if (fixtureName === 'default') {
+      fixtureName = 'primary';
+    }
+    fixtureNames.push(fixtureName);
+    storyFileContent += `\n  const ${fixtureName}: Story = { }`;
+  });
 
-  const stories: Story[] = [];
-  stories.push(primary);
+  storyFileContent += `\n  const stories: Story[] = [];`;
+  fixtureNames.forEach(f => {
+    storyFileContent += `\n  stories.push(${f});`;
+  });
+  
 
-  fixtures.fixtures.forEach(fixture => {
+  storyFileContent += `\n  fixtures.fixtures.forEach(fixture => {
     // arg population goes here
   });
 
-  export {
-    primary
-  };`;
+  export {`;
+  fixtureNames.forEach(f => {
+    storyFileContent += `\n    ${f},`;
+  });
+  storyFileContent += `\n  };`;
 
   if (!fs.existsSync(storyPath)) {
     console.log(`... writing story file for ${component} component`);

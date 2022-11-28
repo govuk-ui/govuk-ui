@@ -3,7 +3,11 @@
     import InsetTextProps from './InsetText.types';
     
     export const InsetText = ({
-      name,
+      text,
+      html,
+      classes,
+      id,
+      attributes,
     }: InsetTextProps) => {
       return (
         <div>

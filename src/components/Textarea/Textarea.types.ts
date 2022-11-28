@@ -1,4 +1,15 @@
-
-    export default interface TextareaProps {
-      name?: string,
-    }
+export default interface TextareaProps {
+  name?: string,
+  id?: string,
+  label?: any,
+  hint?: any,
+  errorMessage?: any,
+  value?: string,
+  rows?: number,
+  formGroup?: any,
+  autocomplete?: string,
+  spellcheck?: boolean,
+  classes?: string,
+  attributes?: any,
+  describedBy?: string,
+}

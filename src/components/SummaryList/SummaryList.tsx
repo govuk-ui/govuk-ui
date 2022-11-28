@@ -3,7 +3,9 @@
     import SummaryListProps from './SummaryList.types';
     
     export const SummaryList = ({
-      name,
+      rows,
+      classes,
+      attributes,
     }: SummaryListProps) => {
       return (
         <div>

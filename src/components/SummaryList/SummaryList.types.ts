@@ -1,4 +1,5 @@
-
-    export default interface SummaryListProps {
-      name?: string,
-    }
+export default interface SummaryListProps {
+  rows?: any[],
+  classes?: string,
+  attributes?: any,
+}
