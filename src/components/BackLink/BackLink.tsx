@@ -3,7 +3,11 @@
     import BackLinkProps from './BackLink.types';
     
     export const BackLink = ({
-      name,
+      href,
+      text,
+      classes,
+      html,
+      attributes,
     }: BackLinkProps) => {
       return (
         <div>
