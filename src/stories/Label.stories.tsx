@@ -22,12 +22,6 @@
   const asPageHeadingM: Story = { name: 'as page heading m' }
   const asPageHeadingS: Story = { name: 'as page heading s' }
   const asPageHeadingWithoutClass: Story = { name: 'as page heading without class' }
-  const empty: Story = { name: 'empty' }
-  const classes: Story = { name: 'classes' }
-  const htmlAsText: Story = { name: 'html as text' }
-  const html: Story = { name: 'html' }
-  const htmlFor: Story = { name: 'for' }
-  const attributes: Story = { name: 'attributes' }
 
   const stories: Story[] = [];
   stories.push(primary);
@@ -41,15 +35,9 @@
   stories.push(asPageHeadingM);
   stories.push(asPageHeadingS);
   stories.push(asPageHeadingWithoutClass);
-  stories.push(empty);
-  stories.push(classes);
-  stories.push(htmlAsText);
-  stories.push(html);
-  stories.push(htmlFor);
-  stories.push(attributes);
 
   fixtures.fixtures.forEach(fixture => {
-    let story: Story = stories.find(s => s.name === fixture.name) || { };
+    let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9s]/gi, '')) || { };
     if (story.name === fixture.name) {
       story.args = {
         text: fixture.options.text,
@@ -74,10 +62,4 @@
     asPageHeadingM,
     asPageHeadingS,
     asPageHeadingWithoutClass,
-    empty,
-    classes,
-    htmlAsText,
-    html,
-    htmlFor,
-    attributes,
   };

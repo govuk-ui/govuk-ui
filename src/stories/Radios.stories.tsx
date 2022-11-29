@@ -11,51 +11,33 @@
 
   export default meta;
   type Story = StoryObj<typeof Radios>;
-  const primary: Story = { }
-  const inline: Story = { }
-  const withDisabled: Story = { }
-  const withLegendAsPageHeading: Story = { }
-  const withAMediumLegend: Story = { }
-  const withADivider: Story = { }
-  const withHintsOnItems: Story = { }
-  const withoutFieldset: Story = { }
-  const withFieldsetAndErrorMessage: Story = { }
-  const withVeryLongOptionText: Story = { }
-  const withConditionalItems: Story = { }
-  const withConditionalItemsWithSpecialCharacters: Story = { }
-  const withConditionalItemChecked: Story = { }
-  const prechecked: Story = { }
-  const precheckedUsingValue: Story = { }
-  const withConditionalItemsAndPrecheckedValue: Story = { }
-  const withOptionalFormgroupClassesShowingGroupError: Story = { }
-  const small: Story = { }
-  const smallWithLongText: Story = { }
-  const smallWithError: Story = { }
-  const smallWithHint: Story = { }
-  const smallWithDisabled: Story = { }
-  const smallWithConditionalReveal: Story = { }
-  const smallInline: Story = { }
-  const smallInlineExtreme: Story = { }
-  const smallWithADivider: Story = { }
-  const withIdPrefix: Story = { }
-  const minimalItemsAndName: Story = { }
-  const withFalseyItems: Story = { }
-  const fieldsetWithDescribedBy: Story = { }
-  const attributes: Story = { }
-  const itemsWithAttributes: Story = { }
-  const withEmptyConditional: Story = { }
-  const labelWithClasses: Story = { }
-  const withHintsOnParentAndItems: Story = { }
-  const withDescribedByAndHint: Story = { }
-  const withErrorMessage: Story = { }
-  const withErrorMessageAndIdPrefix: Story = { }
-  const withHintAndErrorMessage: Story = { }
-  const withHintErrorMessageAndDescribedBy: Story = { }
-  const labelWithAttributes: Story = { }
-  const fieldsetParams: Story = { }
-  const fieldsetWithHtml: Story = { }
-  const withFieldsetErrorMessageAndDescribedBy: Story = { }
-  const itemCheckedOverridesValue: Story = { }
+  const primary: Story = { name: 'default' }
+  const inline: Story = { name: 'inline' }
+  const withDisabled: Story = { name: 'with disabled' }
+  const withLegendAsPageHeading: Story = { name: 'with legend as page heading' }
+  const withAMediumLegend: Story = { name: 'with a medium legend' }
+  const withADivider: Story = { name: 'with a divider' }
+  const withHintsOnItems: Story = { name: 'with hints on items' }
+  const withoutFieldset: Story = { name: 'without fieldset' }
+  const withFieldsetAndErrorMessage: Story = { name: 'with fieldset and error message' }
+  const withVeryLongOptionText: Story = { name: 'with very long option text' }
+  const withConditionalItems: Story = { name: 'with conditional items' }
+  const withConditionalItemsWithSpecialCharacters: Story = { name: 'with conditional items with special characters' }
+  const withConditionalItemChecked: Story = { name: 'with conditional item checked' }
+  const prechecked: Story = { name: 'prechecked' }
+  const precheckedUsingValue: Story = { name: 'prechecked using value' }
+  const withConditionalItemsAndPrecheckedValue: Story = { name: 'with conditional items and prechecked value' }
+  const withOptionalFormgroupClassesShowingGroupError: Story = { name: 'with optional formgroup classes showing group error' }
+  const small: Story = { name: 'small' }
+  const smallWithLongText: Story = { name: 'small with long text' }
+  const smallWithError: Story = { name: 'small with error' }
+  const smallWithHint: Story = { name: 'small with hint' }
+  const smallWithDisabled: Story = { name: 'small with disabled' }
+  const smallWithConditionalReveal: Story = { name: 'small with conditional reveal' }
+  const smallInline: Story = { name: 'small inline' }
+  const smallInlineExtreme: Story = { name: 'small inline extreme' }
+  const smallWithADivider: Story = { name: 'small with a divider' }
+  const withIdPrefix: Story = { name: 'with idPrefix' }
 
   const stories: Story[] = [];
   stories.push(primary);
@@ -85,27 +67,23 @@
   stories.push(smallInlineExtreme);
   stories.push(smallWithADivider);
   stories.push(withIdPrefix);
-  stories.push(minimalItemsAndName);
-  stories.push(withFalseyItems);
-  stories.push(fieldsetWithDescribedBy);
-  stories.push(attributes);
-  stories.push(itemsWithAttributes);
-  stories.push(withEmptyConditional);
-  stories.push(labelWithClasses);
-  stories.push(withHintsOnParentAndItems);
-  stories.push(withDescribedByAndHint);
-  stories.push(withErrorMessage);
-  stories.push(withErrorMessageAndIdPrefix);
-  stories.push(withHintAndErrorMessage);
-  stories.push(withHintErrorMessageAndDescribedBy);
-  stories.push(labelWithAttributes);
-  stories.push(fieldsetParams);
-  stories.push(fieldsetWithHtml);
-  stories.push(withFieldsetErrorMessageAndDescribedBy);
-  stories.push(itemCheckedOverridesValue);
 
   fixtures.fixtures.forEach(fixture => {
-    // arg population goes here
+    let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9s]/gi, '')) || { };
+    if (story.name === fixture.name) {
+      story.args = {
+        name: fixture.options.name,
+        hint: fixture.options.hint,
+        items: fixture.options.items,
+        idPrefix: fixture.options.idPrefix,
+        classes: fixture.options.classes,
+        fieldset: fixture.options.fieldset,
+        errorMessage: fixture.options.errorMessage,
+        value: fixture.options.value,
+        formGroup: fixture.options.formGroup,
+        attributes: fixture.options.attributes,
+      }
+    }
   });
 
   export {
@@ -136,22 +114,4 @@
     smallInlineExtreme,
     smallWithADivider,
     withIdPrefix,
-    minimalItemsAndName,
-    withFalseyItems,
-    fieldsetWithDescribedBy,
-    attributes,
-    itemsWithAttributes,
-    withEmptyConditional,
-    labelWithClasses,
-    withHintsOnParentAndItems,
-    withDescribedByAndHint,
-    withErrorMessage,
-    withErrorMessageAndIdPrefix,
-    withHintAndErrorMessage,
-    withHintErrorMessageAndDescribedBy,
-    labelWithAttributes,
-    fieldsetParams,
-    fieldsetWithHtml,
-    withFieldsetErrorMessageAndDescribedBy,
-    itemCheckedOverridesValue,
   };

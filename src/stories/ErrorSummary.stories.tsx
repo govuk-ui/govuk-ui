@@ -11,16 +11,36 @@
 
   export default meta;
   type Story = StoryObj<typeof ErrorSummary>;
-
-  const primary: Story = { name: 'default' };
+  const primary: Story = { name: 'default' }
+  const withoutLinks: Story = { name: 'without links' }
+  const mixedWithAndWithoutLinks: Story = { name: 'mixed with and without links' }
+  const withEverything: Story = { name: 'with everything' }
 
   const stories: Story[] = [];
   stories.push(primary);
+  stories.push(withoutLinks);
+  stories.push(mixedWithAndWithoutLinks);
+  stories.push(withEverything);
 
   fixtures.fixtures.forEach(fixture => {
-    // arg population goes here
+    let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9s]/gi, '')) || { };
+    if (story.name === fixture.name) {
+      story.args = {
+        titleText: fixture.options.titleText,
+        errorList: fixture.options.errorList,
+        descriptionText: fixture.options.descriptionText,
+        titleHtml: fixture.options.titleHtml,
+        descriptionHtml: fixture.options.descriptionHtml,
+        classes: fixture.options.classes,
+        attributes: fixture.options.attributes,
+        disableAutoFocus: fixture.options.disableAutoFocus,
+      }
+    }
   });
 
   export {
-    primary
+    primary,
+    withoutLinks,
+    mixedWithAndWithoutLinks,
+    withEverything,
   };

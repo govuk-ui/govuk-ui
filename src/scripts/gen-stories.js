@@ -43,18 +43,18 @@ componentsList.forEach(component => {
     'default': 'primary',
     'for': 'htmlFor'
   };
-  fixtureData.fixtures.forEach(fixture => {
+    fixtureData.fixtures.filter(f => !f.hidden).forEach(fixture => {
     let fixtureName = fixture.name.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
     fixtureName = fixtureName.replace(/\s/g, "");
-    fixtureName = fixtureName.replace('-', '');
-    fixtureName = fixtureName.replace(',', '');
-    fixtureName = fixtureName.trim();
+    fixtureName = fixtureName.replace(/[^a-z]/gi, '');
     fixtureName = fixtureName[0].toLowerCase() + fixtureName.substring(1);
     if (swaps[fixtureName]) {
       fixtureName = swaps[fixtureName];
     }
-    fixtureNames.push(fixtureName);
-    storyFileContent += `\n  const ${fixtureName}: Story = { name: '${fixture.name}' }`;
+    if (!fixtureNames.includes(fixtureName)) {
+      fixtureNames.push(fixtureName);
+      storyFileContent += `\n  const ${fixtureName}: Story = { name: '${fixture.name.replace(/[^a-z0-9\s]/gi, '')}' }`;
+    }
   });
 
   storyFileContent += `\n\n  const stories: Story[] = [];`;
@@ -63,7 +63,7 @@ componentsList.forEach(component => {
   });
 
   storyFileContent += `\n\n  fixtures.fixtures.forEach(fixture => {
-    let story: Story = stories.find(s => s.name === fixture.name) || { };
+    let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9\s]/gi, '')) || { };
     if (story.name === fixture.name) {
       story.args = {`
   

@@ -11,16 +11,48 @@
 
   export default meta;
   type Story = StoryObj<typeof Select>;
-
-  const primary: Story = { name: 'default' };
+  const primary: Story = { name: 'default' }
+  const withNoItems: Story = { name: 'with no items' }
+  const withSelectedValue: Story = { name: 'with selected value' }
+  const withHintTextAndErrorMessage: Story = { name: 'with hint text and error message' }
+  const withLabelAsPageHeading: Story = { name: 'with label as page heading' }
+  const withFullWidthOverride: Story = { name: 'with full width override' }
+  const withOptionalFormgroupClasses: Story = { name: 'with optional formgroup classes' }
 
   const stories: Story[] = [];
   stories.push(primary);
+  stories.push(withNoItems);
+  stories.push(withSelectedValue);
+  stories.push(withHintTextAndErrorMessage);
+  stories.push(withLabelAsPageHeading);
+  stories.push(withFullWidthOverride);
+  stories.push(withOptionalFormgroupClasses);
 
   fixtures.fixtures.forEach(fixture => {
-    // arg population goes here
+    let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9s]/gi, '')) || { };
+    if (story.name === fixture.name) {
+      story.args = {
+        id: fixture.options.id,
+        name: fixture.options.name,
+        label: fixture.options.label,
+        items: fixture.options.items,
+        value: fixture.options.value,
+        hint: fixture.options.hint,
+        errorMessage: fixture.options.errorMessage,
+        classes: fixture.options.classes,
+        formGroup: fixture.options.formGroup,
+        describedBy: fixture.options.describedBy,
+        attributes: fixture.options.attributes,
+      }
+    }
   });
 
   export {
-    primary
+    primary,
+    withNoItems,
+    withSelectedValue,
+    withHintTextAndErrorMessage,
+    withLabelAsPageHeading,
+    withFullWidthOverride,
+    withOptionalFormgroupClasses,
   };
