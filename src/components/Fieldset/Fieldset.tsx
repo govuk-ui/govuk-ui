@@ -11,10 +11,17 @@
       attributes,
     }: FieldsetProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<fieldset class="govuk-fieldset">
+  
+  <legend class="govuk-fieldset__legend">
+  
+    What is your address?
+  
+  </legend>
+  
+
+</fieldset>
+  );
     }
     
     export default Fieldset;

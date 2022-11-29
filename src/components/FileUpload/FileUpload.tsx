@@ -15,10 +15,15 @@
       describedBy,
     }: FileUploadProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<div class="govuk-form-group">
+  <label class="govuk-label" for="file-upload-1">
+    Upload a file
+  </label>
+
+
+  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" />
+</div>
+  );
     }
     
     export default FileUpload;

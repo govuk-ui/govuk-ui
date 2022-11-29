@@ -9,10 +9,10 @@
       html,
     }: TagProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<strong class="govuk-tag">
+  alpha
+</strong>
+  );
     }
     
     export default Tag;

@@ -11,10 +11,10 @@
       attributes,
     }: ErrorMessageProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<p class="govuk-error-message">
+  <span class="govuk-visually-hidden">Error:</span> Error message about full name goes here
+</p>
+  );
     }
     
     export default ErrorMessage;

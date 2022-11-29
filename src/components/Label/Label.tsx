@@ -11,10 +11,10 @@
       attributes,
     }: LabelProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<label class="govuk-label">
+  National Insurance number
+</label>
+  );
     }
     
     export default Label;

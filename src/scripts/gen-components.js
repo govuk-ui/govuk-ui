@@ -95,11 +95,10 @@ componentsToGen.forEach(c => {
     });
       
     componentFileContent += `\n    }: ${casedComponent}Props) => {
-      return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+      return (`;
+      componentFileContent += `\n`;
+      componentFileContent += fixtureData.fixtures[0].html.replace('\\','');
+      componentFileContent += `\n  );
     }
     
     export default ${casedComponent};`;

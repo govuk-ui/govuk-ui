@@ -10,10 +10,8 @@
       attributes,
     }: SkipLinkProps) => {
       return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+<a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+  );
     }
     
     export default SkipLink;
