@@ -56,6 +56,7 @@
   const fieldsetWithHtml: Story = { }
   const withFieldsetErrorMessageAndDescribedBy: Story = { }
   const itemCheckedOverridesValue: Story = { }
+
   const stories: Story[] = [];
   stories.push(primary);
   stories.push(inline);
@@ -102,6 +103,7 @@
   stories.push(fieldsetWithHtml);
   stories.push(withFieldsetErrorMessageAndDescribedBy);
   stories.push(itemCheckedOverridesValue);
+
   fixtures.fixtures.forEach(fixture => {
     // arg population goes here
   });

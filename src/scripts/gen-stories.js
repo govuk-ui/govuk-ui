@@ -51,13 +51,13 @@ componentsList.forEach(component => {
     storyFileContent += `\n  const ${fixtureName}: Story = { }`;
   });
 
-  storyFileContent += `\n  const stories: Story[] = [];`;
+  storyFileContent += `\n\n  const stories: Story[] = [];`;
   fixtureNames.forEach(f => {
     storyFileContent += `\n  stories.push(${f});`;
   });
   
 
-  storyFileContent += `\n  fixtures.fixtures.forEach(fixture => {
+  storyFileContent += `\n\n  fixtures.fixtures.forEach(fixture => {
     // arg population goes here
   });
 
@@ -65,7 +65,7 @@ componentsList.forEach(component => {
   fixtureNames.forEach(f => {
     storyFileContent += `\n    ${f},`;
   });
-  storyFileContent += `\n  };`;
+  storyFileContent += `\n  };\n`;
 
   if (!fs.existsSync(storyPath)) {
     console.log(`... writing story file for ${component} component`);
