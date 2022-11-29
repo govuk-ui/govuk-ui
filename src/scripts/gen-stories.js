@@ -21,6 +21,8 @@ componentsList.forEach(component => {
   const fixturesFilePath = path.resolve(__dirname, `../../node_modules/govuk-frontend/govuk/components/${kebabedComponent}/fixtures.json`);
   const fixtures = fs.readFileSync(fixturesFilePath);
   const fixtureData = JSON.parse(fixtures);
+  const componentsTypePath = path.resolve(__dirname, `../components/${component}/${component}.types.ts`);
+  const componentType = fs.readFileSync(componentsTypePath).toString().split("\n");;
 
   let storyFileContent = `
   import type { Meta, StoryObj } from '@storybook/react';
@@ -37,6 +39,10 @@ componentsList.forEach(component => {
   type Story = StoryObj<typeof ${component}>;`
 
   const fixtureNames = [];
+  const swaps = {
+    'default': 'primary',
+    'for': 'htmlFor'
+  };
   fixtureData.fixtures.forEach(fixture => {
     let fixtureName = fixture.name.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
     fixtureName = fixtureName.replace(/\s/g, "");
@@ -44,21 +50,35 @@ componentsList.forEach(component => {
     fixtureName = fixtureName.replace(',', '');
     fixtureName = fixtureName.trim();
     fixtureName = fixtureName[0].toLowerCase() + fixtureName.substring(1);
-    if (fixtureName === 'default') {
-      fixtureName = 'primary';
+    if (swaps[fixtureName]) {
+      fixtureName = swaps[fixtureName];
     }
     fixtureNames.push(fixtureName);
-    storyFileContent += `\n  const ${fixtureName}: Story = { }`;
+    storyFileContent += `\n  const ${fixtureName}: Story = { name: '${fixture.name}' }`;
   });
 
   storyFileContent += `\n\n  const stories: Story[] = [];`;
   fixtureNames.forEach(f => {
     storyFileContent += `\n  stories.push(${f});`;
   });
-  
 
   storyFileContent += `\n\n  fixtures.fixtures.forEach(fixture => {
-    // arg population goes here
+    let story: Story = stories.find(s => s.name === fixture.name) || { };
+    if (story.name === fixture.name) {
+      story.args = {`
+  
+  componentType.shift();
+  componentType.pop();
+  componentType.forEach(typeAttribute => {
+    let ta = typeAttribute.trim();
+    ta = ta.split(':')[0]
+    ta = ta.replace('?','');
+    ta = ta.trim();
+    storyFileContent += `\n        ${ta}: fixture.options.${Object.keys(swaps).find(key => swaps[key] === ta) || ta},`
+  });
+
+  storyFileContent += `\n      }
+    }
   });
 
   export {`;

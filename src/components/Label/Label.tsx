@@ -7,7 +7,7 @@
       classes,
       isPageHeading,
       html,
-      for,
+      htmlFor,
       attributes,
     }: LabelProps) => {
       return (

@@ -7,5 +7,5 @@ export default interface ButtonProps {
   preventDoubleClick?: boolean,
   name?: string,
   type?: 'input' | 'button',
-  children: any,
+  children?: any,
 }

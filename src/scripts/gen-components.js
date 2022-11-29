@@ -59,11 +59,18 @@ componentsToGen.forEach(c => {
 
   // type file
   const typeFilePath = path.resolve(componentPath, `${casedComponent}.types.ts`);
+  const swaps = {
+    'for': 'htmlFor'
+  };
   if (!fs.existsSync(typeFilePath)) {
     console.log(`... writing types file for ${casedComponent} component`);
     let typeFileContent = `export default interface ${casedComponent}Props {`;
     uniqueAttributes.forEach(att => {
-      typeFileContent += `\n  ${att}?: ${attributeTypes[att]},`
+      let attributeName = att;
+      if (swaps[att]) {
+        attributeName = swaps[att];
+      }
+      typeFileContent += `\n  ${attributeName}?: ${attributeTypes[att]},`
     });
     typeFileContent += `\n}`;
     fs.writeFileSync(typeFilePath, typeFileContent);
@@ -80,7 +87,11 @@ componentsToGen.forEach(c => {
     export const ${casedComponent} = ({`;
 
     uniqueAttributes.forEach(a => {
-      componentFileContent += `\n      ${a},`
+      let attributeName = a;
+      if (swaps[a]) {
+        attributeName = swaps[a];
+      }
+      componentFileContent += `\n      ${attributeName},`
     });
       
     componentFileContent += `\n    }: ${casedComponent}Props) => {

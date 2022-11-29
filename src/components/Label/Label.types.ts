@@ -3,6 +3,6 @@ export default interface LabelProps {
   classes?: string,
   isPageHeading?: boolean,
   html?: string,
-  for?: string,
+  htmlFor?: string,
   attributes?: any,
 }
