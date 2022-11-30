@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const prettier = require('prettier');
 
 console.log('... Generate Stories from Gov UK Frontend ...');
 
@@ -25,25 +26,27 @@ componentsList.forEach(component => {
   const componentType = fs.readFileSync(componentsTypePath).toString().split("\n");;
 
   let storyFileContent = `
-  import type { Meta, StoryObj } from '@storybook/react';
-
-  import ${component} from '../components/${component}';
-  import fixtures from 'govuk-frontend/govuk/components/${kebabedComponent}/fixtures.json';
+    import type { Meta, StoryObj } from '@storybook/react';
   
-  const meta: Meta<typeof ${component}> = {
-    title: '${component}',
-    component: ${component},
-  };
-
-  export default meta;
-  type Story = StoryObj<typeof ${component}>;`
+    import ${component} from '../components/${component}';
+    import fixtures from 'govuk-frontend/govuk/components/${kebabedComponent}/fixtures.json';
+    
+    const meta: Meta<typeof ${component}> = {
+      title: '${component}',
+      component: ${component},
+    };
+  
+    export default meta;
+    type Story = StoryObj<typeof ${component}>;
+  `
 
   const fixtureNames = [];
   const swaps = {
     'default': 'primary',
     'for': 'htmlFor'
   };
-    fixtureData.fixtures.filter(f => !f.hidden).forEach(fixture => {
+
+  fixtureData.fixtures.filter(f => !f.hidden).forEach(fixture => {
     let fixtureName = fixture.name.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
     fixtureName = fixtureName.replace(/\s/g, "");
     fixtureName = fixtureName.replace(/[^a-z]/gi, '');
@@ -53,19 +56,21 @@ componentsList.forEach(component => {
     }
     if (!fixtureNames.includes(fixtureName)) {
       fixtureNames.push(fixtureName);
-      storyFileContent += `\n  const ${fixtureName}: Story = { name: '${fixture.name.replace(/[^a-z0-9\s]/gi, '')}' }`;
+      storyFileContent += `\n const ${fixtureName}: Story = { name: '${fixture.name.replace(/[^a-z0-9\s]/gi, '')}' }`;
     }
   });
 
-  storyFileContent += `\n\n  const stories: Story[] = [];`;
+  storyFileContent += `\n\n const stories: Story[] = [];`;
   fixtureNames.forEach(f => {
-    storyFileContent += `\n  stories.push(${f});`;
+    storyFileContent += `\n stories.push(${f});`;
   });
 
-  storyFileContent += `\n\n  fixtures.fixtures.forEach(fixture => {
+  storyFileContent += `\n\n
+    fixtures.fixtures.forEach(fixture => {
     let story: Story = stories.find(s => s.name === fixture.name.replace(/[^a-z0-9\s]/gi, '')) || { };
     if (story.name === fixture.name) {
-      story.args = {`
+      story.args = {
+  `;
   
   componentType.shift();
   componentType.pop();
@@ -74,18 +79,27 @@ componentsList.forEach(component => {
     ta = ta.split(':')[0]
     ta = ta.replace('?','');
     ta = ta.trim();
-    storyFileContent += `\n        ${ta}: fixture.options.${Object.keys(swaps).find(key => swaps[key] === ta) || ta},`
+    storyFileContent += `\n ${ta}: fixture.options.${Object.keys(swaps).find(key => swaps[key] === ta) || ta},`
   });
 
-  storyFileContent += `\n      }
-    }
-  });
+  storyFileContent += `
+        }
+      }
+    });
+  
+    export {
+  `;
 
-  export {`;
   fixtureNames.forEach(f => {
-    storyFileContent += `\n    ${f},`;
+    storyFileContent += `\n ${f},`;
   });
-  storyFileContent += `\n  };\n`;
+  storyFileContent += `\n }; \n`;
+
+  try {
+    storyFileContent = prettier.format(storyFileContent, { printWidth: 120, parser: "babel" });
+  } catch (e) {
+    console.log(`Prettier failed on component: ${kebabedComponent}: `, e);
+  }
 
   if (!fs.existsSync(storyPath)) {
     console.log(`... writing story file for ${component} component`);

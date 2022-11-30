@@ -1,18 +1,19 @@
 
-    import React from 'react';
-    import DateInputProps from './DateInput.types';
+      import React from 'react';
+      import DateInputProps from './DateInput.types';
+      
+      export const DateInput = ({
     
-    export const DateInput = ({
-      id,
-      namePrefix,
-      fieldset,
-      hint,
-      items,
-      errorMessage,
-      formGroup,
-      classes,
-      attributes,
-    }: DateInputProps) => {
+ id,
+ namePrefix,
+ fieldset,
+ hint,
+ items,
+ errorMessage,
+ formGroup,
+ classes,
+ attributes,
+ }: DateInputProps) => {
       return (
 <div class="govuk-form-group">
 
@@ -24,7 +25,7 @@
           Day
         </label>
       
-      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="day" type="text" inputmode="numeric" />
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="day" type="text" inputmode="numeric">
       
       </div>
     </div>
@@ -35,7 +36,7 @@
           Month
         </label>
       
-      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="month" type="text" inputmode="numeric" />
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="month" type="text" inputmode="numeric">
       
       </div>
     </div>
@@ -46,7 +47,7 @@
           Year
         </label>
       
-      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="year" type="text" inputmode="numeric" />
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="year" type="text" inputmode="numeric">
       
       </div>
     </div>
@@ -54,7 +55,9 @@
   </div>
 
 </div>
-  );
-    }
+
+        );
+      }
+      
+      export default DateInput;
     
-    export default DateInput;

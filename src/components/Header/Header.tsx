@@ -1,21 +1,22 @@
 
-    import React from 'react';
-    import HeaderProps from './Header.types';
+      import React from 'react';
+      import HeaderProps from './Header.types';
+      
+      export const Header = ({
     
-    export const Header = ({
-      serviceName,
-      serviceUrl,
-      navigation,
-      navigationLabel,
-      menuButtonText,
-      menuButtonLabel,
-      navigationClasses,
-      productName,
-      containerClasses,
-      attributes,
-      classes,
-      homepageUrl,
-    }: HeaderProps) => {
+ serviceName,
+ serviceUrl,
+ navigation,
+ navigationLabel,
+ menuButtonText,
+ menuButtonLabel,
+ navigationClasses,
+ productName,
+ containerClasses,
+ attributes,
+ classes,
+ homepageUrl,
+ }: HeaderProps) => {
       return (
 <header class="govuk-header " role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
@@ -51,7 +52,9 @@
     
   </div>
 </header>
-  );
-    }
+
+        );
+      }
+      
+      export default Header;
     
-    export default Header;

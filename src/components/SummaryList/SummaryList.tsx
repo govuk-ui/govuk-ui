@@ -1,12 +1,13 @@
 
-    import React from 'react';
-    import SummaryListProps from './SummaryList.types';
+      import React from 'react';
+      import SummaryListProps from './SummaryList.types';
+      
+      export const SummaryList = ({
     
-    export const SummaryList = ({
-      rows,
-      classes,
-      attributes,
-    }: SummaryListProps) => {
+ rows,
+ classes,
+ attributes,
+ }: SummaryListProps) => {
       return (
 <dl class="govuk-summary-list">
   
@@ -56,7 +57,9 @@
     
   
 </dl>
-  );
-    }
+
+        );
+      }
+      
+      export default SummaryList;
     
-    export default SummaryList;

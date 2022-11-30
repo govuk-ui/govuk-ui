@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const prettier = require('prettier');
 
 console.log('... Generate Components from Gov UK Frontend ...');
 
@@ -14,19 +15,19 @@ components.forEach(component => {
   }
 });
 
-// create components we dont have in this project
+// create components we don't have in this project
 componentsToGen.forEach(c => {
-  const camelisedComponent = c.replace(/-./g, x=>x[1].toUpperCase());
+  const camelisedComponent = c.replace(/-./g, x => x[1].toUpperCase());
   const casedComponent = camelisedComponent[0].toUpperCase() + camelisedComponent.substring(1)
   let componentPath = path.resolve(__dirname, `../components/${casedComponent}`);
   let componentFixturePath = path.resolve(__dirname, `../../node_modules/govuk-frontend/govuk/components/${c}/fixtures.json`);
-  
+
   // folder
   if (!fs.existsSync(componentPath)) {
     console.log(`... making directory for ${c}`);
     fs.mkdirSync(componentPath);
   }
-  
+
   // index file
   const indexFilePath = path.resolve(componentPath, 'index.ts');
   if (!fs.existsSync(indexFilePath)) {
@@ -40,9 +41,7 @@ componentsToGen.forEach(c => {
   const fixtureData = JSON.parse(fixtures);
   const attributes = [];
   const attributeTypes = {};
-  const variants = [];
   fixtureData?.fixtures?.forEach(fixture => {
-    variants.push(fixture.name);
     Object.keys(fixture?.options).forEach(k => {
       attributes.push(k);
       attributeTypes[k] = typeof fixture.options[k];
@@ -55,7 +54,7 @@ componentsToGen.forEach(c => {
       }
     });
   });
-  const uniqueAttributes = [ ...new Set(attributes)];
+  const uniqueAttributes = [...new Set(attributes)];
 
   // type file
   const typeFilePath = path.resolve(componentPath, `${casedComponent}.types.ts`);
@@ -81,27 +80,37 @@ componentsToGen.forEach(c => {
   if (!fs.existsSync(componentFilePath)) {
     console.log(`... writing component file for ${casedComponent} component`);
     let componentFileContent = `
-    import React from 'react';
-    import ${casedComponent}Props from './${casedComponent}.types';
-    
-    export const ${casedComponent} = ({`;
+      import React from 'react';
+      import ${casedComponent}Props from './${casedComponent}.types';
+      
+      export const ${casedComponent} = ({
+    `;
 
     uniqueAttributes.forEach(a => {
       let attributeName = a;
       if (swaps[a]) {
         attributeName = swaps[a];
       }
-      componentFileContent += `\n      ${attributeName},`
+      componentFileContent += `\n ${attributeName},`
     });
-      
-    componentFileContent += `\n    }: ${casedComponent}Props) => {
+
+    componentFileContent += `\n }: ${casedComponent}Props) => {
       return (`;
-      componentFileContent += `\n`;
-      componentFileContent += fixtureData.fixtures[0].html.replace('\\','');
-      componentFileContent += `\n  );
+    componentFileContent += `\n`;
+    componentFileContent += fixtureData.fixtures[0].html.replace('\\', '');
+    componentFileContent += `\n
+        );
+      }
+      
+      export default ${casedComponent};
+    `;
+
+    try {
+      componentFileContent = prettier.format(componentFileContent, { printWidth: 120, parser: "babel" });
+    } catch (e) {
+      console.log(`Prettier failed on component: ${casedComponent}: `, e);
     }
-    
-    export default ${casedComponent};`;
+
     fs.writeFileSync(componentFilePath, componentFileContent);
   }
 });
