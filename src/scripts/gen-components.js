@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const prettier = require('prettier');
 
 console.log('... Generate Components from Gov UK Frontend ...');
 
@@ -14,18 +15,19 @@ components.forEach(component => {
   }
 });
 
-// create components we dont have in this project
+// create components we don't have in this project
 componentsToGen.forEach(c => {
-  const camelisedComponent = c.replace(/-./g, x=>x[1].toUpperCase());
+  const camelisedComponent = c.replace(/-./g, x => x[1].toUpperCase());
   const casedComponent = camelisedComponent[0].toUpperCase() + camelisedComponent.substring(1)
   let componentPath = path.resolve(__dirname, `../components/${casedComponent}`);
-  
+  let componentFixturePath = path.resolve(__dirname, `../../node_modules/govuk-frontend/govuk/components/${c}/fixtures.json`);
+
   // folder
   if (!fs.existsSync(componentPath)) {
     console.log(`... making directory for ${c}`);
     fs.mkdirSync(componentPath);
   }
-  
+
   // index file
   const indexFilePath = path.resolve(componentPath, 'index.ts');
   if (!fs.existsSync(indexFilePath)) {
@@ -34,14 +36,42 @@ componentsToGen.forEach(c => {
     fs.writeFileSync(indexFilePath, indexFileContent);
   }
 
+  // loop through fixtures
+  const fixtures = fs.readFileSync(componentFixturePath);
+  const fixtureData = JSON.parse(fixtures);
+  const attributes = [];
+  const attributeTypes = {};
+  fixtureData?.fixtures?.forEach(fixture => {
+    Object.keys(fixture?.options).forEach(k => {
+      attributes.push(k);
+      attributeTypes[k] = typeof fixture.options[k];
+      if (typeof fixture.options[k] === 'object') {
+        if (Array.isArray(fixture.options[k])) {
+          attributeTypes[k] = 'any[]';
+        } else {
+          attributeTypes[k] = 'any';
+        }
+      }
+    });
+  });
+  const uniqueAttributes = [...new Set(attributes)];
+
   // type file
   const typeFilePath = path.resolve(componentPath, `${casedComponent}.types.ts`);
+  const swaps = {
+    'for': 'htmlFor'
+  };
   if (!fs.existsSync(typeFilePath)) {
     console.log(`... writing types file for ${casedComponent} component`);
-    const typeFileContent = `
-    export default interface ${casedComponent}Props {
-      name?: string,
-    }`;
+    let typeFileContent = `export default interface ${casedComponent}Props {`;
+    uniqueAttributes.forEach(att => {
+      let attributeName = att;
+      if (swaps[att]) {
+        attributeName = swaps[att];
+      }
+      typeFileContent += `\n  ${attributeName}?: ${attributeTypes[att]},`
+    });
+    typeFileContent += `\n}`;
     fs.writeFileSync(typeFilePath, typeFileContent);
   }
 
@@ -49,21 +79,69 @@ componentsToGen.forEach(c => {
   const componentFilePath = path.resolve(componentPath, `${casedComponent}.tsx`);
   if (!fs.existsSync(componentFilePath)) {
     console.log(`... writing component file for ${casedComponent} component`);
-    const componentFileContent = `
-    import React from 'react';
-    import ${casedComponent}Props from './${casedComponent}.types';
-    
-    export const ${casedComponent} = ({
-      name,
-    }: ${casedComponent}Props) => {
-      return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
+    let componentFileContent = `
+      import React from 'react';
+      import ${casedComponent}Props from './${casedComponent}.types';
+      
+      export const ${casedComponent} = ({
+    `;
+
+    uniqueAttributes.forEach(a => {
+      let attributeName = a;
+      if (swaps[a]) {
+        attributeName = swaps[a];
+      }
+      componentFileContent += `\n ${attributeName},`
+    });
+
+    componentFileContent += `\n }: ${casedComponent}Props) => {
+      return (`;
+    componentFileContent += `\n<>\n`;
+    let exampleHtml = fixtureData.fixtures[0].html;
+    exampleHtml = exampleHtml.replace('\\', '');
+    exampleHtml = exampleHtml.replace(/class=/g, 'className=');
+    exampleHtml = exampleHtml.replace(/for=/g, 'htmlFor=');
+    exampleHtml = exampleHtml.replace(/inputmode=/g, 'inputMode=');
+    exampleHtml = exampleHtml.replace(/<br>/g, '<br/>');
+    exampleHtml = exampleHtml.split('\n');
+    let ifIE8Block = false;
+    exampleHtml = exampleHtml.map(htmlLine => {
+      if (htmlLine.indexOf('<input') > -1) {
+        return htmlLine.replace('">', '" />');
+      }
+      if (htmlLine.indexOf('<!--[if gt IE 8]><!-->') > -1) {
+        return '';
+      }
+      if (htmlLine.indexOf('<!--[if IE 8]>') > -1) {
+        ifIE8Block = true;
+        return '';
+      }
+      if (htmlLine.indexOf('[endif]') > -1) {
+        ifIE8Block = false;
+        return '';
+      }
+      if(!ifIE8Block) {
+        return htmlLine;
+      } else {
+        return '';
+      }
+      
+    });
+    componentFileContent += exampleHtml.join('\n');
+    componentFileContent += '\n</>';
+    componentFileContent += `\n
+        );
+      }
+      
+      export default ${casedComponent};
+    `;
+
+    try {
+      componentFileContent = prettier.format(componentFileContent, { printWidth: 120, parser: "babel" });
+    } catch (e) {
+      console.log(`Prettier failed on component: ${casedComponent}: `, e);
     }
-    
-    export default ${casedComponent};`;
+
     fs.writeFileSync(componentFilePath, componentFileContent);
   }
 });

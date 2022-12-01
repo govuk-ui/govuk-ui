@@ -1,26 +1,58 @@
+import type { Meta, StoryObj } from "@storybook/react";
 
-  import type { Meta, StoryObj } from '@storybook/react';
+import Select from "../components/Select";
+import fixtures from "govuk-frontend/govuk/components/select/fixtures.json";
 
-  import Select from '../components/Select';
-  import fixtures from 'govuk-frontend/govuk/components/select/fixtures.json';
-  
-  const meta: Meta<typeof Select> = {
-    title: 'Select',
-    component: Select,
-  };
+const meta: Meta<typeof Select> = {
+  title: "Select",
+  component: Select,
+};
 
-  export default meta;
-  type Story = StoryObj<typeof Select>;
+export default meta;
+type Story = StoryObj<typeof Select>;
 
-  const primary: Story = { name: 'default' };
+const primary: Story = { name: "default" };
+const withNoItems: Story = { name: "with no items" };
+const withSelectedValue: Story = { name: "with selected value" };
+const withHintTextAndErrorMessage: Story = { name: "with hint text and error message" };
+const withLabelAsPageHeading: Story = { name: "with label as page heading" };
+const withFullWidthOverride: Story = { name: "with full width override" };
+const withOptionalFormgroupClasses: Story = { name: "with optional formgroup classes" };
 
-  const stories: Story[] = [];
-  stories.push(primary);
+const stories: Story[] = [];
+stories.push(primary);
+stories.push(withNoItems);
+stories.push(withSelectedValue);
+stories.push(withHintTextAndErrorMessage);
+stories.push(withLabelAsPageHeading);
+stories.push(withFullWidthOverride);
+stories.push(withOptionalFormgroupClasses);
 
-  fixtures.fixtures.forEach(fixture => {
-    // arg population goes here
-  });
+fixtures.fixtures.forEach((fixture) => {
+  let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
+  if (story.name === fixture.name) {
+    story.args = {
+      id: fixture.options.id,
+      name: fixture.options.name,
+      label: fixture.options.label,
+      items: fixture.options.items,
+      value: fixture.options.value,
+      hint: fixture.options.hint,
+      errorMessage: fixture.options.errorMessage,
+      classes: fixture.options.classes,
+      formGroup: fixture.options.formGroup,
+      describedBy: fixture.options.describedBy,
+      attributes: fixture.options.attributes,
+    };
+  }
+});
 
-  export {
-    primary
-  };
+export {
+  primary,
+  withNoItems,
+  withSelectedValue,
+  withHintTextAndErrorMessage,
+  withLabelAsPageHeading,
+  withFullWidthOverride,
+  withOptionalFormgroupClasses,
+};

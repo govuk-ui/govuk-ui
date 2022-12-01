@@ -1,15 +1,36 @@
+import React from "react";
+import InputProps from "./Input.types";
 
-    import React from 'react';
-    import InputProps from './Input.types';
-    
-    export const Input = ({
-      name,
-    }: InputProps) => {
-      return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
-    }
-    
-    export default Input;
+export const Input = ({
+  label,
+  id,
+  name,
+  hint,
+  errorMessage,
+  classes,
+  formGroup,
+  autocomplete,
+  type,
+  pattern,
+  spellcheck,
+  prefix,
+  suffix,
+  value,
+  describedBy,
+  attributes,
+  inputmode,
+}: InputProps) => {
+  return (
+    <>
+      <div className="govuk-form-group">
+        <label className="govuk-label" htmlFor="input-example">
+          National Insurance number
+        </label>
+
+        <input className="govuk-input" id="input-example" name="test-name" type="text" />
+      </div>
+    </>
+  );
+};
+
+export default Input;

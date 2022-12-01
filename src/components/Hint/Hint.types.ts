@@ -1,4 +1,7 @@
-
-    export default interface HintProps {
-      name?: string,
-    }
+export default interface HintProps {
+  text?: string,
+  html?: string,
+  id?: string,
+  classes?: string,
+  attributes?: any,
+}

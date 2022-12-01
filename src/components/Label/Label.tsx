@@ -1,15 +1,12 @@
+import React from "react";
+import LabelProps from "./Label.types";
 
-    import React from 'react';
-    import LabelProps from './Label.types';
-    
-    export const Label = ({
-      name,
-    }: LabelProps) => {
-      return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
-    }
-    
-    export default Label;
+export const Label = ({ text, classes, isPageHeading, html, htmlFor, attributes }: LabelProps) => {
+  return (
+    <>
+      <label className="govuk-label">National Insurance number</label>
+    </>
+  );
+};
+
+export default Label;

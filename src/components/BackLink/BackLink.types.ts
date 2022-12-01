@@ -1,4 +1,7 @@
-
-    export default interface BackLinkProps {
-      name?: string,
-    }
+export default interface BackLinkProps {
+  href?: string,
+  text?: string,
+  classes?: string,
+  html?: string,
+  attributes?: any,
+}

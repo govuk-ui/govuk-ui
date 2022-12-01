@@ -1,4 +1,6 @@
-
-    export default interface PaginationProps {
-      name?: string,
-    }
+export default interface PaginationProps {
+  previous?: any,
+  next?: any,
+  items?: any[],
+  landmarkLabel?: string,
+}

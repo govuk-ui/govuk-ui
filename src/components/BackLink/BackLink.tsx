@@ -1,15 +1,14 @@
+import React from "react";
+import BackLinkProps from "./BackLink.types";
 
-    import React from 'react';
-    import BackLinkProps from './BackLink.types';
-    
-    export const BackLink = ({
-      name,
-    }: BackLinkProps) => {
-      return (
-        <div>
-          Component Not Implemented
-        </div>
-      );
-    }
-    
-    export default BackLink;
+export const BackLink = ({ href, text, classes, html, attributes }: BackLinkProps) => {
+  return (
+    <>
+      <a href="#" className="govuk-back-link">
+        Back
+      </a>
+    </>
+  );
+};
+
+export default BackLink;
