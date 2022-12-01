@@ -96,8 +96,20 @@ componentsToGen.forEach(c => {
 
     componentFileContent += `\n }: ${casedComponent}Props) => {
       return (`;
-    componentFileContent += `\n`;
-    componentFileContent += fixtureData.fixtures[0].html.replace('\\', '');
+    componentFileContent += `\n<>`;
+    let exampleHtml = fixtureData.fixtures[0].html;
+    exampleHtml = exampleHtml.replace('\\', '');
+    exampleHtml = exampleHtml.replace(/class=/g, 'className=');
+    exampleHtml = exampleHtml.replace(/for=/g, 'htmlFor=');
+    exampleHtml = exampleHtml.split('\n');
+    exampleHtml = exampleHtml.map(htmlLine => {
+      if (htmlLine.indexOf('<input') > -1) {
+        return htmlLine.replace('">', '" />');
+      }
+      return htmlLine;
+    });
+    componentFileContent += exampleHtml.join('\n');
+    componentFileContent += '</>';
     componentFileContent += `\n
         );
       }
