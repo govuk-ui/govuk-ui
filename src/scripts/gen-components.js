@@ -101,6 +101,7 @@ componentsToGen.forEach(c => {
     exampleHtml = exampleHtml.replace('\\', '');
     exampleHtml = exampleHtml.replace(/class=/g, 'className=');
     exampleHtml = exampleHtml.replace(/for=/g, 'htmlFor=');
+    exampleHtml = exampleHtml.replace(/inputmode=/g, 'inputMode=');
     exampleHtml = exampleHtml.split('\n');
     exampleHtml = exampleHtml.map(htmlLine => {
       if (htmlLine.indexOf('<input') > -1) {

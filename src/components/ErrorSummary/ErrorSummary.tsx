@@ -12,22 +12,24 @@ export const ErrorSummary = ({
   disableAutoFocus,
 }: ErrorSummaryProps) => {
   return (
-    <div class="govuk-error-summary" data-module="govuk-error-summary">
-      <div role="alert">
-        <h2 class="govuk-error-summary__title">There is a problem</h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#example-error-1">The date your passport was issued must be in the past</a>
-            </li>
+    <>
+      <div className="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 className="govuk-error-summary__title">There is a problem</h2>
+          <div className="govuk-error-summary__body">
+            <ul className="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#example-error-1">The date your passport was issued must be in the past</a>
+              </li>
 
-            <li>
-              <a href="#example-error-2">Enter a postcode, like AA1 1AA</a>
-            </li>
-          </ul>
+              <li>
+                <a href="#example-error-2">Enter a postcode, like AA1 1AA</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

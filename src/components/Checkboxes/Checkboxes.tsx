@@ -1,88 +1,65 @@
+import React from "react";
+import CheckboxesProps from "./Checkboxes.types";
 
-      import React from 'react';
-      import CheckboxesProps from './Checkboxes.types';
-      
-      export const Checkboxes = ({
-    
- name,
- items,
- values,
- fieldset,
- hint,
- errorMessage,
- idPrefix,
- formGroup,
- classes,
- attributes,
- describedBy,
- }: CheckboxesProps) => {
-      return (
-<div class="govuk-form-group">
-
-  <div class="govuk-checkboxes"
-    data-module="govuk-checkboxes">
-    
-      
-          
-        
-          
-          
-          
-          
-          
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british">
-            <label class="govuk-label govuk-checkboxes__label" for="nationality">
-        British
-      </label>
-            
+export const Checkboxes = ({
+  name,
+  items,
+  values,
+  fieldset,
+  hint,
+  errorMessage,
+  idPrefix,
+  formGroup,
+  classes,
+  attributes,
+  describedBy,
+}: CheckboxesProps) => {
+  return (
+    <>
+      <div className="govuk-form-group">
+        <div className="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div className="govuk-checkboxes__item">
+            <input
+              className="govuk-checkboxes__input"
+              id="nationality"
+              name="nationality"
+              type="checkbox"
+              value="british"
+            />
+            <label className="govuk-label govuk-checkboxes__label" htmlFor="nationality">
+              British
+            </label>
           </div>
-          
-        
-      
-    
-      
-        
-          
-          
-          
-          
-          
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-            <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
-        Irish
-      </label>
-            
-          </div>
-          
-        
-      
-    
-      
-        
-          
-          
-          
-          
-          
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-            <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
-        Citizen of another country
-      </label>
-            
-          </div>
-          
-        
-      
-    
-  </div>
 
-</div>
+          <div className="govuk-checkboxes__item">
+            <input
+              className="govuk-checkboxes__input"
+              id="nationality-2"
+              name="nationality"
+              type="checkbox"
+              value="irish"
+            />
+            <label className="govuk-label govuk-checkboxes__label" htmlFor="nationality-2">
+              Irish
+            </label>
+          </div>
 
-        );
-      }
-      
-      export default Checkboxes;
-    
+          <div className="govuk-checkboxes__item">
+            <input
+              className="govuk-checkboxes__input"
+              id="nationality-3"
+              name="nationality"
+              type="checkbox"
+              value="other"
+            />
+            <label className="govuk-label govuk-checkboxes__label" htmlFor="nationality-3">
+              Citizen of another country
+            </label>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Checkboxes;

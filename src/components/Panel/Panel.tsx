@@ -3,11 +3,13 @@ import PanelProps from "./Panel.types";
 
 export const Panel = ({ titleHtml, text, titleText, headingLevel, html, classes, attributes }: PanelProps) => {
   return (
-    <div class="govuk-panel govuk-panel--confirmation">
-      <h1 class="govuk-panel__title">Application complete</h1>
+    <>
+      <div className="govuk-panel govuk-panel--confirmation">
+        <h1 className="govuk-panel__title">Application complete</h1>
 
-      <div class="govuk-panel__body">Your reference number: HDJ2123F</div>
-    </div>
+        <div className="govuk-panel__body">Your reference number: HDJ2123F</div>
+      </div>
+    </>
   );
 };
 

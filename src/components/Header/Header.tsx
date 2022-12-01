@@ -18,16 +18,16 @@
  homepageUrl,
  }: HeaderProps) => {
       return (
-<header class="govuk-header " role="banner" data-module="govuk-header">
-  <div class="govuk-header__container govuk-width-container">
-    <div class="govuk-header__logo">
-      <a href="/" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">
+<><header className="govuk-header " role="banner" data-module="govuk-header">
+  <div className="govuk-header__container govuk-width-container">
+    <div className="govuk-header__logo">
+      <a href="/" className="govuk-header__link govuk-header__link--homepage">
+        <span className="govuk-header__logotype">
           <!--[if gt IE 8]><!-->
           <svg
             aria-hidden="true"
             focusable="false"
-            class="govuk-header__logotype-crown"
+            className="govuk-header__logotype-crown"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 132 97"
             height="30"
@@ -40,9 +40,9 @@
           </svg>
           <!--<![endif]-->
           <!--[if IE 8]>
-          <img src="/assets/images/govuk-logotype-crown.png" class="govuk-header__logotype-crown-fallback-image" width="36" height="32">
+          <img src="/assets/images/govuk-logotype-crown.png" className="govuk-header__logotype-crown-fallback-image" width="36" height="32">
           <![endif]-->
-          <span class="govuk-header__logotype-text">
+          <span className="govuk-header__logotype-text">
             GOV.UK
           </span>
         </span>
@@ -51,7 +51,7 @@
     </div>
     
   </div>
-</header>
+</header></>
 
         );
       }

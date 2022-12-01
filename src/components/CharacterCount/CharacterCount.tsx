@@ -26,25 +26,27 @@ export const CharacterCount = ({
   spellcheck,
 }: CharacterCountProps) => {
   return (
-    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="10">
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="more-detail">
-          Can you provide more detail?
-        </label>
+    <>
+      <div className="govuk-character-count" data-module="govuk-character-count" data-maxlength="10">
+        <div className="govuk-form-group">
+          <label className="govuk-label" htmlFor="more-detail">
+            Can you provide more detail?
+          </label>
 
-        <textarea
-          class="govuk-textarea govuk-js-character-count"
-          id="more-detail"
-          name="more-detail"
-          rows="5"
-          aria-describedby="more-detail-info"
-        ></textarea>
-      </div>
+          <textarea
+            className="govuk-textarea govuk-js-character-count"
+            id="more-detail"
+            name="more-detail"
+            rows="5"
+            aria-describedby="more-detail-info"
+          ></textarea>
+        </div>
 
-      <div id="more-detail-info" class="govuk-hint govuk-character-count__message">
-        You can enter up to 10 characters
+        <div id="more-detail-info" className="govuk-hint govuk-character-count__message">
+          You can enter up to 10 characters
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -9,14 +9,14 @@
  attributes,
  }: SummaryListProps) => {
       return (
-<dl class="govuk-summary-list">
+<><dl className="govuk-summary-list">
   
     
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
+      <div className="govuk-summary-list__row">
+        <dt className="govuk-summary-list__key">
           Name
         </dt>
-        <dd class="govuk-summary-list__value">
+        <dd className="govuk-summary-list__value">
           Firstname Lastname
         </dd>
         
@@ -24,11 +24,11 @@
     
   
     
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
+      <div className="govuk-summary-list__row">
+        <dt className="govuk-summary-list__key">
           Date of birth
         </dt>
-        <dd class="govuk-summary-list__value">
+        <dd className="govuk-summary-list__value">
           13/08/1980
         </dd>
         
@@ -36,15 +36,15 @@
     
   
     
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
+      <div className="govuk-summary-list__row">
+        <dt className="govuk-summary-list__key">
           Contact information
         </dt>
-        <dd class="govuk-summary-list__value">
-          <p class="govuk-body">
+        <dd className="govuk-summary-list__value">
+          <p className="govuk-body">
           email@email.com
         </p>
-        <p class="govuk-body">
+        <p className="govuk-body">
           Address line 1<br>
           Address line 2<br>
           Address line 3<br>
@@ -56,7 +56,7 @@
       </div>
     
   
-</dl>
+</dl></>
 
         );
       }
