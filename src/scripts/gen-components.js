@@ -96,21 +96,39 @@ componentsToGen.forEach(c => {
 
     componentFileContent += `\n }: ${casedComponent}Props) => {
       return (`;
-    componentFileContent += `\n<>`;
+    componentFileContent += `\n<>\n`;
     let exampleHtml = fixtureData.fixtures[0].html;
     exampleHtml = exampleHtml.replace('\\', '');
     exampleHtml = exampleHtml.replace(/class=/g, 'className=');
     exampleHtml = exampleHtml.replace(/for=/g, 'htmlFor=');
     exampleHtml = exampleHtml.replace(/inputmode=/g, 'inputMode=');
+    exampleHtml = exampleHtml.replace(/<br>/g, '<br/>');
     exampleHtml = exampleHtml.split('\n');
+    let ifIE8Block = false;
     exampleHtml = exampleHtml.map(htmlLine => {
       if (htmlLine.indexOf('<input') > -1) {
         return htmlLine.replace('">', '" />');
       }
-      return htmlLine;
+      if (htmlLine.indexOf('<!--[if gt IE 8]><!-->') > -1) {
+        return '';
+      }
+      if (htmlLine.indexOf('<!--[if IE 8]>') > -1) {
+        ifIE8Block = true;
+        return '';
+      }
+      if (htmlLine.indexOf('[endif]') > -1) {
+        ifIE8Block = false;
+        return '';
+      }
+      if(!ifIE8Block) {
+        return htmlLine;
+      } else {
+        return '';
+      }
+      
     });
     componentFileContent += exampleHtml.join('\n');
-    componentFileContent += '</>';
+    componentFileContent += '\n</>';
     componentFileContent += `\n
         );
       }

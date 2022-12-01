@@ -27,7 +27,7 @@ export const DateInput = ({
                 id="dob-day"
                 name="day"
                 type="text"
-                inputmode="numeric"
+                inputMode="numeric"
               />
             </div>
           </div>
@@ -43,7 +43,7 @@ export const DateInput = ({
                 id="dob-month"
                 name="month"
                 type="text"
-                inputmode="numeric"
+                inputMode="numeric"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ export const DateInput = ({
                 id="dob-year"
                 name="year"
                 type="text"
-                inputmode="numeric"
+                inputMode="numeric"
               />
             </div>
           </div>
