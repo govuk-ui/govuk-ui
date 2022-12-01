@@ -18,7 +18,7 @@ components.forEach(component => {
 // create components we don't have in this project
 componentsToGen.forEach(c => {
   const camelisedComponent = c.replace(/-./g, x => x[1].toUpperCase());
-  const casedComponent = camelisedComponent[0].toUpperCase() + camelisedComponent.substring(1)
+  const casedComponent = camelisedComponent[0].toUpperCase() + camelisedComponent.substring(1);
   let componentPath = path.resolve(__dirname, `../components/${casedComponent}`);
   let componentFixturePath = path.resolve(__dirname, `../../node_modules/govuk-frontend/govuk/components/${c}/fixtures.json`);
 
@@ -145,3 +145,13 @@ componentsToGen.forEach(c => {
     fs.writeFileSync(componentFilePath, componentFileContent);
   }
 });
+
+// component index file
+let componentIndexFileContent = '';
+let componentIndexPath = path.resolve(__dirname, `../components/index.ts`);
+componentsToGen.forEach(c => {
+  const camelisedComponent = c.replace(/-./g, x => x[1].toUpperCase());
+  const casedComponent = camelisedComponent[0].toUpperCase() + camelisedComponent.substring(1)
+  componentIndexFileContent += `\nexport { default as ${casedComponent} } from './${casedComponent}';`
+});
+fs.writeFileSync(componentIndexPath, componentIndexFileContent);
