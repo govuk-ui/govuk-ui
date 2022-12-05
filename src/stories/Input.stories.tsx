@@ -50,7 +50,7 @@ fixtures.fixtures.forEach((fixture) => {
   let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
   if (story.name === fixture.name) {
     story.args = {
-      label: fixture.options.label,
+      label: fixture.options.label.text,
       id: fixture.options.id,
       name: fixture.options.name,
       hint: fixture.options.hint,
