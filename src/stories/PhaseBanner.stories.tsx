@@ -18,12 +18,16 @@ stories.push(primary);
 
 fixtures.fixtures.forEach((fixture) => {
   let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
+  // TODO: Need to handle html inside a string from fixtures, possible solution:
+  // https://www.npmjs.com/package/html-react-parser
   if (story.name === fixture.name) {
     story.args = {
-      tag: fixture.options.tag,
-      html: fixture.options.html,
-      text: fixture.options.text,
-      classes: fixture.options.classes,
+      children: fixture.options.html,
+      className: fixture.options.classes,
+      tag: {
+        className: fixture?.options?.tag?.classes,
+        children: fixture?.options?.tag?.text
+      },
       attributes: fixture.options.attributes,
     };
   }
