@@ -24,10 +24,7 @@ fixtures.fixtures.forEach((fixture) => {
     story.args = {
       children: fixture.options.html,
       className: fixture.options.classes,
-      tag: {
-        className: fixture?.options?.tag?.classes,
-        children: fixture?.options?.tag?.text
-      },
+      phase: fixture.options.tag?.text,
       attributes: fixture.options.attributes,
     };
   }
