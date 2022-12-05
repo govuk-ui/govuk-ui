@@ -1,6 +1,5 @@
 export default interface InsetTextProps {
-  text?: string,
-  html?: string,
+  children?: any,
   classes?: string,
   id?: string,
   attributes?: any,
