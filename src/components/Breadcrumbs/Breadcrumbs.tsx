@@ -1,25 +1,32 @@
 import React from "react";
 import BreadcrumbsProps from "./Breadcrumbs.types";
 
-export const Breadcrumbs = ({ items, collapseOnMobile, classes, attributes }: BreadcrumbsProps) => {
-  return (
-    <>
-      <div className="govuk-breadcrumbs">
-        <ol className="govuk-breadcrumbs__list">
-          <li className="govuk-breadcrumbs__list-item">
-            <a className="govuk-breadcrumbs__link" href="/section">
-              Section
-            </a>
-          </li>
+export const Breadcrumbs = ({items, collapseOnMobile, classes, attributes}: BreadcrumbsProps) => {
+  const breadcrumbs = items
+    ? items.map((item, index) => {
+      const { key, children } = item;
 
-          <li className="govuk-breadcrumbs__list-item">
-            <a className="govuk-breadcrumbs__link" href="/section/sub-section">
-              Sub-section
-            </a>
-          </li>
-        </ol>
-      </div>
-    </>
+      return (
+        <li
+          key={key || index}
+          className="govuk-breadcrumbs__list-item"
+          aria-current="page"
+        >
+          {children}
+        </li>
+      );
+    })
+    : null;
+
+  return (
+    <div
+      className={`govuk-breadcrumbs ${classes || ''} ${
+          collapseOnMobile ? 'govuk-breadcrumbs--collapse-on-mobile' : ''
+      }`}
+      {...attributes}
+    >
+      <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
+    </div>
   );
 };
 
