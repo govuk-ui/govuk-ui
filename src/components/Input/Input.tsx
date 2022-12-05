@@ -23,11 +23,13 @@ export const Input = ({
   return (
     <>
       <div className="govuk-form-group">
-        <label className="govuk-label" htmlFor="input-example">
-          National Insurance number
-        </label>
+        { label && (
+          <label className="govuk-label" htmlFor="input-example">
+            { label }
+          </label>
+        )}
 
-        <input className="govuk-input" id="input-example" name="test-name" type="text" />
+        <input className={`govuk-input ${classes || ''}`} id={id} name={name} type={type} />
       </div>
     </>
   );
