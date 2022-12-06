@@ -25,7 +25,6 @@ fixtures.fixtures.forEach((fixture) => {
       href: fixture.options.href,
       text: fixture.options.text,
       classes: fixture.options.classes,
-      html: fixture.options.html,
       attributes: fixture.options.attributes,
     };
   }
