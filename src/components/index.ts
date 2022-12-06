@@ -24,6 +24,7 @@ export { default as Pagination } from './Pagination';
 export { default as Panel } from './Panel';
 export { default as PhaseBanner } from './PhaseBanner';
 export { default as Radios } from './Radios';
+export { default as RadioItem } from './RadioItem';
 export { default as Select } from './Select';
 export { default as SkipLink } from './SkipLink';
 export { default as SummaryList } from './SummaryList';
