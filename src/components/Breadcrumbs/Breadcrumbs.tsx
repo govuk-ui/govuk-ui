@@ -1,23 +1,7 @@
 import React from "react";
 import BreadcrumbsProps from "./Breadcrumbs.types";
 
-export const Breadcrumbs = ({items, collapseOnMobile, classes, attributes}: BreadcrumbsProps) => {
-  const breadcrumbs = items
-    ? items.map((item, index) => {
-      const { key, children } = item;
-
-      return (
-        <li
-          key={key || index}
-          className="govuk-breadcrumbs__list-item"
-          aria-current="page"
-        >
-          {children}
-        </li>
-      );
-    })
-    : null;
-
+export const Breadcrumbs = ({children, collapseOnMobile, classes, attributes}: BreadcrumbsProps) => {
   return (
     <div
       className={`govuk-breadcrumbs ${classes || ''} ${
@@ -25,7 +9,9 @@ export const Breadcrumbs = ({items, collapseOnMobile, classes, attributes}: Brea
       }`}
       {...attributes}
     >
-      <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
+      <ol className="govuk-breadcrumbs__list">
+        {children}
+      </ol>
     </div>
   );
 };

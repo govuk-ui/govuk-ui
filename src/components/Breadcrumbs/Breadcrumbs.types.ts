@@ -1,5 +1,5 @@
 export default interface BreadcrumbsProps {
-  items?: any[],
+  children?: any,
   collapseOnMobile?: boolean,
   classes?: string,
   attributes?: any,

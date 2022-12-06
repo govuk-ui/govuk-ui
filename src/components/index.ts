@@ -2,6 +2,7 @@
 export { default as Accordion } from './Accordion';
 export { default as BackLink } from './BackLink';
 export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as BreadcrumbItem } from './BreadcrumbItem';
 export { default as Button } from './Button';
 export { default as CharacterCount } from './CharacterCount';
 export { default as Checkboxes } from './Checkboxes';
