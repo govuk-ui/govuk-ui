@@ -40,10 +40,8 @@ fixtures.fixtures.forEach((fixture) => {
   let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
   if (story.name === fixture.name) {
     story.args = {
-      text: fixture.options.text,
+      children: fixture.options.text,
       classes: fixture.options.classes,
-      isPageHeading: fixture.options.isPageHeading,
-      html: fixture.options.html,
       htmlFor: fixture.options.for,
       attributes: fixture.options.attributes,
     };

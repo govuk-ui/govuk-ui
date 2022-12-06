@@ -1,7 +1,7 @@
 export default interface RadiosProps {
   id?: string,
   name?: string,
-  items?: any[],
+  children?: any,
   classes?: string,
   attributes?: any,
 }

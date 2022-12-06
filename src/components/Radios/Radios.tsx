@@ -1,30 +1,34 @@
-import React from "react";
+import React, { Children, cloneElement } from "react";
 import RadiosProps from "./Radios.types";
+import RadioItem from "../RadioItem";
 
 export const Radios = ({
   id,
   name,
-  items,
+  children,
   classes,
   ...attributes
 }: RadiosProps) => {
+
+  if (!id && name) {
+    id = name;
+  } else if (!name && id) {
+    name = id;
+  }
+
+  const arrayChildren:any = Children.toArray(children);
+
   return (
-    <div className={`govuk-radios ${classes || ''}`} data-module="govuk-radios" { ...attributes }>
-      { items?.map((item, index) => {
+    <div className={`govuk-radios ${classes || ''}`} data-module="govuk-radios" id={id} { ...attributes }>
+      { Children.map(arrayChildren, (child, index) => {
         return (
-          <div className="govuk-radios__item">
-            <input
-              className="govuk-radios__input"
-              id={item.id || `${name}-${index}`}
-              name={name}
-              key={index}
-              type="radio"
-              value={item.value}
-            />
-            <label className="govuk-label govuk-radios__label" htmlFor={item.id}>
-              {item.text}
-            </label>
-          </div>
+          <>
+            { 
+              cloneElement(child, {
+              name: name,
+              })
+            }
+          </>
         );
       })}
     </div>
