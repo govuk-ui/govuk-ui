@@ -1,7 +1,10 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Radios from "../components/Radios";
 import fixtures from "govuk-frontend/govuk/components/radios/fixtures.json";
+import RadioItem from "../components/RadioItem";
+import Label from "../components/Label";
 
 const meta: Meta<typeof Radios> = {
   title: "Radios",
@@ -75,7 +78,13 @@ fixtures.fixtures.forEach((fixture) => {
   if (story.name === fixture.name) {
     story.args = {
       name: fixture.options.name,
-      items: fixture.options.items,
+      children: fixture.options.items.map((i:any) => {
+        return (
+          <RadioItem name={fixture.options.name} value={i.value}>
+            <Label>{i.text}</Label>
+          </RadioItem>
+        )
+      }),
       id: fixture.options.idPrefix,
       classes: fixture.options.classes,
       attributes: fixture.options.attributes,

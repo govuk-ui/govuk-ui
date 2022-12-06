@@ -1,6 +1,5 @@
 export default interface HintProps {
-  text?: string,
-  html?: string,
+  children?: any,
   id?: string,
   classes?: string,
   attributes?: any,
