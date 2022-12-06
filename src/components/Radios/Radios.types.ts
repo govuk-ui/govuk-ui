@@ -1,12 +1,7 @@
 export default interface RadiosProps {
+  id?: string,
   name?: string,
-  hint?: any,
   items?: any[],
-  idPrefix?: string,
   classes?: string,
-  fieldset?: any,
-  errorMessage?: any,
-  value?: string,
-  formGroup?: any,
   attributes?: any,
 }

@@ -75,14 +75,9 @@ fixtures.fixtures.forEach((fixture) => {
   if (story.name === fixture.name) {
     story.args = {
       name: fixture.options.name,
-      hint: fixture.options.hint,
       items: fixture.options.items,
-      idPrefix: fixture.options.idPrefix,
+      id: fixture.options.idPrefix,
       classes: fixture.options.classes,
-      fieldset: fixture.options.fieldset,
-      errorMessage: fixture.options.errorMessage,
-      value: fixture.options.value,
-      formGroup: fixture.options.formGroup,
       attributes: fixture.options.attributes,
     };
   }
