@@ -1,6 +1,5 @@
 import React, { Children, cloneElement } from "react";
 import RadiosProps from "./Radios.types";
-import RadioItem from "../RadioItem";
 
 export const Radios = ({
   id,

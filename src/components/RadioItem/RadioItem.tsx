@@ -1,6 +1,5 @@
-import React from "react";
+import React, { Children, cloneElement } from "react";
 import RadioItemProps from "./RadioItem.types";
-import Tag from "../Tag";
 
 export const RadioItem = ({ 
   id,
@@ -10,6 +9,9 @@ export const RadioItem = ({
   value,
   classes,
   attributes }: RadioItemProps) => {
+
+  const arrayChildren:any = Children.toArray(children);
+
   return (
     <div className="govuk-radios__item">
       <input
@@ -20,7 +22,17 @@ export const RadioItem = ({
         type="radio"
         value={value}
       />
-      { children }
+      { Children.map(arrayChildren, (child, index) => {
+        return (
+          <>
+            { 
+              cloneElement(child, {
+                classes: 'govuk-radios__label'
+              })
+            }
+          </>
+        );
+      })}
     </div>
   );
 };
