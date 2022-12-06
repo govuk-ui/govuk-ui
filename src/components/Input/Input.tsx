@@ -28,7 +28,6 @@ export const Input = ({
             { label }
           </label>
         )}
-
         <input className={`govuk-input ${classes || ''}`} id={id} name={name} type={type} />
       </div>
     </>
