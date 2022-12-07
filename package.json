@@ -12,8 +12,11 @@
     "build": "npm run build-sass && storybook build",
     "build-ts": "tsc",
     "build-sass": "sass ./src/scss:.storybook",
-    "build-rollup": "rollup -c",
-    "build-lib": "npm-run-all build-rollup"
+    "build-lib": "rollup -c",
+    "patch": "npm version patch",
+    "push": "git push",
+    "publish": "npm publish",
+    "smash": "npm-run-all build-lib patch push publish"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
