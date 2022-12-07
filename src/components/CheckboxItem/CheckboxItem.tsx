@@ -9,6 +9,7 @@ export const CheckboxesItem = ({
   children,
   key,
   divider,
+  exclusive,
   value,
   classes,
   ...attributes }: CheckboxItemProps) => {
@@ -26,6 +27,7 @@ export const CheckboxesItem = ({
             key={key}
             type="checkbox"
             value={value}
+            data-behaviour={exclusive ? 'exclusive' : null}
             { ...attributes }
           />
           { Children.map(arrayChildren, (child:any, index) => {
