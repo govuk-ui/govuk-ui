@@ -15,8 +15,8 @@
     "build-lib": "rollup -c",
     "patch": "npm version patch",
     "push": "git push",
-    "publish": "npm publish",
-    "smash": "npm-run-all build-lib patch push publish"
+    "publish-npm": "npm publish",
+    "smash": "npm-run-all build-lib patch push publish-npm"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
