@@ -8,6 +8,7 @@ export const CheckboxesItem = ({
   name,
   children,
   key,
+  divider,
   value,
   classes,
   ...attributes }: CheckboxItemProps) => {
@@ -15,42 +16,48 @@ export const CheckboxesItem = ({
   const arrayChildren:any = Children.toArray(children);
 
   return (
-
-
-    <div className="govuk-checkboxes__item">
-      <input
-        className={`govuk-checkboxes__input ${classes || ''}`}
-        id={id}
-        name={name}
-        key={key}
-        type="checkbox"
-        value={value}
-        { ...attributes }
-      />
-
-      { Children.map(arrayChildren, (child:any, index) => {
-        if (isValidElement(child) && child.type === Label) {
-          return (
-            <>
-              { 
-                cloneElement(child as React.ReactElement<any>, {
-                  classes: 'govuk-checkboxes__label'
-                })
-              }
-            </>
-          );
-        } else if (isValidElement(child) && child.type === Hint) {
-          return (
-            <>
-              { 
-                cloneElement(child as React.ReactElement<any>, {
-                  classes: 'govuk-checkboxes__hint'
-                })
-              }
-            </>
-          );
-        }
-      })}
+    <div className={ !divider ? 'govuk-checkboxes__item' : 'govuk-checkboxes__divider' }>
+      { !divider && (
+        <>
+          <input
+            className={`govuk-checkboxes__input ${classes || ''}`}
+            id={id}
+            name={name}
+            key={key}
+            type="checkbox"
+            value={value}
+            { ...attributes }
+          />
+          { Children.map(arrayChildren, (child:any, index) => {
+            if (isValidElement(child) && child.type === Label) {
+              return (
+                <>
+                  { 
+                    cloneElement(child as React.ReactElement<any>, {
+                      classes: 'govuk-checkboxes__label'
+                    })
+                  }
+                </>
+              );
+            } else if (isValidElement(child) && child.type === Hint) {
+              return (
+                <>
+                  { 
+                    cloneElement(child as React.ReactElement<any>, {
+                      classes: 'govuk-checkboxes__hint'
+                    })
+                  }
+                </>
+              );
+            }
+          })}
+        </>
+      )}
+      { divider && (
+        <>
+          { children }
+        </>
+      )}
     </div>
   );
 };
