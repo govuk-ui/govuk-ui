@@ -3,7 +3,7 @@ import LabelProps from "./Label.types";
 
 export const Label = ({ children, id, classes, htmlFor, attributes }: LabelProps) => {
   return (
-    <label className={`govuk-label ${classes || ''}`} id={id} { ...attributes }>
+    <label className={`govuk-label ${classes || ''}`} htmlFor={htmlFor} id={id} { ...attributes }>
       { children }
     </label>
   );

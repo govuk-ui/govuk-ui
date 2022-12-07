@@ -5,6 +5,7 @@ import Radios from "../components/Radios";
 import fixtures from "govuk-frontend/govuk/components/radios/fixtures.json";
 import RadioItem from "../components/RadioItem";
 import Label from "../components/Label";
+import Hint from "../components/Hint";
 
 const meta: Meta<typeof Radios> = {
   title: "Radios",
@@ -82,6 +83,7 @@ fixtures.fixtures.forEach((fixture) => {
         return (
           <RadioItem name={fixture.options.name} value={i.value}>
             <Label>{i.text}</Label>
+            <Hint>{i.text}</Hint>
           </RadioItem>
         )
       }),
