@@ -1,4 +1,4 @@
-export default interface CheckboxesProps {
+export default interface CheckboxItemProps {
   id?: string,
   name?: string,
   key?: string,

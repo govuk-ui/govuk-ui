@@ -15,11 +15,11 @@ export const Radios = ({
     name = id;
   }
 
-  const arrayChildren:any = Children.toArray(children);
+  const arrayChildren: any = Children.toArray(children);
 
   return (
     <div className={`govuk-radios ${classes || ''}`} data-module="govuk-radios" id={id} { ...attributes }>
-      { Children.map(arrayChildren, (child, index) => {
+      { Children.map(arrayChildren, (child) => {
         return (
           <>
             { 
