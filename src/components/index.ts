@@ -6,6 +6,7 @@ export { default as BreadcrumbItem } from './BreadcrumbItem';
 export { default as Button } from './Button';
 export { default as CharacterCount } from './CharacterCount';
 export { default as Checkboxes } from './Checkboxes';
+export { default as CheckboxItem } from './CheckboxItem';
 export { default as CookieBanner } from './CookieBanner';
 export { default as DateInput } from './DateInput';
 export { default as Details } from './Details';

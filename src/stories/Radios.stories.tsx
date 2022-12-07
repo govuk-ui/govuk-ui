@@ -83,7 +83,11 @@ fixtures.fixtures.forEach((fixture) => {
         return (
           <RadioItem name={fixture.options.name} value={i.value}>
             <Label>{i.text}</Label>
-            <Hint>{i.text}</Hint>
+            {
+              fixture.options.hint?.text && (
+                <Hint>{fixture.options.hint.text}</Hint>
+              )
+            }
           </RadioItem>
         )
       }),
