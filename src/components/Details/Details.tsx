@@ -1,17 +1,30 @@
-import React from "react";
+import React, { Children, cloneElement, isValidElement } from "react";
+import DetailsSummary from '../DetailsSummary';
 import DetailsProps from "./Details.types";
 
-export const Details = ({ summaryText, text, id, open, html, summaryHtml, classes, attributes }: DetailsProps) => {
+export const Details = ({ 
+  id,
+  open,
+  classes,
+  children,
+  ...attributes }: DetailsProps) => {
+
+  const arrayChildren: any = Children.toArray(children);
+
   return (
     <>
-      <details className="govuk-details" data-module="govuk-details">
-        <summary className="govuk-details__summary">
-          <span className="govuk-details__summary-text">Help with nationality</span>
-        </summary>
-        <div className="govuk-details__text">
-          We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t
-          provide your nationality, you’ll have to send copies of identity documents through the post.
-        </div>
+      <details className={`govuk-details ${classes || ''}`} data-module="govuk-details" { ...attributes }>
+        <>
+          { Children.map(arrayChildren, (child:any, index) => {
+            if (isValidElement(child) && child.type === DetailsSummary) {
+              cloneElement(child as React.ReactElement<any>, {})
+            } else {
+              <div className="govuk-details__text">
+                { children }
+              </div>
+            }
+          })}
+        </>
       </details>
     </>
   );

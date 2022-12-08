@@ -1,6 +1,5 @@
-export default interface DetailsProps {
+export default interface DetailsSummaryProps {
   id?: string,
-  open?: boolean,
   classes?: string,
   attributes?: any,
   children?: any,

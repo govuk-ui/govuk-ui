@@ -24,7 +24,7 @@ export const Radios = ({
           <>
             { 
               cloneElement(child, {
-              name: name,
+                name: name,
               })
             }
           </>
