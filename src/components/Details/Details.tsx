@@ -21,7 +21,7 @@ export const Details = ({
             } else {
               return (
                 <div className="govuk-details__text">
-                  { children }
+                  { cloneElement(child as React.ReactElement<any>, {}) }
                 </div>
               )
             }
