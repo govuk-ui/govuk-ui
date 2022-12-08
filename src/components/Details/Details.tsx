@@ -17,11 +17,13 @@ export const Details = ({
         <>
           { Children.map(arrayChildren, (child:any, index) => {
             if (isValidElement(child) && child.type === DetailsSummary) {
-              cloneElement(child as React.ReactElement<any>, {})
+              return cloneElement(child as React.ReactElement<any>, {})
             } else {
-              <div className="govuk-details__text">
-                { children }
-              </div>
+              return (
+                <div className="govuk-details__text">
+                  { children }
+                </div>
+              )
             }
           })}
         </>
