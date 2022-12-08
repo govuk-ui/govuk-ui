@@ -10,6 +10,7 @@ export { default as CheckboxItem } from './CheckboxItem';
 export { default as CookieBanner } from './CookieBanner';
 export { default as DateInput } from './DateInput';
 export { default as Details } from './Details';
+export { default as DetailsSummary } from './DetailsSummary';
 export { default as ErrorMessage } from './ErrorMessage';
 export { default as ErrorSummary } from './ErrorSummary';
 export { default as Fieldset } from './Fieldset';
