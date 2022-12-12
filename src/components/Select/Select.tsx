@@ -4,35 +4,23 @@ import SelectProps from "./Select.types";
 export const Select = ({
   id,
   name,
-  label,
-  items,
-  value,
-  hint,
-  errorMessage,
   classes,
-  formGroup,
+  children,
   describedBy,
-  attributes,
+  ...attributes
 }: SelectProps) => {
+
+  if (!id && name) {
+    id = name;
+  } else if (!name && id) {
+    name = id;
+  }
+
   return (
     <>
-      <div className="govuk-form-group">
-        <label className="govuk-label" htmlFor="select-1">
-          Label text goes here
-        </label>
-
-        <select className="govuk-select" id="select-1" name="select-1">
-          <option value="1">GOV.UK frontend option 1</option>
-
-          <option value="2" selected>
-            GOV.UK frontend option 2
-          </option>
-
-          <option value="3" disabled>
-            GOV.UK frontend option 3
-          </option>
-        </select>
-      </div>
+      <select className={`govuk-select ${classes || ''}`} id={id} name={name} aria-describedby={describedBy} {...attributes}>
+        { children }
+      </select>
     </>
   );
 };

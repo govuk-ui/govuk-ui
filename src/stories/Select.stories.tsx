@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Select from "../components/Select";
@@ -34,13 +35,12 @@ fixtures.fixtures.forEach((fixture) => {
     story.args = {
       id: fixture.options.id,
       name: fixture.options.name,
-      label: fixture.options.label,
-      items: fixture.options.items,
-      value: fixture.options.value,
-      hint: fixture.options.hint,
-      errorMessage: fixture.options.errorMessage,
+      children: fixture.options.items?.map((o:any) => {
+        return (
+          <option value={o.value} selected={o.selected} disabled={o.disabled}>{o.text}</option>
+        )
+      }),
       classes: fixture.options.classes,
-      formGroup: fixture.options.formGroup,
       describedBy: fixture.options.describedBy,
       attributes: fixture.options.attributes,
     };
