@@ -4,28 +4,25 @@ import TextareaProps from "./Textarea.types";
 export const Textarea = ({
   name,
   id,
-  label,
-  hint,
-  errorMessage,
-  value,
   rows,
-  formGroup,
   autocomplete,
   spellcheck,
   classes,
   attributes,
+  children,
   describedBy,
 }: TextareaProps) => {
   return (
-    <>
-      <div className="govuk-form-group">
-        <label className="govuk-label" htmlFor="more-detail">
-          Can you provide more detail?
-        </label>
-
-        <textarea className="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
-      </div>
-    </>
+    <textarea 
+      className={`govuk-textarea ${classes}`}
+      id={id}
+      name={name}
+      rows={rows}
+      autocomplete={autocomplete}
+      spellCheck={spellcheck}
+      aria-describedby={describedBy}
+      {...attributes}
+    >{children}</textarea>
   );
 };
 
