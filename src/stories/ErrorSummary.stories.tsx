@@ -1,6 +1,8 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import ErrorSummary from "../components/ErrorSummary";
+import ErrorSummaryMessage from "../components/ErrorSummaryMessage";
 import fixtures from "govuk-frontend/govuk/components/error-summary/fixtures.json";
 
 const meta: Meta<typeof ErrorSummary> = {
@@ -27,10 +29,13 @@ fixtures.fixtures.forEach((fixture) => {
   if (story.name === fixture.name) {
     story.args = {
       titleText: fixture.options.titleText,
-      errorList: fixture.options.errorList,
-      descriptionText: fixture.options.descriptionText,
-      titleHtml: fixture.options.titleHtml,
-      descriptionHtml: fixture.options.descriptionHtml,
+      children: fixture.options.errorList?.map((m:any) => {
+        return (
+          <ErrorSummaryMessage id={m.href}>
+            {m.text}
+          </ErrorSummaryMessage>
+        );
+      }),
       classes: fixture.options.classes,
       attributes: fixture.options.attributes,
       disableAutoFocus: fixture.options.disableAutoFocus,
