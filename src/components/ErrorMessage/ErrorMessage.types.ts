@@ -1,7 +1,6 @@
 export default interface ErrorMessageProps {
-  text?: string,
-  visuallyHiddenText?: string,
-  html?: string,
+  children?: any,
+  visuallyHiddenText?: any,
   id?: string,
   classes?: string,
   attributes?: any,
