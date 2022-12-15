@@ -9,7 +9,7 @@
     "dev": "storybook dev -p 6006",
     "gen-components": "node ./src/scripts/gen-components.js",
     "gen-stories": "node ./src/scripts/gen-stories.js",
-    "build": "npm run build-sass && storybook build",
+    "build": "npm run build-sass && storybook build -s src/assets:src/assets",
     "build-ts": "tsc",
     "build-sass": "sass ./src/scss:.storybook",
     "build-lib": "rollup -c",
