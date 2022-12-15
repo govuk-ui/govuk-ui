@@ -21,7 +21,6 @@ export const DateInput = ({
               <label className="govuk-label govuk-date-input__label" htmlFor="dob-day">
                 Day
               </label>
-
               <input
                 className="govuk-input govuk-date-input__input govuk-input--width-2"
                 id="dob-day"
@@ -37,7 +36,6 @@ export const DateInput = ({
               <label className="govuk-label govuk-date-input__label" htmlFor="dob-month">
                 Month
               </label>
-
               <input
                 className="govuk-input govuk-date-input__input govuk-input--width-2"
                 id="dob-month"
@@ -53,7 +51,6 @@ export const DateInput = ({
               <label className="govuk-label govuk-date-input__label" htmlFor="dob-year">
                 Year
               </label>
-
               <input
                 className="govuk-input govuk-date-input__input govuk-input--width-4"
                 id="dob-year"
