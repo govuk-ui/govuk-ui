@@ -45,7 +45,7 @@ export const Input = ({
           name={name}
           type={type}
           defaultValue={value}
-          aria-describedby={describedByValue || null}
+          aria-describedby={describedByValue || ''}
         />
       </div>
     </>
