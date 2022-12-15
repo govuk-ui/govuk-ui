@@ -29,10 +29,10 @@ fixtures.fixtures.forEach((fixture) => {
   if (story.name === fixture.name) {
     story.args = {
       titleText: fixture.options.titleText,
-      children: fixture.options.errorList?.map((m:any) => {
+      children: fixture.options.errorList?.map((e:any) => {
         return (
-          <ErrorSummaryMessage id={m.href}>
-            {m.text}
+          <ErrorSummaryMessage id={e.href}>
+            {e.text}
           </ErrorSummaryMessage>
         );
       }),
