@@ -1,4 +1,4 @@
-export default interface BackLinkProps {
+export default interface ContainerProps {
   children?: any,
   width?: boolean,
   header?: boolean,
