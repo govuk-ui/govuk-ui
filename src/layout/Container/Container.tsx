@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerProps from "../Container/Container.types";
 
-export const BackLink = ({
+export const Container = ({
   children,
   width,
   header,
@@ -20,4 +20,4 @@ export const BackLink = ({
   );
 };
 
-export default BackLink;
+export default Container;
