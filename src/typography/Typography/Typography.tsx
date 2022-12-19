@@ -14,27 +14,27 @@ export const Typography = ({
   let Tag: any = 'p';
 
   switch (variant) {
-    case 'h1':
+    case 'xl':
       c = 'govuk-heading-xl';
       Tag = 'h1';
       break;
-    case 'h2':
+    case 'l':
       c = 'govuk-heading-l';
       Tag = 'h2';
       break;
-    case 'h3':
+    case 'm':
       c = 'govuk-heading-m';
       Tag = 'h3';
       break;
-    case 'h4':
+    case 's':
       c = 'govuk-heading-s';
       Tag = 'h4';
       break;
-    case 'p':
+    case 'body':
       c = 'govuk-body';
       Tag = 'p';
       break;
-    case 'span':
+    case 'caption':
       if (!captionSize) {
         c = 'govuk-caption-m';
         Tag = 'span';
