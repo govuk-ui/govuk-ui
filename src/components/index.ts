@@ -31,6 +31,7 @@ export { default as RadioItem } from './RadioItem';
 export { default as Select } from './Select';
 export { default as SkipLink } from './SkipLink';
 export { default as SummaryList } from './SummaryList';
+export { default as SummaryListItem } from './SummaryListItem';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';

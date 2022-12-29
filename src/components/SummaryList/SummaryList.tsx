@@ -1,33 +1,34 @@
-import React from "react";
+import React, { Children, cloneElement, isValidElement } from "react";
+import SummaryListItem from "../SummaryListItem";
 import SummaryListProps from "./SummaryList.types";
 
-export const SummaryList = ({ rows, classes, attributes }: SummaryListProps) => {
+export const SummaryList = ({ 
+  id,
+  classes,
+  children,
+  ...attributes
+}: SummaryListProps) => {
+
+  const arrayChildren: any = Children.toArray(children);
+
   return (
     <>
-      <dl className="govuk-summary-list">
-        <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Name</dt>
-          <dd className="govuk-summary-list__value">Firstname Lastname</dd>
-        </div>
-
-        <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Date of birth</dt>
-          <dd className="govuk-summary-list__value">13/08/1980</dd>
-        </div>
-
-        <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Contact information</dt>
-          <dd className="govuk-summary-list__value">
-            <p className="govuk-body">email@email.com</p>
-            <p className="govuk-body">
-              Address line 1<br />
-              Address line 2<br />
-              Address line 3<br />
-              Address line 4<br />
-              Address line 5
-            </p>
-          </dd>
-        </div>
+      <dl 
+        className={`govuk-summary-list ${classes || ''}`}
+        id={id}
+        { ...attributes }
+      >
+        { Children.map(arrayChildren, (child:any, index) => {
+          if (isValidElement(child) && child.type === SummaryListItem) {
+            return (
+              <>
+                { 
+                  cloneElement(child as React.ReactElement<any>, {})
+                }
+              </>
+            );
+          }
+        })}
       </dl>
     </>
   );

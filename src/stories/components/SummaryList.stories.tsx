@@ -1,7 +1,8 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
 import SummaryList from "../../components/SummaryList";
 import fixtures from "govuk-frontend/govuk/components/summary-list/fixtures.json";
+import SummaryListItem from "../../components/SummaryListItem";
 
 const meta: Meta<typeof SummaryList> = {
   title: "SummaryList",
@@ -38,9 +39,15 @@ fixtures.fixtures.forEach((fixture) => {
   let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
   if (story.name === fixture.name) {
     story.args = {
-      rows: fixture.options.rows,
       classes: fixture.options.classes,
       attributes: fixture.options.attributes,
+      children: fixture.options.rows.map((i:any) => {
+        return (
+          <SummaryListItem rowKey={i.key.text} action='Change'>
+            {i.value.text}
+          </SummaryListItem>
+        )
+      }),
     };
   }
 });
