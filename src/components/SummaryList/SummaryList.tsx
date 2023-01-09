@@ -12,25 +12,23 @@ export const SummaryList = ({
   const arrayChildren: any = Children.toArray(children);
 
   return (
-    <>
-      <dl 
-        className={`govuk-summary-list ${classes || ''}`}
-        id={id}
-        { ...attributes }
-      >
-        { Children.map(arrayChildren, (child:any, index) => {
-          if (isValidElement(child) && child.type === SummaryListItem) {
-            return (
-              <>
-                { 
-                  cloneElement(child as React.ReactElement<any>, {})
-                }
-              </>
-            );
-          }
-        })}
-      </dl>
-    </>
+    <dl 
+      className={`govuk-summary-list ${classes || ''}`}
+      id={id}
+      { ...attributes }
+    >
+      { Children.map(arrayChildren, (child:any, index) => {
+        if (isValidElement(child) && child.type === SummaryListItem) {
+          return (
+            <>
+              { 
+                cloneElement(child as React.ReactElement<any>, {})
+              }
+            </>
+          );
+        }
+      })}
+    </dl>
   );
 };
 

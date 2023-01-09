@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SummaryList from "../../components/SummaryList";
 import fixtures from "govuk-frontend/govuk/components/summary-list/fixtures.json";
 import SummaryListItem from "../../components/SummaryListItem";
+import { SummaryListActions, SummaryListKey, SummaryListValue } from "../..";
 
 const meta: Meta<typeof SummaryList> = {
   title: "SummaryList",
@@ -43,8 +44,29 @@ fixtures.fixtures.forEach((fixture) => {
       attributes: fixture.options.attributes,
       children: fixture.options.rows.map((i:any) => {
         return (
-          <SummaryListItem rowKey={i.key.text} action='Change'>
-            {i.value.text}
+          <SummaryListItem>
+            <SummaryListKey>
+              {i.key.text}
+            </SummaryListKey>
+            <SummaryListValue>
+              {i.value.text}
+            </SummaryListValue>
+            <SummaryListActions>
+              {i?.actions?.items.forEach((a:any) => {
+                return (
+                  <>
+                    <a href={a.href}>
+                      {a.text}
+                    </a>
+                    <span className="govuk-visually-hidden">
+                      {a.visuallyHiddenText}
+                    </span>
+                  </> 
+                  
+                );
+              })}
+            </SummaryListActions>
+            
           </SummaryListItem>
         )
       }),
