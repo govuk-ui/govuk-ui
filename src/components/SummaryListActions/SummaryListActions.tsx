@@ -8,7 +8,7 @@ export const SummaryListActions = ({
   ...attributes
 }: SummaryListActionsProps) => {
   return (
-    <dt class={`govuk-summary-list__actions ${classes || ''}`}
+    <dt className={`govuk-summary-list__actions ${classes || ''}`}
       id={id}
       { ...attributes }
     >
