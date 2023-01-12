@@ -35,6 +35,7 @@ export { default as SummaryListItem } from './SummaryListItem';
 export { default as SummaryListKey } from './SummaryListKey';
 export { default as SummaryListValue } from './SummaryListValue';
 export { default as SummaryListActions } from './SummaryListActions';
+export { default as SummeryListRow } from './SummaryListRow';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';
