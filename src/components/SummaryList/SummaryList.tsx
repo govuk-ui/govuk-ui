@@ -1,5 +1,6 @@
 import React, { Children, cloneElement, isValidElement } from "react";
 import SummaryListItem from "../SummaryListItem";
+import SummaryListRow from "../SummaryListRow";
 import SummaryListProps from "./SummaryList.types";
 
 export const SummaryList = ({ 
@@ -18,7 +19,7 @@ export const SummaryList = ({
       { ...attributes }
     >
       { Children.map(arrayChildren, (child:any, index) => {
-        if (isValidElement(child) && child.type === SummaryListItem) {
+        if (isValidElement(child) && (child.type === SummaryListItem || child.type === SummaryListRow)) {
           return (
             <>
               { 
