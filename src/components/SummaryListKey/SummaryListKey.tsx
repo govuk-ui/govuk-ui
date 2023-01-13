@@ -8,7 +8,7 @@ export const SummaryListKey = ({
   ...attributes
 }: SummaryListKeyProps) => {
   return (
-    <dt class={`govuk-summary-list__key ${classes || ''}`}
+    <dt className={`govuk-summary-list__key ${classes || ''}`}
       id={id}
       { ...attributes }
     >

@@ -8,7 +8,7 @@ export const SummaryListRow = ({
   children,
   field,
   data,
-  key,
+  rowKey,
   href,
   ...attributes
 }: SummaryListRowProps) => {
@@ -24,7 +24,7 @@ export const SummaryListRow = ({
   return (
     <SummaryListItem classes={classes} id={id} { ...attributes }>
       <SummaryListKey>
-        { key ? key : field}
+        { rowKey ? rowKey : field}
       </SummaryListKey>
       <SummaryListValue>
         { data[field] }

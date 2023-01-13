@@ -5,6 +5,6 @@ export default interface SummaryListRowProps {
   attributes?: any,
   field?: string,
   data?: any,
-  key?: string,
+  rowKey?: string,
   href?: string,
 }
