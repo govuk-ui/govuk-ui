@@ -5,5 +5,6 @@ export default interface DateInputProps {
   yearLabel?: string,
   name?: string,
   classes?: string,
+  value?: any,
   attributes?: any,
 }

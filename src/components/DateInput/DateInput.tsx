@@ -8,6 +8,7 @@ export const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  value,
   ...attributes
 }: DateInputProps) => {
 
@@ -30,6 +31,7 @@ export const DateInput = ({
             name={`${name}-day`}
             type="text"
             inputMode="numeric"
+            value={value[`${id}-day`]}
           />
         </div>
 
@@ -44,6 +46,7 @@ export const DateInput = ({
               name={`${name}-month`}
               type="text"
               inputMode="numeric"
+              value={value[`${id}-month`]}
             />
           </div>
         </div>
@@ -59,6 +62,7 @@ export const DateInput = ({
               name={`${name}-year`}
               type="text"
               inputMode="numeric"
+              value={value[`${id}-year`]}
             />
           </div>
         </div>
