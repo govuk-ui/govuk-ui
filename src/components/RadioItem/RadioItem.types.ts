@@ -8,5 +8,6 @@ export default interface RadioItemProps {
   value?: string,
   children?: any,
   classes?: string,
+  data: any,
   attributes?: any,
 }

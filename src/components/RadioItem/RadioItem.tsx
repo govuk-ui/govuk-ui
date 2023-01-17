@@ -10,6 +10,7 @@ export const RadioItem = ({
   key,
   divider,
   value,
+  data,
   classes,
   ...attributes }: RadioItemProps) => {
 
@@ -26,6 +27,7 @@ export const RadioItem = ({
             key={key}
             type="radio"
             value={value}
+            checked={data && data[`${value}`] === value}
             { ...attributes }
           />
           { Children.map(arrayChildren, (child:any, index) => {
