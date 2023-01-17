@@ -27,7 +27,7 @@ export const RadioItem = ({
             key={key}
             type="radio"
             value={value}
-            checked={data && data[`${value}`] === value}
+            checked={data === value}
             { ...attributes }
           />
           { Children.map(arrayChildren, (child:any, index) => {

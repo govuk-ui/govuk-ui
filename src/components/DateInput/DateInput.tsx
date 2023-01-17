@@ -31,7 +31,7 @@ export const DateInput = ({
             name={`${name}-day`}
             type="text"
             inputMode="numeric"
-            value={value ? value[`${id}-day`] : null}
+            defaultValue={value ? value[`${id}-day`] : null}
           />
         </div>
 
@@ -46,7 +46,7 @@ export const DateInput = ({
               name={`${name}-month`}
               type="text"
               inputMode="numeric"
-              value={value ? value[`${id}-month`] : null}
+              defaultValue={value ? value[`${id}-month`] : null}
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ export const DateInput = ({
               name={`${name}-year`}
               type="text"
               inputMode="numeric"
-              value={value ? value[`${id}-year`] : null}
+              defaultValue={value ? value[`${id}-year`] : null}
             />
           </div>
         </div>
