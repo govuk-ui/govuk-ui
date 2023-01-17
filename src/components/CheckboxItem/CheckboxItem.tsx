@@ -11,6 +11,7 @@ export const CheckboxesItem = ({
   divider,
   exclusive,
   value,
+  data,
   classes,
   ...attributes }: CheckboxItemProps) => {
 
@@ -27,6 +28,7 @@ export const CheckboxesItem = ({
             key={key}
             type="checkbox"
             value={value}
+            defaultChecked={Array.isArray(data) && data.includes(value)}
             data-behaviour={exclusive ? 'exclusive' : null}
             { ...attributes }
           />

@@ -6,6 +6,7 @@ export default interface CheckboxItemProps {
   divider?: boolean,
   exclusive?: boolean,
   children?: any,
+  data?: any,
   classes?: string,
   attributes?: any,
 }

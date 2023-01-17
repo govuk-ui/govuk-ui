@@ -6,6 +6,7 @@ export const Radios = ({
   name,
   children,
   classes,
+  value,
   ...attributes
 }: CheckboxesProps) => {
 
@@ -25,6 +26,7 @@ export const Radios = ({
             { 
               cloneElement(child, {
                 name: name,
+                data: value,
               })
             }
           </>
