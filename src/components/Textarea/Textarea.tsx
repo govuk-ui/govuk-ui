@@ -11,6 +11,7 @@ export const Textarea = ({
   attributes,
   children,
   describedBy,
+  value,
 }: TextareaProps) => {
   return (
     <textarea 
@@ -21,6 +22,7 @@ export const Textarea = ({
       autocomplete={autocomplete}
       spellCheck={spellcheck}
       aria-describedby={describedBy}
+      defaultValue={value}
       {...attributes}
     >{children}</textarea>
   );

@@ -9,4 +9,5 @@ export default interface TextareaProps {
   attributes?: any,
   children?: any,
   describedBy?: string,
+  value: string,
 }
