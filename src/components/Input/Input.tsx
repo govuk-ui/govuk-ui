@@ -1,6 +1,7 @@
 import React from "react";
 import InputProps from "./Input.types";
 import ErrorMessage from "../ErrorMessage";
+import FormGroup from "../../layout/FormGroup";
 
 export const Input = ({
   label,
@@ -24,7 +25,7 @@ export const Input = ({
 
   return (
     <>
-      <div className={`govuk-form-group ${errorMessage ? 'govuk-form-group--error' : ''}`}>
+      <FormGroup error={errorMessage}>
         { label && (
           <label className="govuk-label" htmlFor="input-example">
             { label }
@@ -39,7 +40,7 @@ export const Input = ({
           defaultValue={value}
           aria-describedby={describedByValue || ''}
         />
-      </div>
+      </FormGroup>
     </>
   );
 };

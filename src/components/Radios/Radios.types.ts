@@ -6,5 +6,6 @@ export default interface RadiosProps {
   children?: any,
   classes?: string,
   value?: any,
+  errorMessage?: any,
   attributes?: any,
 }
