@@ -6,6 +6,7 @@ export default interface TextareaProps {
   autocomplete?: string,
   spellcheck?: boolean,
   classes?: string,
+  errorMessage?: any,
   attributes?: any,
   children?: any,
   describedBy?: string,
