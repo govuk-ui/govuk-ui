@@ -29,7 +29,7 @@ export const Radios = ({
   const arrayChildren: any = Children.toArray(children);
 
   return (
-    <FormGroup>
+    <FormGroup error={errorMessage}>
       { errorMessageComponent }
       <div className={`govuk-checkboxes ${classes || ''}`} data-module="govuk-checkboxes" id={id} { ...attributes }>
         { Children.map(arrayChildren, (child) => {
