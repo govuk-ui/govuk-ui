@@ -1,11 +1,14 @@
 import React, { Children, cloneElement } from "react";
 import CheckboxesProps from "./Checkboxes.types";
+import FormGroup from "../../layout/FormGroup";
+import ErrorMessage from "../ErrorMessage";
 
 export const Radios = ({
   id,
   name,
   children,
   classes,
+  errorMessage,
   value,
   ...attributes
 }: CheckboxesProps) => {
@@ -16,23 +19,33 @@ export const Radios = ({
     name = id;
   }
 
+  let errorMessageComponent;
+
+  if (errorMessage) {
+    const errorId = id ? `${id}-error` : '';
+    errorMessageComponent = <ErrorMessage id={errorId}>{errorMessage}</ErrorMessage>;
+  }
+
   const arrayChildren: any = Children.toArray(children);
 
   return (
-    <div className={`govuk-checkboxes ${classes || ''}`} data-module="govuk-checkboxes" id={id} { ...attributes }>
-      { Children.map(arrayChildren, (child) => {
-        return (
-          <>
-            { 
-              cloneElement(child, {
-                name: name,
-                data: value,
-              })
-            }
-          </>
-        );
-      })}
-    </div>
+    <FormGroup>
+      { errorMessageComponent }
+      <div className={`govuk-checkboxes ${classes || ''}`} data-module="govuk-checkboxes" id={id} { ...attributes }>
+        { Children.map(arrayChildren, (child) => {
+          return (
+            <>
+              {
+                cloneElement(child, {
+                  name: name,
+                  data: value,
+                })
+              }
+            </>
+          );
+        })}
+      </div>
+    </FormGroup>
   );
 };
 

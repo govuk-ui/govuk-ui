@@ -5,5 +5,6 @@ export default interface CheckboxesProps {
   value?: any,
   children?: any,
   classes?: string,
+  errorMessage?: any,
   attributes?: any,
 }
