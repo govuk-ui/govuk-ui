@@ -3,6 +3,7 @@ export default interface SelectProps {
   name?: string,
   classes?: string,
   children: any,
+  errorMessage?: any,
   describedBy?: string,
   attributes?: any,
 }

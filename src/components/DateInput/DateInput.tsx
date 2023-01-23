@@ -1,5 +1,7 @@
 import React from "react";
 import DateInputProps from "./DateInput.types";
+import FormGroup from "../../layout/FormGroup";
+import ErrorMessage from "../ErrorMessage";
 
 export const DateInput = ({
   id,
@@ -8,6 +10,7 @@ export const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  errorMessage,
   value,
   ...attributes
 }: DateInputProps) => {
@@ -18,9 +21,17 @@ export const DateInput = ({
     name = id;
   }
 
+  let errorMessageComponent;
+
+  if (errorMessage) {
+    const errorId = id ? `${id}-error` : '';
+    errorMessageComponent = <ErrorMessage id={errorId}>{errorMessage}</ErrorMessage>;
+  }
+
   return (
-    <>
+    <FormGroup error={errorMessage}>
       <div className={`govuk-date-input ${classes || ''}`} id={id} {...attributes}>
+        { errorMessageComponent }
         <div className="govuk-date-input__item">
           <label className="govuk-label govuk-date-input__label" htmlFor={`${id}-day`}>
             {dayLabel || 'Day'}
@@ -67,7 +78,7 @@ export const DateInput = ({
           </div>
         </div>
       </div>
-    </>
+    </FormGroup>
   );
 };
 
