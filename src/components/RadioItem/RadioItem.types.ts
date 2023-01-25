@@ -1,5 +1,3 @@
-import React, {HTMLAttributes} from "react";
-
 export default interface RadioItemProps {
   id?: string,
   name?: string,
@@ -8,6 +6,6 @@ export default interface RadioItemProps {
   value?: string,
   children?: any,
   classes?: string,
-  data: any,
+  data?: any,
   attributes?: any,
 }
