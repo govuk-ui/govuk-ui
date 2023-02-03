@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "react";
+
 export default interface InputProps {
   label?: any,
   id?: string,
@@ -15,5 +17,6 @@ export default interface InputProps {
   value?: string,
   describedBy?: string,
   attributes?: any,
-  inputmode?: string,
+  inputmode?: any,
+  children?: any,
 }
