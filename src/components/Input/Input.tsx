@@ -2,10 +2,8 @@ import React, {Children, cloneElement, isValidElement} from "react";
 import InputProps from "./Input.types";
 import ErrorMessage from "../ErrorMessage";
 import FormGroup from "../../layout/FormGroup";
-import SummaryListItem from "../SummaryListItem";
-import SummaryListRow from "../SummaryListRow";
-import Typography from "../../typography/Typography";
 import Hint from "../Hint";
+import Label from "../Label";
 
 export const Input = ({
   id,
@@ -41,15 +39,15 @@ export const Input = ({
   return (
     <>
       <FormGroup error={errorMessage}>
-        { Children.map(arrayChildren, (child:any, index) => {
-          if (isValidElement(child) && (child.type === Typography)) {
+        { Children.map(arrayChildren, (child:any, _index) => {
+          if (isValidElement(child) && (child.type === Label)) {
             return (
               <>
-                <label className="govuk-label" htmlFor={id}>
-                  {
-                    cloneElement(child as React.ReactElement<any>, {})
-                  }
-                </label>
+                {
+                  cloneElement(child as React.ReactElement<any>, {
+                    htmlFor: id
+                  })
+                }
               </>
             );
           }
