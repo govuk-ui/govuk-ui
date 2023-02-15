@@ -63,6 +63,7 @@ export const Radios = ({
                   {
                     cloneElement(child as React.ReactElement<any>, {
                       idPrefix: idPrefix,
+                      data: value,
                     })
                   }
                 </>
