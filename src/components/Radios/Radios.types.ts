@@ -1,7 +1,7 @@
 import { NewLifecycle } from "react";
 
 export default interface RadiosProps {
-  id?: string,
+  idPrefix?: string,
   name?: string,
   children?: any,
   classes?: string,

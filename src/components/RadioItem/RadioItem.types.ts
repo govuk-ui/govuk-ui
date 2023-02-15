@@ -1,4 +1,5 @@
 export default interface RadioItemProps {
+  idPrefix?: string,
   id?: string,
   name?: string,
   key?: string,

@@ -14,7 +14,6 @@ export { default as DetailsSummary } from './DetailsSummary';
 export { default as ErrorMessage } from './ErrorMessage';
 export { default as ErrorSummary } from './ErrorSummary';
 export { default as ErrorSummaryMessage } from './ErrorSummaryMessage';
-export { default as Fieldset } from './Fieldset';
 export { default as FileUpload } from './FileUpload';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';

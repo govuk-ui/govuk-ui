@@ -1,6 +1,7 @@
 export default interface FieldsetProps {
-  children?: any,
   classes?: string,
   describedBy?: string,
+  role?: string,
   attributes?: any,
+  children?: any,
 }

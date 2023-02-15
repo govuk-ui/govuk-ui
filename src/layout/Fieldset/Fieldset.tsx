@@ -5,10 +5,16 @@ export const Fieldset = ({
   children,
   classes,
   describedBy,
+  role,
   ...attributes
 }: FieldsetProps) => {
   return (
-    <fieldset className={`govuk-fieldset ${classes || ''}`} { ...attributes } aria-describedby={describedBy || ''}>
+    <fieldset
+      className={`govuk-fieldset ${classes || ''}`}
+      aria-describedby={describedBy || ''}
+      role={role || ''}
+      { ...attributes }
+    >
       { children }
     </fieldset>
   );
