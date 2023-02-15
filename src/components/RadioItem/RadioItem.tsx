@@ -15,6 +15,12 @@ export const RadioItem = ({
   classes,
   ...attributes }: RadioItemProps) => {
 
+  if (!id && name) {
+    id = name;
+  } else if (!name && id) {
+    name = id;
+  }
+
   const arrayChildren: any = Children.toArray(children);
 
   return (
