@@ -55,7 +55,7 @@ export const Radios = ({
           }
         })}
         { errorMessageComponent }
-        <div className={`govuk-radios ${classes || ''}`} data-module="govuk-radios" { ...attributes }>
+        <div className={`govuk-radios ${classes || ''}`} id={idPrefix} data-module="govuk-radios" { ...attributes }>
           { Children.map(arrayChildren, (child:any, _index) => {
             if (isValidElement(child) && (child.type === RadioItem)) {
               return (
