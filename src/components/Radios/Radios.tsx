@@ -59,12 +59,12 @@ export const Radios = ({
         <div className={`govuk-radios ${classes || ''}`} id={idPrefix} data-module="govuk-radios" { ...attributes }>
           { Children.map(radioItemsArray, (child: any, index) => {
             if (isValidElement(child) && (child.type === RadioItem)) {
-              idPrefix = child?.props?.id ? child?.props?.id : idPrefix;
+              const radioItemId = child?.props?.id ? child?.props?.id : idPrefix;
               return (
                 <>
                   {
                     cloneElement(child as React.ReactElement<any>, {
-                      id: index > 0 ? `${idPrefix}-${index}` : idPrefix,
+                      id: index > 0 ? `${radioItemId}-${index}` : radioItemId,
                       data: value,
                       name: name
                     })
