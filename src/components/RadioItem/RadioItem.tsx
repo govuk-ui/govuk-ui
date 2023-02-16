@@ -4,7 +4,6 @@ import Hint from '../Hint';
 import RadioItemProps from "./RadioItem.types";
 
 export const RadioItem = ({
-  idPrefix,
   id,
   name,
   children,
@@ -29,7 +28,7 @@ export const RadioItem = ({
         <>
           <input
             className={`govuk-radios__input ${classes || ''}`}
-            id={idPrefix ? `${idPrefix}-${id}`: id}
+            id={id}
             name={name}
             key={key}
             type="radio"
@@ -44,7 +43,7 @@ export const RadioItem = ({
                   {
                     cloneElement(child as React.ReactElement<any>, {
                       classes: 'govuk-radios__label',
-                      htmlFor: idPrefix ? `${idPrefix}-${id}`: id
+                      htmlFor: id
                     })
                   }
                 </>

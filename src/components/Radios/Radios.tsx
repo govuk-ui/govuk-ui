@@ -33,6 +33,7 @@ export const Radios = ({
   }
 
   const arrayChildren: any = Children.toArray(children);
+  const radioItemsArray: any = arrayChildren.filter((child: any) => child.type === RadioItem);
 
   { Children.map(arrayChildren, (child:any, _index) => {
     if (isValidElement(child) && (child.type === Hint)) {
@@ -56,14 +57,16 @@ export const Radios = ({
         })}
         { errorMessageComponent }
         <div className={`govuk-radios ${classes || ''}`} id={idPrefix} data-module="govuk-radios" { ...attributes }>
-          { Children.map(arrayChildren, (child:any, _index) => {
+          { Children.map(radioItemsArray, (child: any, index) => {
             if (isValidElement(child) && (child.type === RadioItem)) {
+              idPrefix = child?.props?.id ? child?.props?.id : idPrefix;
               return (
                 <>
                   {
                     cloneElement(child as React.ReactElement<any>, {
-                      idPrefix: idPrefix,
+                      id: index > 0 ? `${idPrefix}-${index}` : idPrefix,
                       data: value,
+                      name: name
                     })
                   }
                 </>

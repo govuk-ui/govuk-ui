@@ -91,7 +91,7 @@ fixtures.fixtures.forEach((fixture) => {
           </RadioItem>
         )
       }),
-      id: fixture.options.idPrefix,
+      idPrefix: fixture.options.idPrefix,
       classes: fixture.options.classes,
       attributes: fixture.options.attributes,
     };
