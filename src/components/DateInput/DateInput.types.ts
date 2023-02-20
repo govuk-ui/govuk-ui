@@ -7,5 +7,6 @@ export default interface DateInputProps {
   classes?: string,
   value?: any,
   errorMessage?: string,
+  children?: any,
   attributes?: any,
 }
