@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/blocks';
+import * as RadioStories from './Radios.stories';
+import { Hint } from '../../components';
+import { Canvas, Story } from '@storybook/addon-docs';
+
+<Meta title="Radios" />
+
+<Hint>Components</Hint>
+
+# Radios
+
+<Canvas withToolbar>
+  <Story of={RadioStories.withHeading} />
+</Canvas>
+
+## When to use this component
+Use the radios component when users can only select one option from a list.
+
+## When not to use this component
+Do not use the radios component if users might need to select more than one option. In this case, you should use the checkboxes component instead.
+
+## How it works
+Always position radios to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.
+
+Unlike with checkboxes, users can only select one option from a list of radios. Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone.
+
+If needed, add a hint explaining this, for example, ‘Select one option’.
+
+Do not pre-select radio options as this makes it more likely that users will:
+
+- not realise they’ve missed a question
+- submit the wrong answer
+
+Users cannot go back to having no option selected once they have selected one, without refreshing their browser window. Therefore, you should include ‘None of the above’ or ‘I do not know’ if they are valid options.
+
+Order radio options alphabetically by default.
+
+In some cases, it can be helpful to order them from most-to-least common options. For example, you could order options for ‘Where do you live?’ based on population size.
+
+However you should do this with extreme caution as it can reinforce bias in your service. If in doubt, order alphabetically.
+
+Group radios together in a `<fieldset>` with a `<legend>` that describes them, as shown in the examples on this page. This is usually a question, like ‘Where do you live?’.
+
+## If you’re asking one question on the page
+
+If you are asking just one question per page as recommended, you can set the contents of the `<legend>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.
+
+Read more about <a href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">why and how to set legends as headings.</a>
+
+<Canvas withToolbar>
+  <Story of={RadioStories.withHeading} />
+</Canvas>
+
+## If you’re asking more than one question on the page
+
+If you’re asking more than one question on the page, do not set the contents of the `<legend>` as the page heading. Read more about asking multiple questions on question pages.
+
+<Canvas withToolbar>
+  <Story of={RadioStories.withoutHeading} />
+</Canvas>
+
+## Inline radios
+
+In some cases, you can choose to display radios ‘inline’ beside one another (horizontally).
+
+Only use inline radios when:
+
+- the question only has two options
+- both options are short
+
+Remember that on small screens such as mobile devices, the radios will still be ‘stacked’ on top of one another (vertically).
+
+<Canvas withToolbar>
+  <Story of={RadioStories.inline} />
+</Canvas>
+
+## Radio items with hints
+
+You can add hints to radio items to provide additional information about the options.
+
+<Canvas withToolbar>
+  <Story of={RadioStories.withHint} />
+</Canvas>
+
+## Radio items with a text divider
+
+If one or more of your radio options is different from the others, it can help users if you separate them using a text divider. The text is usually the word ‘or’.
+
+<Canvas withToolbar>
+  <Story of={RadioStories.withDivider} />
+</Canvas>
+
+## Conditionally revealing a related question
+
+You can ask the user a related question when they select a particular radio option, so they only see the question when it’s relevant to them.
+
+This might make two related questions easier to answer by grouping them on the same page. For example, you could reveal a phone number input when the user selects the ‘Contact me by phone’ option.
+
+<Canvas withToolbar>
+  <Story of={RadioStories.conditional} />
+</Canvas>
