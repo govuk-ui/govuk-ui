@@ -11,6 +11,7 @@ export const RadioItem = ({
   divider,
   value,
   data,
+  conditional,
   classes,
   ...attributes }: RadioItemProps) => {
 
@@ -19,6 +20,8 @@ export const RadioItem = ({
   } else if (!name && id) {
     name = id;
   }
+
+  const conditionalId = `conditional-${id}`
 
   const arrayChildren: any = Children.toArray(children);
 
@@ -34,6 +37,7 @@ export const RadioItem = ({
             type="radio"
             value={value}
             defaultChecked={data === value}
+            data-aria-controls={ conditional ? conditionalId : '' }
             { ...attributes }
           />
           { Children.map(arrayChildren, (child:any, index) => {
@@ -60,6 +64,11 @@ export const RadioItem = ({
               );
             }
           })}
+          { conditional && (
+            <div className={`govuk-radios__conditional ${data !== value ? 'govuk-radios__conditional--hidden' : ''}`} id={conditionalId}>
+              { conditional }
+            </div>
+          )}
         </>
       )}
       { divider && (
