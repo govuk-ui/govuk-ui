@@ -37,6 +37,7 @@ export { default as SummaryListActions } from './SummaryListActions';
 export { default as SummaryListRow } from './SummaryListRow';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
+export { default as TabItem } from './TabItem';
 export { default as Tag } from './Tag';
 export { default as Textarea } from './Textarea';
 export { default as WarningText } from './WarningText';

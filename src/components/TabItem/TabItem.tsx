@@ -4,9 +4,6 @@ import TabItemProps from "./TabItem.types";
 export const TabItem = ({
   children,
   classes,
-  id,
-  label,
-  title,
   href,
   selected,
   attributes
@@ -19,3 +16,5 @@ export const TabItem = ({
     </li>
   )
 }
+
+export default TabItem;
