@@ -1,14 +1,13 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Radios from "../../components/Radios";
-import fixtures from "govuk-frontend/govuk/components/radios/fixtures.json";
-import RadioItem from "../../components/RadioItem";
-import Label from "../../components/Label";
-import Hint from "../../components/Hint";
-import Legend from "../../layout/Legend";
-import Typography from "../../typography/Typography";
-import Input from "../../components/Input";
+import Radios from "../../../components/Radios";
+import RadioItem from "../../../components/RadioItem";
+import Label from "../../../components/Label";
+import Hint from "../../../components/Hint";
+import Legend from "../../../layout/Legend";
+import Typography from "../../../typography/Typography";
+import Input from "../../../components/Input";
 
 const meta: Meta<typeof Radios> = {
   title: "Radios",
@@ -161,6 +160,76 @@ const conditional: Story = {
   }
 }
 
+const small: Story = {
+  name: 'Small radios',
+  args: {
+    name: 'filter',
+    classes: 'govuk-radios--small',
+    children: [
+      <Legend>
+        <Typography variant='m' component='h1'>Filter</Typography>
+      </Legend>,
+      <RadioItem value="monthly">
+        <Label>Monthly</Label>
+      </RadioItem>,
+      <RadioItem value="yearly">
+        <Label>Yearly</Label>
+      </RadioItem>,
+    ]
+  }
+}
+
+const errors: Story = {
+  name: 'Radios with error',
+  args: {
+    name: 'whereDoYouLive',
+    errorMessage: 'Select the country where you live',
+    children: [
+      <Legend>
+        <Typography variant='l' component='h1'>Where do you live?</Typography>
+      </Legend>,
+      <RadioItem value="england">
+        <Label>England</Label>
+      </RadioItem>,
+      <RadioItem value="scotland">
+        <Label>Scotland</Label>
+      </RadioItem>,
+      <RadioItem value="wales">
+        <Label>Wales</Label>
+      </RadioItem>,
+      <RadioItem value="northernIreland">
+        <Label>Northern Ireland</Label>
+      </RadioItem>
+    ]
+  }
+}
+
+const conditionalWithErrors: Story = {
+  name: 'Radio items with conditional',
+  args: {
+    name: 'contactPreference',
+    children: [
+      <Legend>
+        <Typography variant='l' component='h1'>How would you prefer to be contacted?</Typography>
+        <Hint>Select one option.</Hint>
+      </Legend>,
+      <RadioItem value="email" conditional={
+        <Input name="emailAddress" classes="govuk-!-width-one-third" errorMessage="Email address cannot be blank">
+          <Label>Email address</Label>
+        </Input>
+      }>
+        <Label>Email</Label>
+      </RadioItem>,
+      <RadioItem value="phone">
+        <Label>Phone</Label>
+      </RadioItem>,
+      <RadioItem value="text">
+        <Label>Text message</Label>
+      </RadioItem>,
+    ]
+  }
+}
+
 export {
   withHeading,
   withoutHeading,
@@ -168,4 +237,7 @@ export {
   withHint,
   withDivider,
   conditional,
+  small,
+  errors,
+  conditionalWithErrors,
 };
