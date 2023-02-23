@@ -3,6 +3,7 @@ import TabItemProps from "./TabItem.types";
 
 export const TabItem = ({
   children,
+  label,
   classes,
   href,
   selected,
@@ -11,7 +12,7 @@ export const TabItem = ({
   return (
     <li className={`govuk-tabs__list-item ${selected && 'govuk-tabs__list-item--selected'}`}>
       <a className="govuk-tabs__tab" href={href}>
-        { children }
+        { label }
       </a>
     </li>
   )

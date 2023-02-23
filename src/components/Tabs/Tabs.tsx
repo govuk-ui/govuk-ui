@@ -15,12 +15,14 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
         )}
         
         <ul className="govuk-tabs__list">
-          { Children.map(arrayChildren, (child:any, _index) => {
+          { Children.map(arrayChildren, (child:any, index) => {
             if (isValidElement(child) && (child.type === TabItem)) {
               return (
                   <>
                     {
-                      cloneElement(child as React.ReactElement<any>, {})
+                      cloneElement(child as React.ReactElement<any>, {
+                        href: `tab-item-${index}`
+                      })
                     }
                   </>
               );
@@ -32,6 +34,7 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
           if (isValidElement(child) && (child.type === TabItem)) {
             return (
               <div className="govuk-tabs__panel" id={child?.props.href}>
+                { child?.props.children }
               </div>
             );
           }
