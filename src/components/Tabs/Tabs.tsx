@@ -33,7 +33,7 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
         { Children.map(arrayChildren, (child:any, _index) => {
           if (isValidElement(child) && (child.type === TabItem)) {
             return (
-              <div className="govuk-tabs__panel" id={child?.props.href}>
+              <div className={`govuk-tabs__panel ${child?.props.selected ? '' : 'govuk-tabs__panel--hidden'}`} id={child?.props.href}>
                 { child?.props.children }
               </div>
             );
