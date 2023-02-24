@@ -23,7 +23,8 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
                   <>
                     {
                       cloneElement(child as React.ReactElement<any>, {
-                        href: child?.props?.href ? child.props.href : `#tab-item-${index}`
+                        href: child?.props?.href ? child.props.href : `#tab-item-${index}`,
+                        id: `tab_${index}`
                       })
                     }
                   </>
