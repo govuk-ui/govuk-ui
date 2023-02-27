@@ -5,6 +5,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://govuk-ui.github.io/govuk-ui/",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "gen-components": "node ./src/scripts/gen-components.js",
@@ -16,6 +17,8 @@
     "patch": "npm version patch",
     "push": "git push",
     "publish-npm": "npm publish",
+    "predeploy": "npm run build",
+    "deploy-storybook": "gh-pages -d docs",
     "smash": "npm-run-all build-lib patch push publish-npm"
   },
   "devDependencies": {
@@ -38,6 +41,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "babel-loader": "9.1.2",
+    "gh-pages": "^5.0.0",
     "govuk-frontend": "4.5.0",
     "npm-run-all": "^4.1.5",
     "prettier": "2.8.4",
