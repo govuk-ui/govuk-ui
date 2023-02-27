@@ -18,7 +18,7 @@
     "publish-npm": "npm publish",
     "build-storybook": "npm run build-sass && storybook build --docs -o ./docs",
     "deploy-storybook": "npm run build-storybook && touch ./docs/.nojekyll && gh-pages -d docs -t true",
-    "smash": "npm-run-all build-lib deploy-storybook patch push publish-npm"
+    "smash": "npm-run-all build-lib patch push publish-npm deploy-storybook"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
