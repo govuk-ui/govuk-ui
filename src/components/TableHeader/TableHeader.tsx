@@ -18,11 +18,11 @@ export const TableHeader = ({
           { Children.map(arrayChildren, (child:any, _index) => {
             if (isValidElement(child) && (child.type === TableCell)) {
               return (
-                  <>
-                    {
-                      cloneElement(child as React.ReactElement<any>, {})
-                    }
-                  </>
+                <>
+                  {
+                    cloneElement(child as React.ReactElement<any>, {})
+                  }
+                </>
               );
             }
           })}
