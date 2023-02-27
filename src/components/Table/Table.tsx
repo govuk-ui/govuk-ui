@@ -15,21 +15,17 @@ export const Table = ({
   return (
     <>
       <table className={`govuk-table ${classes || ''}`} id={id} { ...attributes }>
-        <thead className="govuk-table__head">
-          <tr className="govuk-table__row">
-            { Children.map(arrayChildren, (child:any, _index) => {
-              if (isValidElement(child) && (child.type === TableHeader)) {
-                return (
-                    <>
-                      {
-                        cloneElement(child as React.ReactElement<any>, {})
-                      }
-                    </>
-                );
-              }
-            })}
-          </tr>
-        </thead>
+        { Children.map(arrayChildren, (child:any, _index) => {
+          if (isValidElement(child) && (child.type === TableHeader)) {
+            return (
+                <>
+                  {
+                    cloneElement(child as React.ReactElement<any>, {})
+                  }
+                </>
+            );
+          }
+        })}
         <tbody className="govuk-table__body">
           { Children.map(arrayChildren, (child:any, _index) => {
             if (isValidElement(child) && (child.type === TableRow)) {
