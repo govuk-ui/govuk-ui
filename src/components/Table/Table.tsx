@@ -1,6 +1,7 @@
 import React, {Children, cloneElement, isValidElement} from "react";
 import TableProps from "./Table.types";
 import TableHeader from "../TableHeader/TableHeader";
+import TableRow from "../TableRow/TableRow";
 
 export const Table = ({
   id,
@@ -30,21 +31,17 @@ export const Table = ({
           </tr>
         </thead>
         <tbody className="govuk-table__body">
-          <tr className="govuk-table__row">
-            <th scope="row" className="govuk-table__header">First 6 weeks</th>
-            <td className="govuk-table__cell">£109.80 per week</td>
-            <td className="govuk-table__cell">£59.10 per week</td>
-          </tr>
-          <tr className="govuk-table__row">
-            <th scope="row" className="govuk-table__header">Next 33 weeks</th>
-            <td className="govuk-table__cell">£159.80 per week</td>
-            <td className="govuk-table__cell">£89.10 per week</td>
-          </tr>
-          <tr className="govuk-table__row">
-            <th scope="row" className="govuk-table__header">Total estimated pay</th>
-            <td className="govuk-table__cell">£4,282.20</td>
-            <td className="govuk-table__cell">£2,182.20</td>
-          </tr>
+          { Children.map(arrayChildren, (child:any, _index) => {
+            if (isValidElement(child) && (child.type === TableRow)) {
+              return (
+                  <>
+                    {
+                      cloneElement(child as React.ReactElement<any>, {})
+                    }
+                  </>
+              );
+            }
+          })}
         </tbody>
       </table>
     </>
