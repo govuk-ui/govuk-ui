@@ -10,16 +10,15 @@
     "dev": "storybook dev -p 6006",
     "gen-components": "node ./src/scripts/gen-components.js",
     "gen-stories": "node ./src/scripts/gen-stories.js",
-    "build": "npm run build-sass && storybook build --docs -o ./docs",
     "build-ts": "tsc",
     "build-sass": "sass ./src/scss:.storybook",
     "build-lib": "rollup -c",
     "patch": "npm version patch",
     "push": "git push",
     "publish-npm": "npm publish",
-    "predeploy": "npm run build",
-    "deploy-storybook": "gh-pages -d docs",
-    "smash": "npm-run-all build-lib patch push publish-npm"
+    "build-storybook": "npm run build-sass && storybook build --docs -o ./docs",
+    "deploy-storybook": "npm run build-storybook && touch ./docs/.nojekyll && gh-pages -d docs -t true",
+    "smash": "npm-run-all build-lib deploy-storybook patch push publish-npm"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
