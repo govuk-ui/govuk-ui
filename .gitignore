@@ -97,3 +97,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Built docs
+docs/
