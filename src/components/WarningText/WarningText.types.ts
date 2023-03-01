@@ -1,7 +1,6 @@
 export default interface WarningTextProps {
-  text?: string,
-  iconFallbackText?: string,
+  children: any,
+  iconFallbackText: string,
   attributes?: any,
   classes?: string,
-  html?: string,
 }
