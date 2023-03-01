@@ -1,7 +1,13 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Table from "../../components/Table";
-import fixtures from "govuk-frontend/govuk/components/table/fixtures.json";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableCell,
+  Tag,
+ } from "../../components";
 
 const meta: Meta<typeof Table> = {
   title: "Table",
@@ -12,27 +18,130 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 const primary: Story = { name: "default" };
-const tableWithHead: Story = { name: "table with head" };
-const tableWithHeadAndCaption: Story = { name: "table with head and caption" };
-
-const stories: Story[] = [];
-stories.push(primary);
-stories.push(tableWithHead);
-stories.push(tableWithHeadAndCaption);
-
-fixtures.fixtures.forEach((fixture) => {
-  let story: Story = stories.find((s) => s.name === fixture.name.replace(/[^a-z0-9s]/gi, "")) || {};
-  if (story.name === fixture.name) {
-    story.args = {
-      rows: fixture.options.rows,
-      head: fixture.options.head,
-      caption: fixture.options.caption,
-      captionClasses: fixture.options.captionClasses,
-      firstCellIsHeader: fixture.options.firstCellIsHeader,
-      classes: fixture.options.classes,
-      attributes: fixture.options.attributes,
-    };
+const multipleTags: Story = {
+  name: "multipleTags",
+  args: {
+    children: [
+      <TableHeader classes="govuk-table__header">
+        <TableCell>Name of user</TableCell>
+        <TableCell>Status</TableCell>
+      </TableHeader>,
+      <TableRow>
+        <TableCell>Rachel Silver</TableCell>
+        <TableCell><Tag className="govuk-tag--grey">INACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Jesse Smith</TableCell>
+        <TableCell><Tag className="govuk-tag--grey">INACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Joshua Wessel</TableCell>
+        <TableCell><Tag>ACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Rachael Pepper</TableCell>
+        <TableCell><Tag>ACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Staurt Say</TableCell>
+        <TableCell><Tag className="govuk-tag--grey">INACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Laura Frith</TableCell>
+        <TableCell><Tag>ACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Tim Harvey</TableCell>
+        <TableCell><Tag className="govuk-tag--grey">INACTIVE</Tag></TableCell>
+      </TableRow>
+    ]
   }
-});
+};
+const colouredTags: Story = {
+  name: "colouredTags",
+  args: {
+    children: [
+      <TableHeader classes="govuk-table__header">
+        <TableCell>Name of user</TableCell>
+        <TableCell>Status</TableCell>
+      </TableHeader>,
+      <TableRow>
+        <TableCell>Joshua Wessel</TableCell>
+        <TableCell><Tag className="govuk-tag--red">URGENT</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Rachel Silver</TableCell>
+        <TableCell><Tag>NEW</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Laura Frith</TableCell>
+        <TableCell><Tag>NEW</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Paul French</TableCell>
+        <TableCell><Tag>NEW</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Jesse Smith</TableCell>
+        <TableCell><Tag>NEW</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Rachael Pepper</TableCell>
+        <TableCell><Tag className="govuk-tag--green">FINISHED</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell>Emma Tennant</TableCell>
+        <TableCell><Tag className="govuk-tag--yellow">WAITING ON</Tag></TableCell>
+      </TableRow>,
+    ]
+  }
+};
+const allColours: Story = {
+  name: "allColours",
+  args: {
+    children: [
+      <TableHeader classes="govuk-table__header">
+        <TableCell>Name of user</TableCell>
+        <TableCell>Status</TableCell>
+      </TableHeader>,
+      <TableRow>
+        <TableCell><code>govuk-tag--grey</code></TableCell>
+        <TableCell><Tag className="govuk-tag--grey">INACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--green</code></TableCell>
+        <TableCell><Tag className="govuk-tag--green">NEW</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--turquoise</code></TableCell>
+        <TableCell><Tag className="govuk-tag--turquoise">ACTIVE</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--blue</code></TableCell>
+        <TableCell><Tag className="govuk-tag--blue">PENDING</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--purple</code></TableCell>
+        <TableCell><Tag className="govuk-tag--purple">RECEIVED</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--pink</code></TableCell>
+        <TableCell><Tag className="govuk-tag--pink">SENT</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--red</code></TableCell>
+        <TableCell><Tag className="govuk-tag--red">REJECTED</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--orange</code></TableCell>
+        <TableCell><Tag className="govuk-tag--orange">DECLINED</Tag></TableCell>
+      </TableRow>,
+      <TableRow>
+        <TableCell><code>govuk-tag--yellow</code></TableCell>
+        <TableCell><Tag className="govuk-tag--yellow">DELAYED</Tag></TableCell>
+      </TableRow>,
+    ]
+  }
+};
 
-export { primary, tableWithHead, tableWithHeadAndCaption };
+export { primary, multipleTags, colouredTags, allColours };

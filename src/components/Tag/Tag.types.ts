@@ -1,7 +1,7 @@
 import React from "react";
 
 export default interface TagProps {
-  children?: React.ReactNode,
+  children?: any,
   className?: string,
   attributes?: any,
 }

@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "homepage": "https://govuk-ui.github.io/govuk-ui/",
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "dev": "storybook dev --docs -p 6006",
     "gen-components": "node ./src/scripts/gen-components.js",
     "gen-stories": "node ./src/scripts/gen-stories.js",
     "build-ts": "tsc",
