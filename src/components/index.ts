@@ -23,6 +23,7 @@ export { default as InsetText } from './InsetText';
 export { default as Label } from './Label';
 export { default as NotificationBanner } from './NotificationBanner';
 export { default as Pagination } from './Pagination';
+export { default as PaginationItem } from './PaginationItem';
 export { default as Panel } from './Panel';
 export { default as PhaseBanner } from './PhaseBanner';
 export { default as Radios } from './Radios';
