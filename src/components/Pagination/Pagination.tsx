@@ -52,8 +52,6 @@ export const Pagination = ({
     finalArray.splice((finalArray?.length - 1), 0, <PaginationItem ellipsis />)
   }
 
-  console.log(arrayChildren)
-
   return (
       <>
         <nav className={`govuk-pagination ${classes ? classes : ''}`} role="navigation" aria-label={`${landmarkLabel ? landmarkLabel : 'results'}`}>
@@ -95,7 +93,7 @@ export const Pagination = ({
                     <>
                       {
                         cloneElement(child as React.ReactElement<any>, {
-                          current: currentPageNumber.toString() === child.props.number
+                          current: currentPageNumber?.toString() === child.props.number
                         })
                       }
                     </>
