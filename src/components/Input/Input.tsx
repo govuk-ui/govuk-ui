@@ -15,6 +15,8 @@ export const Input = ({
   describedBy,
   autocomplete,
   inputmode,
+  prefix,
+  suffix,
   attributes,
   children,
 }: InputProps) => {

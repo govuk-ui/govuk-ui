@@ -1,0 +1,128 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as InputStories from './Input.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Text input" />
+
+<Hint>Components</Hint>
+
+# Text input
+
+<Canvas>
+  <Story of={InputStories.primary} />
+</Canvas>
+
+## When to use this component
+
+Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.
+
+When not to use this component
+
+Do not use the text input component if you need to let users enter longer answers that might span multiple lines. In this case, you should use the textarea component.
+
+## How it works
+
+All text inputs must have labels, and in most cases the label should be visible.
+
+You should align labels above the text input they refer to. They should be short, direct and written in sentence case. Do not use colons at the end of labels.
+
+### Avoid placeholder text
+
+Do not use placeholder text in place of a label, or for hints or examples, as:
+
+- it vanishes when the user starts typing, which can cause problems for users with memory conditions or when reviewing answers
+- not all screen readers read it out
+- its browser default styles often do not meet minimum contrast requirements
+
+### If you’re asking one question on the page
+
+If you’re asking just one question per page as recommended, you can set the contents of the `<Label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.
+
+Read more about why and how to set legends as headings.
+
+<Canvas>
+  <Story of={InputStories.primary} />
+</Canvas>
+
+### If you’re asking more than one question on the page
+
+If you’re asking more than one question on the page, do not set the contents of the `<label>` as the page heading. Read more about asking multiple questions on question pages.
+
+<Canvas>
+  <Story of={InputStories.withoutHeading} />
+</Canvas>
+
+## Use appropriately-sized text inputs
+
+Help users understand what they should enter by making text inputs the right size for the content they’re intended for.
+
+By default, the width of text inputs is fluid and will fit the full width of the container they are placed into.
+
+If you want to make the input smaller, you can either use a fixed width input, or use the width override classes to create a smaller, fluid width input.
+
+### Fixed width inputs
+
+Use fixed width inputs for content that has a specific, known length. Postcode inputs should be postcode-sized, telephone number inputs should be telephone number-sized.
+
+The widths are designed for specific character lengths and to be consistent across a range of browsers. They include extra padding to fit icons that some browsers might insert into the input (for example to show or generate a password).
+
+On fixed width inputs, the width will remain fixed on all screens unless it is wider than the viewport, in which case it will shrink to fit.
+
+<Canvas>
+  <Story of={InputStories.fixedWidthInputs} />
+</Canvas>
+
+### Fluid width inputs
+
+Use the width override classes to reduce the width of an input in relation to its parent container, for example, to two-thirds.
+
+Fluid width inputs will resize with the viewport.
+
+<Canvas>
+  <Story of={InputStories.fluidWidthInputs} />
+</Canvas>
+
+## Hint text
+
+Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.
+
+<Canvas>
+  <Story of={InputStories.hintText} />
+</Canvas>
+
+### When not to use hint text
+
+Do not use long paragraphs and lists in hint text. Screen readers read out the entire text when users interact with the form element. This could frustrate users if the text is long.
+
+### Avoid links
+
+Do not include links within hint text. While screen readers will read out the link text when describing the field, they will not tell users that the text is a link.
+
+## Numbers
+
+### Asking for whole numbers
+
+If you’re asking the user to enter a whole number, set the `inputmode` attribute to `numeric` to use the numeric keypad on devices with on-screen keyboards.
+
+See how to do this in this example:
+
+<Canvas>
+  <Story of={InputStories.number} />
+</Canvas>
+
+There is specific guidance on how to ask for:
+
+- dates
+- telephone numbers
+
+### Asking for decimal numbers
+
+If you’re asking the user to enter a number that might include decimal places, use `input type="text"`.
+
+Do not set the `inputmode` attribute to `decimal` as it causes some devices to bring up a keypad without a key for the decimal separator.
+
+<Canvas>
+  <Story of={InputStories.numberWithDecimals} />
+</Canvas>
+
