@@ -13,38 +13,44 @@ export const Pagination = ({
                            }: PaginationProps) => {
   const arrayChildren: any = Children.toArray(children);
 
-  if (currentPageNumber > 2) {
-    arrayChildren.splice(1, 0, <PaginationItem ellipsis />)
-  }
-
-  if (currentPageNumber < (arrayChildren?.length - 2)) {
-    arrayChildren.splice((arrayChildren?.length - 1), 0, <PaginationItem ellipsis />)
-  }
-
   const finalArray: any = [];
-  let ellipsisCount: number = 0;
   arrayChildren.forEach((child: any, index: number) => {
-    console.log("CHILD: ", child)
-    if (child.props?.ellipsis) {
-      finalArray.push(child);
-      ellipsisCount += 1;
-    }
+
+    //first page
     if (index === 0) {
       finalArray.push(child);
     }
-    // if (currentPageNumber > 2) {
-    //   finalArray.push(child)
-    // }
-    if (currentPageNumber === index) {
-      finalArray.push(child)
+
+    //previous page
+    else if (index === currentPageNumber-2) {
+      finalArray.push(child);
     }
-    // if (currentPageNumber < arrayChildren.length - 1) {
-    //   finalArray.push(child)
-    // }
-    if (arrayChildren.length - (1 + ellipsisCount) === index) {
+
+    //current page
+    else if (index === currentPageNumber-1) {
+      finalArray.push(child);
+    }
+    
+    //next page
+    else if (index === currentPageNumber) {
+      finalArray.push(child);
+    }
+
+    // last page
+    else if (arrayChildren.length -1 === index) {
       finalArray.push(child)
     }
   })
+
+  // ellipsis after first page
+  if (currentPageNumber > 3) {
+    finalArray.splice(1, 0, <PaginationItem ellipsis />)
+  }
+
+  // ellipsis before last page
+  if (currentPageNumber < (arrayChildren?.length - 2)) {
+    finalArray.splice((finalArray?.length - 1), 0, <PaginationItem ellipsis />)
+  }
 
   console.log(arrayChildren)
 
@@ -52,7 +58,7 @@ export const Pagination = ({
       <>
         <nav className={`govuk-pagination ${classes ? classes : ''}`} role="navigation" aria-label={`${landmarkLabel ? landmarkLabel : 'results'}`}>
 
-          {currentPageNumber > 0 && (
+          {previous && currentPageNumber > 1 && (
             <>
               <div className="govuk-pagination__prev">
                 <a className="govuk-link govuk-pagination__link" href={previous?.href} rel="prev">
@@ -89,8 +95,7 @@ export const Pagination = ({
                     <>
                       {
                         cloneElement(child as React.ReactElement<any>, {
-                          number: `${index + 1}`,
-                          current: (index + 1) === currentPageNumber
+                          current: currentPageNumber.toString() === child.props.number
                         })
                       }
                     </>
@@ -100,7 +105,7 @@ export const Pagination = ({
             </ul>
           )}
 
-          {next && (
+          {next && currentPageNumber !== arrayChildren.length && (
               <div className="govuk-pagination__next">
                 <a className="govuk-link govuk-pagination__link" href={next.href} rel="next">
                   <span className="govuk-pagination__link-title">{next.text ? next.text : 'Next'}</span>
