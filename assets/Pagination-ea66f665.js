@@ -1,0 +1,16 @@
+import{a as t,j as r,F as a}from"./jsx-runtime-68f49b4e.js";import{M as m,C as s,S as h}from"./chunk-4XCFV5WA-9b5839de.js";import{primary as l}from"./Pagination.stories-52c9b6d4.js";import"./Accordion-12d9884c.js";import"./BackLink-54564ca1.js";import"./BreadcrumbItem-7e03e4ef.js";import"./Button-791dc627.js";import"./CharacterCount-6c285db3.js";import"./Table-26453dde.js";import"./CookieBanner-5f4494f2.js";import"./DateInput-4b08d3af.js";import"./Details-7a2689db.js";import"./ErrorMessage-07ea8fac.js";import"./ErrorSummary-d6d61f90.js";import"./FileUpload-b260dab3.js";import"./Footer-aedacc55.js";import"./Header-81057254.js";import{H as c}from"./Hint-47130fa7.js";import"./Input-70154cc0.js";import"./InsetText-39830db6.js";import"./Label-3d09487c.js";import"./NotificationBanner-b6ddf0d7.js";import"./Pagination-f75ef24e.js";import"./Panel-9db3f9a0.js";import"./PhaseBanner-b7bf4a2c.js";import"./Radios-78e6f060.js";import"./Select-d6e3d713.js";import"./SkipLink-0b18f351.js";import"./Tabs-61739ac7.js";import"./Textarea-0f1928d4.js";import"./WarningText-6272bbd9.js";import"./chunk-R4NKYYJA-96bb58e6.js";import{u as p}from"./index-9ec211f2.js";import"./index-f1f749bf.js";import"./_commonjsHelpers-042e6b4d.js";import"./iframe-b267c479.js";import"../sb-preview/runtime.mjs";import"./index-2d4beb60.js";import"./index-d475d2ea.js";import"./index-d37d4223.js";import"./index-356e4a49.js";import"./FormGroup-f91b51d3.js";import"./Fieldset-cd643f71.js";import"./Legend-645732ce.js";import"./Typography-3950099a.js";function nt(e={}){const{wrapper:i}=Object.assign({},p(),e.components);return i?t(i,Object.assign({},e,{children:t(n,{})})):n();function n(){const o=Object.assign({h1:"h1",p:"p",h2:"h2",ul:"ul",li:"li"},p(),e.components);return r(a,{children:[t(m,{title:"Pagination"}),`
+`,t(c,{children:"Components"}),`
+`,t(o.h1,{children:"Pagination"}),`
+`,t(o.p,{children:"Help users navigate forwards and backwards through a series of pages. For example, search results or guidance that’s divided into multiple website pages — like the GOV.UK mainstream guide format."}),`
+`,t(s,{children:t(h,{of:l})}),`
+`,t(o.h2,{children:"When to use this component"}),`
+`,t(o.p,{children:"Consider using pagination when:"}),`
+`,r(o.ul,{children:[`
+`,t(o.li,{children:"showing all the content on a single page makes the page take too long to load"}),`
+`,t(o.li,{children:"most users will only need the content on the first page or first few pages"}),`
+`]}),`
+`,t(o.h2,{children:"When not to use this component"}),`
+`,t(o.p,{children:"Only break up content onto separate pages if it improves the performance or usability of your service."}),`
+`,t(o.p,{children:"Avoid using the ‘infinite scroll’ technique to automatically load content when the user approaches the bottom of the page. This causes problems for keyboard users."}),`
+`,t(o.p,{children:"Do not use this Pagination component for linear journeys — for example, where you’re asking the user to complete a form. Instead, use the Button component (usually a ‘Continue’ button) to let the user move to the next page — and a Back link to let them move to the previous page."})]})}}export{nt as default};
+//# sourceMappingURL=Pagination-ea66f665.js.map
