@@ -126,3 +126,166 @@ Do not set the `inputmode` attribute to `decimal` as it causes some devices to b
   <Story of={InputStories.numberWithDecimals} />
 </Canvas>
 
+### Avoid using inputs with a type of number
+
+Do not use `<input type="number">` unless your user research shows that there’s a need for it. With `<input type="number">` there’s a risk of users accidentally incrementing a number when they’re trying to do something else - for example, scroll up or down the page. And if the user tries to enter something that’s not a number, there’s no explicit feedback about what they’re doing wrong.
+
+## Prefixes and suffixes
+
+Use prefixes and suffixes to help users enter things like currencies and measurements.
+
+<Canvas>
+  <Story of={InputStories.prefixAndSuffix} />
+</Canvas>
+
+Prefixes and suffixes are useful when there’s a commonly understood symbol or abbreviation for the type of information you’re asking for. Do not rely on prefixes or suffixes alone, because screen readers will not read them out.
+
+If you need a specific type of information, say so in the input label or hint text as well. For example, put ‘Cost, in pounds’ in the input label and use the ‘£’ symbol in the prefix.
+
+Position prefixes and suffixes so that they’re outside of their input. This is to avoid interfering with some browsers that might insert an icon into the input (for example to show or generate a password).
+
+Some users may miss that the input already has a suffix or prefix, and enter a prefix or suffix into the input. Allow for this in your validation and do not show an error.
+
+### Text inputs with a prefix
+
+<Canvas>
+  <Story of={InputStories.prefix} />
+</Canvas>
+
+### Text inputs with a suffix
+
+<Canvas>
+  <Story of={InputStories.suffix} />
+</Canvas>
+
+## Use the autocomplete attribute
+
+Use the `autocomplete` attribute on text inputs to help users complete forms more quickly. This lets you specify an input’s purpose so browsers can autofill the information on a user’s behalf if they’ve entered it previously.
+
+For example, to enable autofill on a postcode field, set the `autocomplete` attribute to `postal-code`.
+
+<Canvas>
+  <Story of={InputStories.autocomplete} />
+</Canvas>
+
+If you are working in production and there is a relevant input purpose, you’ll need to use the `autocomplete` attribute to meet WCAG 2.1 Level AA.
+
+You will not normally need to use the `autocomplete` attribute in prototypes, as users will not generally be using their own devices.
+
+## Do not disable copy and paste
+
+Users often need to copy and paste information into a text input, so do not stop them from doing this.
+
+## How and when to spellcheck a user’s input
+
+Sometimes, browsers will spellcheck the information a user puts into a text input. If a user enters something which is recognised as a spelling error, sighted users will see a red line under the word.
+
+If you are asking users for information which is not appropriate to spellcheck, like a reference number, name, email address or National Insurance number, disable the spellcheck.
+
+To do this set the `spellcheck` attribute to `false` as shown in this example.
+
+<Canvas>
+  <Story of={InputStories.spellcheck} />
+</Canvas>
+
+Browsers do not consistently spellcheck user’s input by default. If you are asking a question where spellcheck would be useful, set the `spellcheck` prop to `true`.
+
+## Error messages
+
+Error messages should be styled like this:
+
+<Canvas>
+  <Story of={InputStories.error} />
+</Canvas>
+
+### If the input has a prefix or a suffix
+
+<Canvas>
+  <Story of={InputStories.prefixSuffixError} />
+</Canvas>
+
+Make sure errors follow the guidance in error message and have specific error messages for specific error states.
+
+### If the input is empty
+
+Say ‘Enter [whatever it is]’.
+
+For example, ‘Enter your first name’.
+
+### If the input is too long
+
+Say ‘[whatever it is] must be [number] characters or less’.
+
+For example, ‘Address line 1 must be 35 characters or less’.
+
+### If the input is too short
+
+Say ‘[whatever it is] must be [number] characters or more’.
+
+For example, ‘Full name must be 2 characters or more’.
+
+### If the input has both a minimum and maximum length
+
+Say ‘[whatever it is] must be between [number] and [number] characters’.
+
+For example, ‘Last name must be between 2 and 35 characters’.
+
+### If the input uses characters that are not allowed and you know what the characters are
+
+Say ‘[whatever it is] must not include [characters]’.
+
+For example, ‘Town or city must not include è and £’.
+
+Support all the characters the user might need to enter, including numbers and symbols.
+
+### If the input uses characters that are not allowed and you do not know what the characters are
+
+Say ‘[whatever it is] must only include [list of allowed characters]’.
+
+For example, ‘Full name must only include letters a to z, and special characters such as hyphens, spaces and apostrophes’.
+
+Support all the characters the user might need to enter, including numbers and symbols.
+
+### If the input is not a number
+
+Say ‘[whatever it is] must be a number [optional example]’.
+
+For example, ‘Hours worked a week must be a number, like 30’.
+
+If the input requires a decimal, use a decimal in the example. If the input allows both whole numbers and decimals, use both in the example.
+
+## If the input is not a whole number
+
+Say ‘[whatever it is] must be a whole number [optional example]’.
+
+For example, ‘Hours worked a week must be a whole number, like 30’.
+
+### If the number is too low
+
+Say ‘[whatever it is] must be [lowest] or more’.
+
+For example, ‘Hours worked a week must be 16 or more’.
+
+### If the number is too high
+
+Say ‘[whatever it is] must be [highest] or fewer’.
+
+For example, ‘Hours worked a week must be 99 or fewer’.
+
+### If the input must be between 2 numbers
+
+Say ‘[whatever it is] must be between [lowest] and [highest]’.
+
+For example, ‘Hours worked a week must be between 16 and 99’.
+
+### If the input is an amount of money that needs decimals
+
+Say ‘[whatever it is] must include pence, like 123.45 or 156.00’.
+
+For example, ‘How much you earn a week must include pence, like 123.45 or 156.00’.
+
+### If the input is an amount of money that must not have decimals
+
+Say ‘[whatever it is] must not include pence, like 123 or 156’.
+
+For example, ‘How much you earn a week must not include pence, like 123 or 156’.

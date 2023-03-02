@@ -136,6 +136,122 @@ const numberWithDecimals: Story = {
   }
 };
 
+const prefixAndSuffix: Story = {
+  name: "Prefix and suffix",
+  args: {
+    name: 'weight',
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    prefix: '£',
+    suffix: 'per item',
+    children: [
+      <Label>
+        <Typography component="h1" variant="l" classes="govuk-label--l">
+          What is the cost per item, in pounds?
+        </Typography>
+      </Label>
+    ]
+  }
+};
+
+const prefix: Story = {
+  name: "Prefix",
+  args: {
+    name: 'cost',
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    prefix: '£',
+    children: [
+      <Label>
+        <Typography component="h1" variant="l" classes="govuk-label--l">
+          What is the cost in pounds?
+        </Typography>
+      </Label>
+    ]
+  }
+};
+
+const suffix: Story = {
+  name: "Suffix",
+  args: {
+    name: 'weight',
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    suffix: 'kg',
+    children: [
+      <Label>
+        <Typography component="h1" variant="l" classes="govuk-label--l">
+          What is the weight in kilograms?
+        </Typography>
+      </Label>
+    ]
+  }
+};
+
+const autocomplete: Story = {
+  name: "Autocomplete",
+  args: {
+    name: 'postal-code',
+    classes: "govuk-input--width-10",
+    autocomplete: 'postal-code',
+    children: [
+      <Label>
+        Postcode
+      </Label>
+    ]
+  }
+};
+
+const spellcheck: Story = {
+  name: "Spellcheck",
+  args: {
+    name: 'name',
+    spellcheck: false,
+    children: [
+      <Label>
+        Reference number
+      </Label>
+    ]
+  }
+};
+
+const error: Story = {
+  name: "Error message",
+  args: {
+    name: 'event-name',
+    errorMessage: "Enter an event name",
+    children: [
+      <Label>
+        <Typography component="h1" variant="l" classes="govuk-label--l">
+          What is the name of the event?
+        </Typography>
+      </Label>,
+      <Hint>
+        The name you’ll use on promotional material
+      </Hint>
+    ]
+  }
+};
+
+const prefixSuffixError: Story = {
+  name: "Error message on prefix and suffix",
+  args: {
+    name: 'cost-per-item-error',
+    errorMessage: "Enter a cost per item, in pounds",
+    prefix: "£",
+    suffix: "per item",
+    classes: "govuk-input--width-5",
+    spellcheck: false,
+    children: [
+      <Label>
+        <Typography component="h1" variant="l" classes="govuk-label--l">
+          What is the cost per item, in pounds?
+        </Typography>
+      </Label>
+    ]
+  }
+};
+
 export {
   primary,
   withoutHeading,
@@ -144,4 +260,11 @@ export {
   hintText,
   number,
   numberWithDecimals,
+  prefixAndSuffix,
+  prefix,
+  suffix,
+  autocomplete,
+  spellcheck,
+  error,
+  prefixSuffixError
 };
