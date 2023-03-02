@@ -3,7 +3,7 @@ import CheckboxesProps from "./Checkboxes.types";
 import FormGroup from "../../layout/FormGroup";
 import ErrorMessage from "../ErrorMessage";
 
-export const Radios = ({
+export const Checkboxes = ({
   id,
   name,
   children,
@@ -49,4 +49,4 @@ export const Radios = ({
   );
 };
 
-export default Radios;
+export default Checkboxes;
