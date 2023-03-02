@@ -15,6 +15,8 @@ export const Input = ({
   describedBy,
   autocomplete,
   inputmode,
+  prefix,
+  suffix,
   attributes,
   children,
 }: InputProps) => {
@@ -35,6 +37,30 @@ export const Input = ({
   }
 
   const arrayChildren: any = Children.toArray(children);
+
+  const PrefixSuffixWrapper = ({children}: any) => {
+    if (prefix || suffix) {
+      return (
+        <>
+          <div className="govuk-input__wrapper">
+            { prefix && (
+              <div className="govuk-input__prefix">
+                {prefix}
+              </div>
+            )}
+            {children}
+            { suffix && (
+              <div className="govuk-input__suffix">
+                {suffix}
+              </div>
+            )}
+          </div>
+        </>
+      )
+    }
+    else return children;
+  };
+
 
   return (
     <>
@@ -63,16 +89,18 @@ export const Input = ({
           }
         })}
         {errorMessageComponent}
-        <input
-          className={`govuk-input ${classes || ''} ${errorMessage ? ' govuk-input--error' : ''}`}
-          id={id}
-          name={name}
-          type={type}
-          defaultValue={value}
-          aria-describedby={describedByValue || ''}
-          autoComplete={autocomplete}
-          inputMode={inputmode}
-        />
+        <PrefixSuffixWrapper>
+          <input
+            className={`govuk-input ${classes || ''} ${errorMessage ? ' govuk-input--error' : ''}`}
+            id={id}
+            name={name}
+            type={type}
+            defaultValue={value}
+            aria-describedby={describedByValue || ''}
+            autoComplete={autocomplete}
+            inputMode={inputmode}
+          />
+        </PrefixSuffixWrapper>
       </FormGroup>
     </>
   );
