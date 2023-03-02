@@ -1,2 +1,0 @@
-import{a as r}from"./jsx-runtime-68f49b4e.js";const a=({children:e,classes:s,...t})=>r("legend",{className:`govuk-fieldset__legend ${s||""}`,...t,children:e});try{a.displayName="Legend",a.__docgenInfo={description:"",displayName:"Legend",props:{classes:{defaultValue:null,description:"",name:"classes",required:!1,type:{name:"string"}},attributes:{defaultValue:null,description:"",name:"attributes",required:!1,type:{name:"any"}}}}}catch{}export{a as L};
-//# sourceMappingURL=Legend-645732ce.js.map
