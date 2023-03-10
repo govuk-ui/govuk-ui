@@ -12,6 +12,10 @@ export const Pagination = ({
 }: PaginationProps) => {
   const arrayChildren: any = Children.toArray(children);
 
+  if (arrayChildren?.length < 1) {
+    return null;
+  }
+
   const blockLevel = arrayChildren?.length < 1 && (previous || next);
 
   const finalArray: any = [];
