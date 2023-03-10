@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/blocks';
+import * as TabStories from './Tabs.stories';
+import { Hint, Tag } from '../../../components';
+import { Canvas, Story } from '@storybook/addon-docs';
+
+<Meta title="Tabs" />
+
+<Hint>Components</Hint>
+
+# Tabs
+
+<Tag>EXPERIMENTAL</Tag>
+
+This component is currently experimental because more research is needed to validate it.
+
+The tabs component lets users navigate between related sections of content, displaying one section at a time.
+
+<Canvas>
+  <Story of={TabStories.primary} />
+</Canvas>
+

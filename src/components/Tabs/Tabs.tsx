@@ -11,10 +11,8 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
     <>
       <div className={`govuk-tabs ${classes || ''}`} data-module="govuk-tabs" { ...attributes }>
 
-        { title && (
-          <h2 className="govuk-tabs__title">{title}</h2>
-        )}
-        
+        <h2 className="govuk-tabs__title">{title || "Contents"}</h2>
+
         <ul className="govuk-tabs__list">
           { Children.map(arrayChildren, (child:any, index) => {
             if (isValidElement(child) && (child.type === TabItem)) {
@@ -23,8 +21,7 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
                   <>
                     {
                       cloneElement(child as React.ReactElement<any>, {
-                        href: child?.props?.href ? child.props.href : `#tab-item-${index}`,
-                        id: `tab_${index}`
+                        href: child?.props?.id ? `#${child.props.id}` : `#tab-item-${index}`
                       })
                     }
                   </>
@@ -37,7 +34,7 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
           if (isValidElement(child) && (child.type === TabItem)) {
             child = child as TabItemProps
             return (
-              <div className={`govuk-tabs__panel ${child?.props.selected ? '' : 'govuk-tabs__panel--hidden'}`} id={child.props.href}>
+              <div className={`govuk-tabs__panel ${child?.props.selected ? '' : 'govuk-tabs__panel--hidden'}`} id={child.props.id ? child.props.id : `#tab-item-${index}`}>
                 { child?.props.children }
               </div>
             );
