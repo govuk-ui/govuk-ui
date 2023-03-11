@@ -15,14 +15,14 @@ type Story = StoryObj<typeof Tabs>;
 const primary: Story = {
   name: "default",
   render: (args) => (
-    <Tabs>
-      <TabItem label="First Tab" selected>
-        <Typography>First Tab</Typography>
-      </TabItem>
-      <TabItem label="Second Tab">
-        <Typography>Second Tab</Typography>
-      </TabItem>
-    </Tabs>
+      <Tabs title="Claims">
+        <TabItem label='New Claims' selected>
+          <p>New claims</p>
+        </TabItem>
+        <TabItem label='Old Claims'>
+          <p>Old claims</p>
+        </TabItem>
+      </Tabs>
   )
 };
 
