@@ -1,5 +1,5 @@
 import React, {Children, cloneElement, isValidElement} from "react";
-import { TabItem } from "../TabItem/TabItem";
+import TabItem from "../TabItem";
 import TabsProps from "./Tabs.types";
 import TabItemProps from "../TabItem/TabItem.types";
 
