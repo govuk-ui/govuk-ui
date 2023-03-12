@@ -15,30 +15,24 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
 
         <ul className="govuk-tabs__list">
           { Children.map(arrayChildren, (child:any, index) => {
-            if (isValidElement(child) && (child.type === TabItem)) {
-              child = child as TabItemProps
-              return (
-                  <>
-                    {
-                      cloneElement(child as React.ReactElement<any>, {
-                        href: child?.props?.id ? `#${child.props.id}` : `#tab-item-${index + 1}`
-                      })
-                    }
-                  </>
-              );
-            }
+            return (
+              <>
+                {
+                  cloneElement(child as React.ReactElement<any>, {
+                    href: child?.props?.id ? `#${child.props.id}` : `#tab-item-${index + 1}`
+                  })
+                }
+              </>
+            );
           })}
         </ul>
 
         { Children.map(arrayChildren, (child:any, index) => {
-          if (isValidElement(child) && (child.type === TabItem)) {
-            child = child as TabItemProps
-            return (
-              <div className={`govuk-tabs__panel ${child?.props.selected ? '' : 'govuk-tabs__panel--hidden'}`} id={child.props.id ? child.props.id : `tab-item-${index + 1}`}>
-                { child?.props.children }
-              </div>
-            );
-          }
+          return (
+            <div className={`govuk-tabs__panel ${child?.props.selected ? '' : 'govuk-tabs__panel--hidden'}`} id={child.props.id ? child.props.id : `tab-item-${index + 1}`}>
+              { child?.props.children }
+            </div>
+          );
         })}
       </div>
     </>
