@@ -14,8 +14,6 @@ export const Tabs = ({ children, classes, id, title, attributes }: TabsProps) =>
 
       <ul className="govuk-tabs__list">
         { Children.map(arrayChildren, (child:any, index) => {
-          console.log(`Child (index ${index}) valid: `, isValidElement(child));
-          console.log(`Child (index ${index}) type: `, child.type);
           if (isValidElement(child) && (child.type === TabItem)) {
             child = child as TabItemProps
             return (
