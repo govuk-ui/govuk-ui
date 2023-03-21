@@ -1,7 +1,6 @@
 export default interface SkipLinkProps {
-  text?: string,
+  children?: any,
   href?: string,
   classes?: string,
-  html?: string,
   attributes?: any,
 }

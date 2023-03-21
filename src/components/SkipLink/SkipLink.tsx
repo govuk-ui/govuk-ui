@@ -1,13 +1,11 @@
 import React from "react";
 import SkipLinkProps from "./SkipLink.types";
 
-export const SkipLink = ({ text, href, classes, html, attributes }: SkipLinkProps) => {
+export const SkipLink = ({ children, href, classes, attributes }: SkipLinkProps) => {
   return (
-    <>
-      <a href="#content" className="govuk-skip-link" data-module="govuk-skip-link">
-        Skip to main content
-      </a>
-    </>
+    <a href={href} className={`govuk-skip-link${classes ? ` ${classes}` : ''}`} data-module="govuk-skip-link" { ...attributes }>
+      {children}
+    </a>
   );
 };
 
