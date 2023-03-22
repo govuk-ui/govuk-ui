@@ -19,13 +19,13 @@ describe('BackLink component', () => {
     expect(screen.getByText('Back')).toBeInTheDocument();
   });
 
-  test('applies the passed class', () => {
+  test('applies passed additional classes', () => {
     const className = 'custom-class';
     render(<BackLink href="/" classes={className} />);
     expect(screen.getByText('Back')).toHaveClass('govuk-back-link', className);
   });
 
-  test('applies the passed attributes', () => {
+  test('applies passed attributes', () => {
     const ariaLabel = 'Go back';
     render(<BackLink href="/" aria-label={ariaLabel} />);
     expect(screen.getByText('Back')).toHaveAttribute('aria-label', ariaLabel);
