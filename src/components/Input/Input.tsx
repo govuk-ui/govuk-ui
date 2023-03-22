@@ -17,8 +17,8 @@ export const Input = ({
   inputmode,
   prefix,
   suffix,
-  attributes,
   children,
+  ...attributes
 }: InputProps) => {
 
   if (!id && name) {
@@ -99,6 +99,7 @@ export const Input = ({
             aria-describedby={describedByValue || ''}
             autoComplete={autocomplete}
             inputMode={inputmode}
+            {...attributes}
           />
         </PrefixSuffixWrapper>
       </FormGroup>
