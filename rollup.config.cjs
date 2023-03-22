@@ -21,12 +21,18 @@ const config =  [
     ],
     plugins: [
       babel({
-        exclude: "node_modules/**",
+        exclude: [
+          "node_modules/**",
+          "**/*.test.{js,jsx,ts,tsx}",
+        ],
         presets: ["@babel/preset-react"],
       }),
       external(),
       resolve(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: [ '**/*.test.tsx' ],
+      }),
     ]
   },
   {
