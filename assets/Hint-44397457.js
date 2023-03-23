@@ -1,0 +1,2 @@
+import{j as i}from"./jsx-runtime-670450c2.js";const a=({children:e,id:t,classes:r,...s})=>i("div",{className:`govuk-hint ${r||""}`,id:t,...s,children:e});try{a.displayName="Hint",a.__docgenInfo={description:"",displayName:"Hint",props:{id:{defaultValue:null,description:"",name:"id",required:!1,type:{name:"string"}},classes:{defaultValue:null,description:"",name:"classes",required:!1,type:{name:"string"}},attributes:{defaultValue:null,description:"",name:"attributes",required:!1,type:{name:"any"}}}}}catch{}export{a as H};
+//# sourceMappingURL=Hint-44397457.js.map
