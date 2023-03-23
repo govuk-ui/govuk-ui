@@ -78,7 +78,6 @@ const preventDoubleClick: Story = {
   }
 }
 
-
 export {
   primary,
   start,

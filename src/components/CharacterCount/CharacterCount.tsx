@@ -1,17 +1,18 @@
 import React from "react";
 import CharacterCountProps from "./CharacterCount.types";
+import { Textarea } from "..";
 
 export const CharacterCount = ({
   name,
   id,
-  maxlength,
-  label,
+  maxLength,
   textareaDescriptionText,
-  hint,
   value,
   errorMessage,
   rows,
-  maxwords,
+  autocomplete,
+  children,
+  maxWords,
   threshold,
   charactersUnderLimitText,
   charactersAtLimitText,
@@ -20,30 +21,34 @@ export const CharacterCount = ({
   wordsAtLimitText,
   wordsOverLimitText,
   classes,
-  attributes,
   formGroup,
   countMessage,
   spellcheck,
+  describedBy,
+  ...attributes
 }: CharacterCountProps) => {
+
+  const hintSuffix = maxWords ? `${maxWords} words` : `${maxLength} characters`;
+  const hintMessage = `You can enter up to ${hintSuffix}`;
   return (
     <>
-      <div className="govuk-character-count" data-module="govuk-character-count" data-maxlength="10">
-        <div className="govuk-form-group">
-          <label className="govuk-label" htmlFor="more-detail">
-            Can you provide more detail?
-          </label>
+      <div className={`govuk-character-count ${classes}`} data-module="govuk-character-count" data-maxlength="10">
+        <Textarea
+          classes="govuk-textarea govuk-js-character-count"
+          id={id}
+          name={name}
+          rows={rows}
+          autocomplete={autocomplete}
+          spellcheck={spellcheck}
+          describedBy={describedBy || ''}
+          value={value || ''}
+          {...attributes}
+        >
+          {children}
+        </Textarea>
 
-          <textarea
-            className="govuk-textarea govuk-js-character-count"
-            id="more-detail"
-            name="more-detail"
-            rows="5"
-            aria-describedby="more-detail-info"
-          ></textarea>
-        </div>
-
-        <div id="more-detail-info" className="govuk-hint govuk-character-count__message">
-          You can enter up to 10 characters
+        <div id={`${id}-info`} className="govuk-hint govuk-character-count__message">
+          {hintMessage}
         </div>
       </div>
     </>
