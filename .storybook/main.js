@@ -1,5 +1,6 @@
 module.exports = {
   "stories": [
+    "../src/**/BackLink.mdx",
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
     '../src/**/*.mdx',
