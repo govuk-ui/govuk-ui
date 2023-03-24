@@ -17,7 +17,8 @@ const primary: Story = {
   render: () => (
     <>
       <CharacterCount
-        maxlength={200}
+        id="example-textarea"
+        maxLength={200}
       >
         <Label>
           <Typography component="h1" variant="l">
