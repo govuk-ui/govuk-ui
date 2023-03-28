@@ -77,13 +77,14 @@ const threshold: Story = {
         id="example-textarea"
         maxLength={112}
         threshold={75}
+        value="Type another letter into this field after this message to see the threshold feature"
       >
         <Label>
           <Typography component="h1" variant="l">
             Can you provide more detail?
           </Typography>
         </Label>
-        Type another letter into this field after this message to see the threshold feature
+        
       </CharacterCount>
     </>
   )
@@ -97,6 +98,7 @@ const errorInPlace: Story = {
         id="example-textarea"
         maxWords={150}
         errorMessage="Job description must be 350 characters or less"
+        value="A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format."
       >
         <Label>
           <Typography component="h1" variant="l">

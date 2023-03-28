@@ -15,9 +15,18 @@ export const Textarea = ({
   errorMessage,
   attributes,
   children,
+  prefix,
+  suffix,
   describedBy,
   value,
 }: TextareaProps) => {
+
+  if (!id && name) {
+    id = name;
+  } else if (!name && id) {
+    name = id;
+  }
+
   let describedByValue = describedBy || '';
   let errorMessageComponent;
 
@@ -28,6 +37,29 @@ export const Textarea = ({
   }
 
   const arrayChildren: any = Children.toArray(children);
+
+  const PrefixSuffixWrapper = ({children}: any) => {
+    if (prefix || suffix) {
+      return (
+        <>
+          <div className="govuk-input__wrapper">
+            { prefix && (
+              <div className="govuk-input__prefix">
+                {prefix}
+              </div>
+            )}
+            {children}
+            { suffix && (
+              <div className="govuk-input__suffix">
+                {suffix}
+              </div>
+            )}
+          </div>
+        </>
+      )
+    }
+    else return children;
+  };
 
   return (
     <>
@@ -56,17 +88,19 @@ export const Textarea = ({
           }
         })}
         {errorMessageComponent}
-        <textarea
-          className={`govuk-textarea ${classes}`}
-          id={id}
-          name={name}
-          rows={rows}
-          autoComplete={autocomplete}
-          spellCheck={spellcheck}
-          aria-describedby={describedByValue || ''}
-          defaultValue={value}
-          {...attributes}
-        />
+        <PrefixSuffixWrapper>
+          <textarea
+            className={`govuk-textarea ${classes}`}
+            id={id}
+            name={name}
+            rows={rows || 5}
+            autoComplete={autocomplete}
+            spellCheck={spellcheck}
+            aria-describedby={describedByValue || ''}
+            defaultValue={value}
+            {...attributes}
+          />
+        </PrefixSuffixWrapper>
       </FormGroup>
     </>
   );
