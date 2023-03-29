@@ -3,19 +3,22 @@ import Label from '../Label';
 import Hint from '../Hint';
 import CheckboxItemProps from "./CheckboxItem.types";
 
-export const CheckboxesItem = ({ 
+export const CheckboxItem = ({
   id,
   name,
   children,
   key,
   divider,
   exclusive,
+  conditional,
   value,
   data,
   classes,
   ...attributes }: CheckboxItemProps) => {
 
-  const arrayChildren:any = Children.toArray(children);
+  const conditionalId = `conditional-${id}`
+
+  const arrayChildren: any = Children.toArray(children);
 
   return (
     <div className={ !divider ? 'govuk-checkboxes__item' : 'govuk-checkboxes__divider' }>
@@ -29,6 +32,7 @@ export const CheckboxesItem = ({
             type="checkbox"
             value={value}
             defaultChecked={((Array.isArray(data) && data.includes(value)) || (data === value))}
+            data-aria-controls={ conditional ? conditionalId : '' }
             data-behaviour={exclusive ? 'exclusive' : null}
             { ...attributes }
           />
@@ -36,7 +40,7 @@ export const CheckboxesItem = ({
             if (isValidElement(child) && child.type === Label) {
               return (
                 <>
-                  { 
+                  {
                     cloneElement(child as React.ReactElement<any>, {
                       classes: 'govuk-checkboxes__label'
                     })
@@ -46,7 +50,7 @@ export const CheckboxesItem = ({
             } else if (isValidElement(child) && child.type === Hint) {
               return (
                 <>
-                  { 
+                  {
                     cloneElement(child as React.ReactElement<any>, {
                       classes: 'govuk-checkboxes__hint'
                     })
@@ -55,6 +59,11 @@ export const CheckboxesItem = ({
               );
             }
           })}
+          { conditional && (
+            <div className={`govuk-checkboxes__conditional ${data !== value ? 'govuk-checkboxes__conditional--hidden' : ''}`} id={conditionalId}>
+              { conditional }
+            </div>
+          )}
         </>
       )}
       { divider && (
@@ -66,4 +75,4 @@ export const CheckboxesItem = ({
   );
 };
 
-export default CheckboxesItem;
+export default CheckboxItem;
