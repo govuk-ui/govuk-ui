@@ -3,6 +3,8 @@ export default interface TextareaProps {
   id?: string,
   label?: any,
   rows?: number,
+  prefix?: string,
+  suffix?: string,
   autocomplete?: string,
   spellcheck?: boolean,
   classes?: string,

@@ -47,11 +47,12 @@ export const CharacterCount = ({
         spellcheck={spellcheck}
         describedBy={describedBy || ''}
         value={value || ''}
+        errorMessage={errorMessage || ''}
         {...attributes}
       >
         {children}
       </Textarea>
-
+      
       <div id={`${id}-info`} className="govuk-hint govuk-character-count__message">
         {hintMessage}
       </div>
