@@ -55,6 +55,17 @@ export const Radios = ({
             );
           }
         })}
+        { Children.map(arrayChildren, (child:any, _index) => {
+          if (isValidElement(child) && (child.type === Hint)) {
+            return (
+                <>
+                  {
+                    cloneElement(child as React.ReactElement<any>, {})
+                  }
+                </>
+            );
+          }
+        })}
         { errorMessageComponent }
         <div className={`govuk-radios ${classes || ''}`} data-module="govuk-radios" { ...attributes }>
           { Children.map(radioItemsArray, (child: any, index) => {

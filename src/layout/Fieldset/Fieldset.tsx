@@ -10,7 +10,7 @@ export const Fieldset = ({
 }: FieldsetProps) => {
   return (
     <fieldset
-      className={`govuk-fieldset ${classes || ''}`}
+      className={`govuk-fieldset${classes ? ` ${classes}` : ''}`}
       aria-describedby={describedBy || ''}
       role={role || ''}
       { ...attributes }
