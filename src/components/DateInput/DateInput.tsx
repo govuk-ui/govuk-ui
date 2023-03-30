@@ -16,6 +16,9 @@ export const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  autocompleteDay,
+  autocompleteMonth,
+  autocompleteYear,
   errorMessage,
   children,
   value,
@@ -68,6 +71,7 @@ export const DateInput = ({
               name={`${name}-day`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteDay || ''}
               value={value ? value[`${id}-day`] : null}
             >
               <Label>
@@ -83,6 +87,7 @@ export const DateInput = ({
               name={`${name}-month`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteMonth || ''}
               value={value ? value[`${id}-month`] : null}
             >
               <Label>
@@ -98,6 +103,7 @@ export const DateInput = ({
               name={`${name}-year`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteYear || ''}
               value={value ? value[`${id}-year`] : null}
             >
               <Label>
