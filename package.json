@@ -1,7 +1,7 @@
 {
   "name": "govuk-ui",
   "private": false,
-  "version": "0.0.120",
+  "version": "0.0.121",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
