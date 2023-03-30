@@ -15,78 +15,90 @@ type Story = StoryObj<typeof DateInput>;
 const primary: Story = {
   name: 'Primary date input',
   render: (args) => (
-    <>
-      
-      <DateInput id="example-dateinput">
-        <Legend>
-          When was your passport issued?
-        </Legend>
-        <Hint>
-          For example, 27 3 2007
-        </Hint>
-      </DateInput>
-    </>  
+    <DateInput id="example-dateinput">
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        When was your passport issued?
+      </Legend>
+      <Hint>
+        For example, 27 3 2007
+      </Hint>
+    </DateInput>
   )
 }
 
 const twoQuestions: Story = {
   name: 'Two questions date input',
   render: (args) => (
-    <>
-      <Label>
-        <Typography>
-          When was your passport issued?
-        </Typography>
-      </Label>
+    <DateInput id="example-two-questions-dateinput">
+      <Legend>
+        When was your passport issued?
+      </Legend>
       <Hint>
         For example, 27 3 2007
       </Hint>
-      <DateInput
-        id="example-two-questions-dateinput"
-      />
-    </>  
+    </DateInput>
   )
 }
 
 const birthday: Story = {
   name: 'Birthday date input',
   render: (args) => (
-    <>
-      <Label>
-        <Typography component="h1" variant="l">
-          What is your date of birth?
-        </Typography>
-      </Label>
+    <DateInput id="example-birthday-dateinput"
+      autocompleteDay="bday-day"
+      autocompleteMonth="bday-month"
+      autocompleteYear="bday-year"
+    >
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        What is your date of birth?
+      </Legend>
       <Hint>
         For example, 31 3 1980
       </Hint>
-      <DateInput
-        id="example-birthday-dateinput"
-        autocompleteDay="bday-day"
-        autocompleteMonth="bday-month"
-        autocompleteYear="bday-year"
-      />
-    </>  
+    </DateInput>  
   )
 }
 
 const errorExample: Story = {
   name: 'Error date input',
   render: (args) => (
-    <>
-      <Label>
-        <Typography component="h1" variant="l">
-          When was your passport issued?
-        </Typography>
-      </Label>
+    <DateInput 
+      id="example-error-dateinput"
+      errorMessage="The date your passport was issued must be in the past"
+      value={{
+        'example-error-dateinput-day': '6',
+        'example-error-dateinput-month': '3',
+        'example-error-dateinput-year': '2076',
+      }}
+    >
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        When was your passport issued?
+      </Legend>
       <Hint>
         For example, 27 3 2007
       </Hint>
-      <DateInput
-        id="example-error-dateinput"
-        errorMessage="The date your passport was issued must be in the past"
-      />
-    </>  
+    </DateInput>
+  )
+}
+
+const errorExampleYear: Story = {
+  name: 'Error year date input',
+  render: (args) => (
+    <DateInput 
+      id="example-error-year-dateinput"
+      errorMessage="The date your passport was issued must include a year"
+      errorYear
+      value={{
+        'example-error-year-dateinput-day': '6',
+        'example-error-year-dateinput-month': '3',
+      }}
+    >
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        When was your passport issued?
+      </Legend>
+      <Hint>
+        For example, 27 3 2007
+      </Hint>
+    </DateInput>
   )
 }
 
@@ -95,4 +107,5 @@ export {
   twoQuestions,
   birthday,
   errorExample,
+  errorExampleYear,
 }

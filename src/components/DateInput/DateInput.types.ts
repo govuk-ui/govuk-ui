@@ -10,6 +10,9 @@ export default interface DateInputProps {
   classes?: string,
   value?: any,
   errorMessage?: string,
+  errorDay?: boolean,
+  errorMonth?: boolean,
+  errorYear?: boolean, 
   children?: any,
   attributes?: any,
 }

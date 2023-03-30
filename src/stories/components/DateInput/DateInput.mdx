@@ -76,3 +76,84 @@ If you’re highlighting the whole date, style all the fields like this:
 <Canvas>
   <Story of={DateInputStories.errorExample} />
 </Canvas>
+
+If you’re highlighting just one field - either the day, month or year - only style the field that has an error. The error message must say which field has an error, like this:
+
+<Canvas>
+  <Story of={DateInputStories.errorExampleYear} />
+</Canvas>
+
+Make sure errors follow the guidance in error message and have specific error messages for specific error states.
+
+If there’s more than one error, show the highest priority <a class="govuk-link" href="https://design-system.service.gov.uk/components/error-message/">error message</a>. In order of priority, show error messages about:
+
+- missing or incomplete information
+- information that cannot be correct (for example, the number ‘13’ in the month field)
+- information that fails validation for another reason
+
+### If nothing is entered
+Highlight the date input as a whole.
+
+Say ‘Enter [whatever it is]’. For example, ‘Enter your date of birth’.
+
+### If the date is incomplete
+Highlight the day, month or year field where the information is missing or incomplete. If more than one field is missing information, highlight the fields the user needs to fill in.
+
+Say ‘[whatever it is] must include a [whatever is missing]’.
+
+For example, ‘Date of birth must include a month’, ‘Date of birth must include a day and month’ or ‘Year must include 4 numbers’.
+
+### If the date entered cannot be correct
+For example, ‘13’ in the month field cannot be correct.
+
+Highlight the day, month or year field with the incorrect information. Or highlight the date as a whole if there’s incorrect information in more than one field, or it’s not clear which field is incorrect.
+
+Say ‘[Whatever it is] must be a real date’. For example, ‘Date of birth must be a real date’.
+
+### If the date is in the future when it needs to be in the past
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be in the past’. For example, ‘Date of birth must be in the past’.
+
+If the date is in the future when it needs to be today or in the past
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be today or in the past’. For example, ‘Date of birth must be today or in the past’.
+
+### If the date is in the past when it needs to be in the future
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be in the future’. For example, ‘The date your course ends must be in the future’.
+
+### If the date is in the past when it needs to be today or in the future
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be today or in the future’. For example, ‘The date your course ends must be today or in the future’.
+
+### If the date must be the same as or after another date
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be the same as or after [date and optional description]’. For example, ‘The date your course ends must be the same as or after 1 September 2017 when you started the course’.
+
+### If the date must be after another date
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be after [date and optional description]’. For example, ‘The day your course ends must be after 1 September 2017’.
+
+### If the date must be the same as or before another date
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be the same as or before [date and optional description]’. For example, ‘The date of Gordon’s last exam must be the same as or before 31 August 2017 when they left school’.
+
+### If the date must be before another date
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be before [date and optional description]’. For example, ‘The date of Gordon’s last exam must be the same as or before 31 August 2017’.
+
+### If the date must be between two dates
+Highlight the date input as a whole.
+
+Say ‘[whatever it is] must be between [date] and [date and optional description]’. For example, ‘The date your contract started must be between 1 September 2017 and 30 September 2017 when you were self-employed’.
+
+
+

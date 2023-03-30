@@ -20,6 +20,9 @@ export const DateInput = ({
   autocompleteMonth,
   autocompleteYear,
   errorMessage,
+  errorDay,
+  errorMonth,
+  errorYear,
   children,
   value,
   ...attributes
@@ -38,6 +41,12 @@ export const DateInput = ({
     const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
     errorMessageComponent = <ErrorMessage id={errorId}>{errorMessage}</ErrorMessage>;
+
+    if (!errorDay && !errorMonth && !errorYear) {
+      errorDay = true;
+      errorMonth = true;
+      errorYear = true;
+    }
   }
 
   const arrayChildren: any = Children.toArray(children);
@@ -66,7 +75,7 @@ export const DateInput = ({
         <div className={`govuk-date-input ${classes || ''}`} id={id} {...attributes}>
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-2"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-2${errorDay ? ' govuk-input--error' : ''}`}
               id={`${id}-day`}
               name={`${name}-day`}
               type="text"
@@ -82,7 +91,7 @@ export const DateInput = ({
 
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-2"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-2${errorMonth ? ' govuk-input--error' : ''}`}
               id={`${id}-month`}
               name={`${name}-month`}
               type="text"
@@ -98,7 +107,7 @@ export const DateInput = ({
 
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-4"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-4${errorYear ? ' govuk-input--error' : ''}`}
               id={`${id}-year`}
               name={`${name}-year`}
               type="text"
