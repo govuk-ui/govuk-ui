@@ -1,6 +1,5 @@
 import React from "react";
 import LegendProps from "./Legend.types";
-import { Typography } from "../../typography";
 
 export const Legend = ({
   children,
