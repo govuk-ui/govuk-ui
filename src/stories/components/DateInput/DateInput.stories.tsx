@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import DateInput from '../../../components/DateInput';
 import React from "react";
-import { Hint, Label, Typography } from '../../..';
+import { Hint, Label, Legend, Typography } from '../../..';
 
 const meta: Meta<typeof DateInput> = {
   title: 'DateInput',
@@ -16,17 +16,15 @@ const primary: Story = {
   name: 'Primary date input',
   render: (args) => (
     <>
-      <Label>
-        <Typography component="h1" variant="l">
+      
+      <DateInput id="example-dateinput">
+        <Legend>
           When was your passport issued?
-        </Typography>
-      </Label>
-      <Hint>
-        For example, 27 3 2007
-      </Hint>
-      <DateInput
-        id="example-dateinput"
-      />
+        </Legend>
+        <Hint>
+          For example, 27 3 2007
+        </Hint>
+      </DateInput>
     </>  
   )
 }

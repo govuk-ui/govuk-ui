@@ -52,7 +52,7 @@ export const DateInput = ({
     <FormGroup error={errorMessage}>
       <Fieldset role="group" describedBy={describedByValue}>
         { Children.map(arrayChildren, (child:any, _index) => {
-          if (isValidElement(child) && (child.type === Legend || child.type === Hint || child.type === Typography)) {
+          if (isValidElement(child) && ((child.type === Legend) || (child.type === Hint))) {
             return (
                 <>
                   {
