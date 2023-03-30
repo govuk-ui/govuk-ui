@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as HeaderStories from './Header.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Components/Header" />
+
+<Hint>Components</Hint>
+
+# Header
+
+The GOV.UK header shows users that they are on GOV.UK and which service they are using.
+
+<Canvas>
+  <Story of={HeaderStories.primary} />
+</Canvas>
+
+If you use the page template, you’ll also get the header without having to add it, as it’s included by default. However, if you want to customise the default header, read the page template guidance about customising components.
+
+## When to use this component
+
+You must use the GOV.UK header at the top of every page if your service is being hosted on one of these domains:
+
+- gov.uk/myservice
+- myservice.service.gov.uk
+- myblog.blog.gov.uk
+
+## When not to use this component
+
+You must not use the GOV.UK header if your service is not being hosted on one of the above domains.
+
+## How it works
+
+### Default header
+
+Use the default header if your service has 5 pages or fewer.
+
+<Canvas>
+  <Story of={HeaderStories.primary} />
+</Canvas>
+
+## Header with service name
+
+Use the header with a service name if your service is more than 5 pages long - this can help users understand which service they are using.
+
+<Canvas>
+  <Story of={HeaderStories.withServiceName} />
+</Canvas>
+
+## Header with service name and navigation
+
+Use the header with navigation if you need to include basic navigation, contact or account management links.
