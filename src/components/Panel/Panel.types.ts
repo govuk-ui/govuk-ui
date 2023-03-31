@@ -1,9 +1,7 @@
 export default interface PanelProps {
-  titleHtml?: string,
-  text?: string,
-  titleText?: string,
-  headingLevel?: number,
-  html?: string,
+  id?: string,
+  name?: string,
   classes?: string,
+  children?: any,
   attributes?: any,
 }
