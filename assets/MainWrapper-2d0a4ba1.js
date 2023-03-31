@@ -1,2 +1,0 @@
-import{j as t}from"./jsx-runtime-670450c2.js";const a=({children:e,classes:r,...s})=>t("div",{className:`govuk-main-wrapper ${r||""}`,...s,children:e});try{a.displayName="MainWrapper",a.__docgenInfo={description:"",displayName:"MainWrapper",props:{classes:{defaultValue:null,description:"",name:"classes",required:!1,type:{name:"string"}},attributes:{defaultValue:null,description:"",name:"attributes",required:!1,type:{name:"any"}}}}}catch{}
-//# sourceMappingURL=MainWrapper-2d0a4ba1.js.map
