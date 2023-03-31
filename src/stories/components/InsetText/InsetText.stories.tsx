@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import InsetText from "../../../components/InsetText";
 
 const meta: Meta<typeof InsetText> = {
-  title: "InsetText",
+  title: "Inset text",
   component: InsetText,
 };
 
