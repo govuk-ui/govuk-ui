@@ -2,6 +2,7 @@ export default interface TextareaProps {
   name?: string,
   id?: string,
   label?: any,
+  value?: string,
   rows?: number,
   prefix?: string,
   suffix?: string,
@@ -9,8 +10,7 @@ export default interface TextareaProps {
   spellcheck?: boolean,
   classes?: string,
   errorMessage?: any,
-  attributes?: any,
   children?: any,
   describedBy?: string,
-  value: string,
+  attributes?: any,
 }

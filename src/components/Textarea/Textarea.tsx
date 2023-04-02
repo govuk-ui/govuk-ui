@@ -64,7 +64,7 @@ export const Textarea = ({
   return (
     <>
       <FormGroup error={errorMessage}>
-      { Children.map(arrayChildren, (child:any, _index) => {
+        { Children.map(arrayChildren, (child:any, _index) => {
           if (isValidElement(child) && (child.type === Label)) {
             return (
               <>
@@ -90,7 +90,7 @@ export const Textarea = ({
         {errorMessageComponent}
         <PrefixSuffixWrapper>
           <textarea
-            className={`govuk-textarea ${classes}`}
+            className={`govuk-textarea${classes ? ` ${classes}` : ''}${errorMessage ? ' govuk-textarea--error' : ''}`}
             id={id}
             name={name}
             rows={rows || 5}
