@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+  import type { Meta, StoryObj } from "@storybook/react";
 
 import Label from "../../components/Label";
 import fixtures from "govuk-frontend/govuk/components/label/fixtures.json";
