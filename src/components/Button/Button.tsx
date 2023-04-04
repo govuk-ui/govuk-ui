@@ -14,9 +14,9 @@ export const Button = ({
   children,
   ...attributes
 }: ButtonProps) => {
-  // If element is not specified, default to 'a' if href is specified, otherwise 'button'
-  if (!element) {
-    element = href ? 'a' : 'button';
+  // If href is set, set the element to an anchor tag
+  if (href) {
+    element = 'a';
   }
 
   const commonAttributes: any = {
@@ -65,14 +65,13 @@ export const Button = ({
     );
   }
 
-  if (element === 'button') {
-    return (
-      <button value={value} type={type} {...buttonAttributes} {...commonAttributes} >
-        {children}
-        {iconHtml}
-      </button>
-    );
-  }
+  // Default to a button element
+  return (
+    <button value={value} type={type} {...buttonAttributes} {...commonAttributes} >
+      {children}
+      {iconHtml}
+    </button>
+  );
 };
 
 export default Button;
