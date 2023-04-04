@@ -1,11 +1,13 @@
 export default interface ButtonProps {
+  element?: 'input' | 'button' | 'a',
+  name?: string,
+  value?: string,
   href?: string,
-  to?: string,
+  type?: 'button' | 'submit' | 'reset',
   isStartButton?: boolean,
   disabled?: boolean,
-  classes?: string,
   preventDoubleClick?: boolean,
-  name?: string,
-  type?: 'input' | 'button',
-  children?: any,
+  classes?: string,
+  children: any,
+  attributes?: any,
 }
