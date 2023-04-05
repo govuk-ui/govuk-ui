@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as SelectStories from './Select.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Components/Select" />
+
+<Hint>Components</Hint>
+
+# Select
+
+<Canvas>
+  <Story of={SelectStories.primary} />
+</Canvas>
+
+## When to use this component
+
+The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.
+
+## When not to use this component
+
+The select component allows users to choose an option from a long list. Before using the select component, try asking users questions which will allow you to present them with fewer options.
+
+Asking questions means you’re less likely to need to use the select component, and can consider using a different solution, such as [radios]('?path=/docs/components-radios--docs').
+
+## How it works
+
+If you use the component for settings, you can make an option pre-selected by default when users first see it.
+
+If you use the component for questions, you should not pre-select any of the options in case it influences users’ answers.
+
+<Canvas>
+  <Story of={SelectStories.primary} />
+</Canvas>
+
+### Select with hint
+
+You can add hint text to help the user understand the options and choose one of them.
+
+<Canvas>
+  <Story of={SelectStories.hint} />
+</Canvas>
