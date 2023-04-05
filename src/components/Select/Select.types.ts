@@ -1,9 +1,11 @@
 export default interface SelectProps {
   id?: string,
   name?: string,
-  classes?: string,
-  children: any,
-  errorMessage?: any,
+  value?: string,
   describedBy?: string,
+  errorMessage?: any,
+  children: any,
+  classes?: string,
+  formGroupClasses?: string,
   attributes?: any,
 }
