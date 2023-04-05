@@ -35,6 +35,7 @@ export { default as PhaseBanner } from './PhaseBanner';
 export { default as Radios } from './Radios';
 export { default as RadioItem } from './RadioItem';
 export { default as Select } from './Select';
+export { default as SelectItem } from './SelectItem';
 export { default as SkipLink } from './SkipLink';
 export { default as SummaryList } from './SummaryList';
 export { default as SummaryListItem } from './SummaryListItem';
