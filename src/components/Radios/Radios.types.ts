@@ -1,5 +1,3 @@
-import { NewLifecycle } from "react";
-
 export default interface RadiosProps {
   /** String to prefix ID for each radio item if no ID is specified on each item. If idPrefix is not passed, fallback to using the name attribute instead. */
   idPrefix?: string,
