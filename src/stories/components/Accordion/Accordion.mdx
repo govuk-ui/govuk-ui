@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as AccordionStories from './Accordion.stories';
+import { Hint, Tag } from '../../../components';
+
+<Meta title="Components/Accordion" />
+
+<Hint>Components</Hint>
+
+# Accordion
+
+<Tag>EXPERIMENTAL</Tag>
+
+The accordion component lets users show and hide sections of related content on a page.
+
+<Canvas>
+  <Story of={AccordionStories.primary} />
+</Canvas>
