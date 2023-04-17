@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/blocks';
 import { Canvas, Story } from '@storybook/addon-docs';
 import * as TagStories from './Tag.stories';
-import * as TableStories from '../Table.stories';
 import { Hint } from '../../../components';
 
 <Meta title="Components/Tag" />
@@ -35,7 +34,7 @@ The task list pattern has an example of how to show one status using tags.
 Or it can make sense to have two statuses. For example you may find that there’s a need to have one tag for ‘Active’ users and one for ‘Inactive’ users.
 
 <Canvas>
-  <Story of={TableStories.multipleTags} />
+  <Story of={TagStories.multipleTags} />
 </Canvas>
 
 ## Showing multiple statuses
@@ -43,7 +42,7 @@ Or it can make sense to have two statuses. For example you may find that there�
 Tags should be helpful to users. The more you add, the harder it is for users to remember them. So start with the smallest number of statuses you think might work, then add more if your user research shows there’s a need for them.
 
 <Canvas>
-  <Story of={TableStories.colouredTags} />
+  <Story of={TagStories.colouredTags} />
 </Canvas>
 
 ## Using colour with tags
@@ -59,5 +58,5 @@ Because tags with solid colours tend to stand out more, it’s usually best to a
 If you need more tag colours, you can use the following tints.
 
 <Canvas>
-  <Story of={TableStories.allColours} />
+  <Story of={TagStories.allColours} />
 </Canvas>

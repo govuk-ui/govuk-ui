@@ -9,12 +9,12 @@ export const TableRow = ({
   classes,
   attributes,
  }: TableRowProps) => {
-  
+
   const arrayChildren: any = Children.toArray(children);
 
   return (
     <>
-      <tr className={`govuk-table__row ${classes || ''}`} id={id} { ...attributes }>
+      <tr className={`govuk-table__row${classes ? ` ${classes}` : ''}`} id={id} { ...attributes }>
         { Children.map(arrayChildren, (child:any, _index) => {
           if (isValidElement(child) && (child.type === TableCell)) {
             return (

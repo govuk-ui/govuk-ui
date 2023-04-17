@@ -5,24 +5,31 @@ import TableRow from "../TableRow/TableRow";
 
 export const Table = ({
   id,
+  caption,
+  captionClasses,
   children,
   classes,
   attributes,
  }: TableProps) => {
-  
+
   const arrayChildren: any = Children.toArray(children);
 
   return (
     <>
       <table className={`govuk-table ${classes || ''}`} id={id} { ...attributes }>
+        { caption && (
+          <caption className={`govuk-table__caption ${captionClasses || ''}`}>
+            {caption}
+          </caption>
+        )}
         { Children.map(arrayChildren, (child:any, _index) => {
           if (isValidElement(child) && (child.type === TableHeader)) {
             return (
-                <>
-                  {
-                    cloneElement(child as React.ReactElement<any>, {})
-                  }
-                </>
+              <>
+                {
+                  cloneElement(child as React.ReactElement<any>, {})
+                }
+              </>
             );
           }
         })}
