@@ -1,5 +1,5 @@
 export default interface CheckboxesProps {
-  id?: string,
+  idPrefix?: string,
   name?: string,
   key?: string,
   value?: any,

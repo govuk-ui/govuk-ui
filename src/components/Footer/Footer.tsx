@@ -1,21 +1,53 @@
-import React from "react";
+import React, {Children, cloneElement, isValidElement} from "react";
 import FooterProps from "./Footer.types";
+import FooterNavigation from "../FooterNavigation";
+import FooterMeta from "../FooterMeta";
 
 export const Footer = ({
   contentLicence,
   copyright,
   meta,
-  navigation,
-  attributes,
   classes,
   containerClasses,
+  children,
+  ...attributes
 }: FooterProps) => {
+  const arrayChildren: any = Children.toArray(children);
+  const navigation: boolean = arrayChildren.some((child: any) => child.type === FooterNavigation);
+
   return (
     <>
-      <footer className="govuk-footer " role="contentinfo">
-        <div className="govuk-width-container ">
+      <footer className={`govuk-footer${classes ? ` ${classes}` : ''}`} role="contentinfo" { ...attributes }>
+        <div className={`govuk-width-container${containerClasses ? ` ${containerClasses}` : ''}`}>
+          {navigation && (
+            <div className="govuk-footer__navigation">
+              { Children.map(arrayChildren, (child:any, _index) => {
+                if (isValidElement(child) && (child.type === FooterNavigation)) {
+                  return (
+                    <>
+                      {
+                        cloneElement(child as React.ReactElement<any>, {})
+                      }
+                    </>
+                  );
+                }
+              })}
+            </div>
+          )}
+          <hr className="govuk-footer__section-break"/>
           <div className="govuk-footer__meta">
             <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
+              { Children.map(arrayChildren, (child:any, _index) => {
+                if (isValidElement(child) && (child.type === FooterMeta)) {
+                  return (
+                    <>
+                      {
+                        cloneElement(child as React.ReactElement<any>, {})
+                      }
+                    </>
+                  );
+                }
+              })}
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -31,15 +63,20 @@ export const Footer = ({
                 />
               </svg>
               <span className="govuk-footer__licence-description">
-                All content is available under the&nbsp;
-                <a
-                  className="govuk-footer__link"
-                  href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-                  rel="license"
-                >
-                  Open Government Licence v3.0
-                </a>
-                , except where otherwise stated
+                { contentLicence && contentLicence }
+                {!contentLicence && (
+                  <>
+                    All content is available under the&nbsp;
+                    <a
+                      className="govuk-footer__link"
+                      href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                      rel="license"
+                    >
+                      Open Government Licence v3.0
+                    </a>
+                    , except where otherwise stated
+                  </>
+                )}
               </span>
             </div>
             <div className="govuk-footer__meta-item">
@@ -47,7 +84,7 @@ export const Footer = ({
                 className="govuk-footer__link govuk-footer__copyright-logo"
                 href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
               >
-                © Crown copyright
+                { copyright ? copyright : '© Crown copyright' }
               </a>
             </div>
           </div>

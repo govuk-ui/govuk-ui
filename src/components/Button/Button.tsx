@@ -2,25 +2,35 @@ import React from 'react';
 import ButtonProps from './Button.types';
 
 export const Button = ({
-  href,
+  element,
   name,
   type,
+  value,
   disabled,
-  isStartButton,
-  preventDoubleClick,
+  href,
   classes,
-  children
+  preventDoubleClick,
+  isStartButton,
+  children,
+  ...attributes
 }: ButtonProps) => {
-  let buttonAttributes: any = {
-    name,
-    type,
-    href,
-    'data-module': 'govuk-button',
-  };
+  // If href is set, set the element to an anchor tag
+  if (href) {
+    element = 'a';
+  }
 
-  const classProps = `govuk-button ${classes || ''}${
-      disabled ? ' govuk-button--disabled' : ''
-  } ${isStartButton ? 'govuk-button--start' : ''}`;
+  const commonAttributes: any = {
+    className: `govuk-button ${classes || ''}${disabled ? ' govuk-button--disabled' : ''}${isStartButton ? ' govuk-button--start' : ''}`,
+    'data-module': 'govuk-button',
+    ...attributes,
+  }
+
+  const buttonAttributes: any = {
+    name,
+    disabled,
+    ariaDisabled: disabled,
+    dataPreventDoubleClick: preventDoubleClick,
+  };
 
   let iconHtml;
   if (isStartButton) {
@@ -39,20 +49,25 @@ export const Button = ({
     );
   }
 
-  if (preventDoubleClick) {
-    buttonAttributes['data-prevent-double-click'] = preventDoubleClick;
+  if (element === 'a') {
+    return (
+      <a href={href ? href : '#'} role="button" draggable={false} { ...commonAttributes }>
+        {children}
+        {iconHtml}
+      </a>
+    );
   }
 
-  if (disabled) {
-    buttonAttributes = {
-      ...buttonAttributes,
-      'aria-disabled': true,
-      disabled: 'disabled',
-    };
+  // TODO: need to add support for value attribute on input element
+  if (element === 'input') {
+    return (
+      <input type={type ? type : 'submit'} { ...buttonAttributes } { ...commonAttributes } />
+    );
   }
 
+  // Default to a button element
   return (
-    <button {...buttonAttributes} className={classProps}>
+    <button value={value} type={type} {...buttonAttributes} {...commonAttributes} >
       {children}
       {iconHtml}
     </button>

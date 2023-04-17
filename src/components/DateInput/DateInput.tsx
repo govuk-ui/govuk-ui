@@ -16,7 +16,13 @@ export const DateInput = ({
   dayLabel,
   monthLabel,
   yearLabel,
+  autocompleteDay,
+  autocompleteMonth,
+  autocompleteYear,
   errorMessage,
+  errorDay,
+  errorMonth,
+  errorYear,
   children,
   value,
   ...attributes
@@ -35,6 +41,12 @@ export const DateInput = ({
     const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
     errorMessageComponent = <ErrorMessage id={errorId}>{errorMessage}</ErrorMessage>;
+
+    if (!errorDay && !errorMonth && !errorYear) {
+      errorDay = true;
+      errorMonth = true;
+      errorYear = true;
+    }
   }
 
   const arrayChildren: any = Children.toArray(children);
@@ -49,7 +61,7 @@ export const DateInput = ({
     <FormGroup error={errorMessage}>
       <Fieldset role="group" describedBy={describedByValue}>
         { Children.map(arrayChildren, (child:any, _index) => {
-          if (isValidElement(child) && (child.type === Legend || child.type === Hint || child.type === Typography)) {
+          if (isValidElement(child) && ((child.type === Legend) || (child.type === Hint))) {
             return (
                 <>
                   {
@@ -63,11 +75,12 @@ export const DateInput = ({
         <div className={`govuk-date-input ${classes || ''}`} id={id} {...attributes}>
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-2"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-2${errorDay ? ' govuk-input--error' : ''}`}
               id={`${id}-day`}
               name={`${name}-day`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteDay || ''}
               value={value ? value[`${id}-day`] : null}
             >
               <Label>
@@ -78,11 +91,12 @@ export const DateInput = ({
 
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-2"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-2${errorMonth ? ' govuk-input--error' : ''}`}
               id={`${id}-month`}
               name={`${name}-month`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteMonth || ''}
               value={value ? value[`${id}-month`] : null}
             >
               <Label>
@@ -93,11 +107,12 @@ export const DateInput = ({
 
           <div className="govuk-date-input__item">
             <Input
-              classes="govuk-input govuk-date-input__input govuk-input--width-4"
+              classes={`govuk-input govuk-date-input__input govuk-input--width-4${errorYear ? ' govuk-input--error' : ''}`}
               id={`${id}-year`}
               name={`${name}-year`}
               type="text"
               inputmode="numeric"
+              autocomplete={autocompleteYear || ''}
               value={value ? value[`${id}-year`] : null}
             >
               <Label>

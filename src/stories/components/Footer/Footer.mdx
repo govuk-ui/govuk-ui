@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as FooterStories from './Footer.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Components/Footer" />
+
+<Hint>Components</Hint>
+
+# Footer
+
+The footer provides copyright, licensing and other information about your service.
+
+<Canvas>
+  <Story of={FooterStories.primary} />
+</Canvas>
+
+If you use the page template, you’ll also get the footer without having to add it, as it’s included by default. However, if you want to customise the default footer, read the page template guidance about customising components.
+
+## When to use this component
+
+Use the footer at the bottom of every page of your service.
+
+## How it works
+
+Add a copyright notice to the footer to clarify who owns the copyright. For GOV.UK services, add the coat of arms to keep things consistent with the rest of GOV.UK.
+
+Make it clear whether content is available for re-use - and if it is, under what sort of licence. Use an [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) unless you have permission from the National Archives to use a [different type of licence](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/other-licences/).
+
+## Footer without links
+
+<Canvas>
+  <Story of={FooterStories.primary} />
+</Canvas>
+
+## Footer with links
+
+<Canvas>
+  <Story of={FooterStories.withLinks} />
+</Canvas>
+
+## Adding links
+
+You can add links to:
+
+- privacy notice
+- accessibility statement
+- cookies page
+- terms and conditions
+- other language options
+
+Use ‘Privacy’, ‘Accessibility’, ‘Cookies’ and ‘Terms and conditions’ for the link text.
+
+## Adding secondary navigation
+
+Only add secondary GOV.UK navigation if you’re creating a GOV.UK service, and you want users to be able to navigate away from the service to somewhere else on the GOV.UK website.
+For example, you probably don’t want to encourage a user to navigate away from a linear, form-type service.
+
+## Footer with secondary navigation
+
+<Canvas>
+  <Story of={FooterStories.secondaryNavigation} />
+</Canvas>
+
+## Footer with links and secondary navigation
+
+<Canvas>
+  <Story of={FooterStories.linksAndSecondaryNavigation} />
+</Canvas>

@@ -1,13 +1,10 @@
 export default interface NotificationBannerProps {
-  text?: string,
-  html?: string,
+  title?: string,
   type?: string,
-  disableAutoFocus?: boolean,
   role?: string,
-  attributes?: any,
-  titleText?: string,
-  titleHtml?: string,
+  disableAutoFocus?: boolean,
+  children?: any,
   titleHeadingLevel?: number,
-  titleId?: string,
   classes?: string,
+  attributes?: any,
 }

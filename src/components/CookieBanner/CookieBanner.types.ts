@@ -1,5 +1,5 @@
 export default interface CookieBannerProps {
-  messages?: any[],
+  children?: any,
   ariaLabel?: string,
   hidden?: boolean,
   classes?: string,

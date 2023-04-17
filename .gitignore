@@ -99,4 +99,4 @@ dist-ssr
 *.sw?
 
 # Built docs
-docs/
+/docs/

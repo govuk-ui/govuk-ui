@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as ErrorSummaryStories from './ErrorSummary.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Components/Error summary" />
+
+<Hint>Components</Hint>
+
+# Error summary
+
+Use this component at the top of a page to summarise any errors a user has made.
+
+When a user makes an error, you must show both an error summary and an [error message](?path=/docs/components-error-message--docs) next to each answer that contains an error.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.primary} />
+</Canvas>
+
+## When to use this component
+
+Always show an error summary when there is a validation error, even if there’s only one.
+
+## How it works
+
+You must:
+
+- move keyboard focus to the error summary
+- include the heading ‘There is a problem’
+- link to each of the answers that have validation errors
+- make sure the error messages in the error summary are worded the same as those which appear next to the inputs with errors
+
+As well as showing an error summary, follow the validation pattern - for example, by adding ‘Error: ’ to the beginning of the page `<title>` so screen readers read it out as soon as possible.
+
+And make your error messages clear and concise.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.primary} />
+</Canvas>
+
+## Linking from the error summary to each answer
+
+You must link the errors in the error summary to the answer they relate to.
+
+For questions that require a user to answer using a single field, like a file upload, select, textarea, text input or character count, link to the field.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.linking} />
+</Canvas>
+
+When a user has to enter their answer into multiple fields, such as the day, month and year fields in the date input component, link to the first field that contains an error.
+
+If you do not know which field contains an error, link to the first field.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.linkingDateInput} />
+</Canvas>
+
+For questions that require a user to select one or more options from a list using radios or checkboxes, link to the first radio or checkbox.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.checkboxes} />
+</Canvas>
+
+## Where to put the error summary
+
+Put the error summary at the top of the main container. If your page includes breadcrumbs or a back link, place it below these, but above the `<h1>`.
+
+<Canvas>
+  <Story of={ErrorSummaryStories.fullPageExample} />
+</Canvas>

@@ -1,0 +1,94 @@
+import { Meta } from '@storybook/blocks';
+import { Canvas, Story } from '@storybook/addon-docs';
+import * as NotificationBannerStories from './NotificationBanner.stories';
+import { Hint } from '../../../components';
+
+<Meta title="Components/Notification banner" />
+
+<Hint>Components</Hint>
+
+# Notification banner
+
+Use a notification banner to tell the user about something they need to know about, but that’s not directly related to the page content.
+
+<Canvas>
+  <Story of={NotificationBannerStories.primary} />
+</Canvas>
+
+## When to use this component
+
+A notification banner lets you tell the user about something that’s not directly relevant to the thing they’re trying to do on that page of the service. For example:
+
+- telling the user about a problem that’s affecting the service as a whole (for example, delays in processing applications because of an emergency)
+- telling the user about something that affects them in particular (for example, an approaching deadline they need to meet)
+- telling the user about the outcome of something they’ve just done on a previous page (for example, confirming that an email has been sent)
+
+## When not to use this component
+
+Use notification banners sparingly. There’s <a class="govuk-link" href="https://www.nngroup.com/articles/banner-blindness-old-and-new-findings/">evidence that people often miss them</a>, and using them too often is likely to make this problem worse.
+
+If the information is directly relevant to the thing the user is doing on that page, put the information in the main page content instead. Use <a class="govuk-link" href="/?path=/docs/components-inset-text--docs">inset text</a> or <a class="govuk-link" href="/?path=/docs/components-warning-text--docs">warning text</a> if it needs to stand out.
+
+Do not:
+
+- use a notification banner to tell the user about validation errors - use an <a class="govuk-link" href="/?path=/docs/components-error-message--docs">error message</a> and <a class="govuk-link" href="/?path=/docs/components-error-summary--docs">error summary</a> instead
+- show a notification banner and an error summary on the same page - just show the <a class="govuk-link" href="/?path=/docs/components-error-summary--docs">error summary</a>
+
+## How it works
+
+Position a notification banner immediately before the page `h1`. The notification banner should be the same width as the page’s other content, such as components, headings and body text. For example, if the other content takes up two-thirds of the screen on desktop devices, then the notification banner should also take up two-thirds. <a class="govuk-link" href="https://design-system.service.gov.uk/styles/layout/">Read about how to lay out pages</a>.
+
+Avoid showing more than one notification banner on the same page. Instead, combine the messages in a single notification banner. If the messages are too different to combine, only show the highest priority notification banner.
+
+### Notification banner headings
+
+Avoid using headings for single-line notifications that do not need them.
+
+## Telling the user about a problem that affects the whole service
+
+Use a ‘neutral’ blue notification banner if the user needs to know about a problem with the service as a whole.
+
+For example:
+
+- in a service that lets the user register or apply for something, they might need to know that it’s taking longer than usual to process applications because of an emergency
+- in an account-type service, the user might need to know that the service will be down for scheduled maintenance
+
+<Canvas>
+  <Story of={NotificationBannerStories.coronavirus} />
+</Canvas>
+
+If your service is on GOV.UK and it’s affected by an emergency, ask your department’s content team to <a class="govuk-link" href="https://www.gov.uk/guidance/contact-the-government-digital-service/request-a-thing#change-govuk-content">request a change to the service start page</a>
+If your service is getting more demand than usual, check that you’ve set up <a class="govuk-link" href="/patterns/problem-with-the-service-pages/">There is a problem with the service pages</a> and <a class="govuk-link" href="/patterns/service-unavailable-pages/">Service unavailable pages</a>, and the wording is up to date.
+
+## Telling the user about something that’s happening elsewhere
+
+Use a ‘neutral’ notification banner if the user needs to know about something that’s happening elsewhere in the service. For example:
+
+- in a case working system, the user might need to know that there are new cases waiting for their attention
+- in an account-type service, you might need to tell the user that there’s a deadline approaching or that a payment is overdue
+
+<Canvas>
+  <Story of={NotificationBannerStories.primary} />
+</Canvas>
+
+## Reacting to something the user has done
+
+You can also use a notification banner to tell the user about the outcome of something they’ve just done - but they have not finished using the service, so it does not make sense to use a <a class="govuk-link" href="/patterns/confirmation-pages/">confirmation page</a>.
+
+Using a notification banner is unlikely to be the right approach in a linear service - for example, a service that lets the user register or apply for a thing. For a linear service, it will usually make sense to stick to the <a class="govuk-link" href="https://www.gov.uk/service-manual/design/form-structure">‘one thing per page’ approach</a>. Do not use a notification banner to tell users that they’ve finished using a linear service. Use a <a class="govuk-link" href="/patterns/confirmation-pages/">confirmation page</a> instead.
+
+Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.
+
+<Canvas>
+  <Story of={NotificationBannerStories.green} />
+</Canvas>
+
+Since you’re using the notification banner to tell the user about the outcome of something they’ve just done, add `role="alert"` so focus shifts to the notification banner on page load.
+
+Remove a green notification banner when the user moves to a new page.
+
+To make the green version of the notification banner accessible:
+
+- use headings like ‘Success’ - so that you’re <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">not relying on colour alone to convey meaning</a>
+
+- use the same heading for green notification banners within the same service - so that you’re <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification">identifying components that work in the same way consistently</a>

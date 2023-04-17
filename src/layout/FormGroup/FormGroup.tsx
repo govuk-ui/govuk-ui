@@ -8,7 +8,7 @@ export const FormGroup = ({
   ...attributes
 }: FormGroupProps) => {
   return (
-    <div className={`govuk-form-group ${error ? 'govuk-form-group--error' : ''} ${classes || ''}`} { ...attributes }>
+    <div className={`govuk-form-group${error ? ' govuk-form-group--error' : ''}${classes ? ` ${classes}` : ''}`} { ...attributes }>
       { children }
     </div>
   );
