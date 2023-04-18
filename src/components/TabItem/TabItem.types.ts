@@ -1,10 +1,7 @@
-export default interface TabItem {
+export default interface TabItemProps {
   children?: any,
-  classes?: string,
   label?: string,
-  id?: string,
-  title?: string,
   href?: string,
+  id?: string,
   selected?: boolean,
-  attributes?: any,
 }
