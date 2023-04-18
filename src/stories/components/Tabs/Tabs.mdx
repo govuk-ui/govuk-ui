@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/blocks';
 import * as TabStories from './Tabs.stories';
 import { Hint, Tag } from '../../../components';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
+import { GovScript } from '../../extras/GovScript';
 
 <Meta title="Components/Tabs" />
 
@@ -89,3 +90,5 @@ Disabling elements is normally confusing for users. If there is no content for a
 ### Avoid tabs that wrap over more than one line
 
 If you use too many tabs or they have long labels then they may wrap over more than one line. This makes it harder for users to see the connection between the selected tab and its content.
+
+<GovScript/>

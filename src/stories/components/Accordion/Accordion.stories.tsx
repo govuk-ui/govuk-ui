@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Accordion from "../../../components/Accordion";
-import React from "react";
+import React, {useEffect} from "react";
 import AccordionItem from "../../../components/AccordionItem/AccordionItem";
 import { Typography } from "../../..";
 
