@@ -13,7 +13,7 @@ export const GovScript = ({ fireAfter }) => {
     if (!fireAfter) {
       setTimeout(() => {
         window.GOVUKFrontend.initAll();
-      }, 200)
+      }, 100)
     } else {
       const componentLoaded = document.getElementById(fireAfter);
       if (componentLoaded) {
