@@ -1,4 +1,4 @@
-import React, {Children, cloneElement, isValidElement} from "react";
+import React, {Children, cloneElement, isValidElement, PropsWithChildren, ReactElement} from "react";
 import RadiosProps from "./Radios.types";
 import FormGroup from "../../layout/FormGroup";
 import ErrorMessage from "../ErrorMessage";
@@ -6,6 +6,7 @@ import Fieldset from "../../layout/Fieldset";
 import Hint from "../Hint";
 import Legend from "../../layout/Legend";
 import RadioItem from "../RadioItem";
+import RadioItemProps from "../RadioItem/RadioItem.types";
 
 export const Radios = ({
   idPrefix,
@@ -45,24 +46,13 @@ export const Radios = ({
     <FormGroup error={errorMessage}>
       <Fieldset describedBy={describedByValue}>
         { Children.map(arrayChildren, (child:any, _index) => {
-          if (isValidElement(child) && (child.type === Legend)) {
+          if (isValidElement(child) && ((child.type === Legend) || (child.type === Hint))) {
             return (
-                <>
-                  {
-                    cloneElement(child as React.ReactElement<any>, {})
-                  }
-                </>
-            );
-          }
-        })}
-        { Children.map(arrayChildren, (child:any, _index) => {
-          if (isValidElement(child) && (child.type === Hint)) {
-            return (
-                <>
-                  {
-                    cloneElement(child as React.ReactElement<any>, {})
-                  }
-                </>
+              <>
+                {
+                  cloneElement(child as React.ReactElement<any>, {})
+                }
+              </>
             );
           }
         })}
@@ -76,7 +66,7 @@ export const Radios = ({
                   {
                     cloneElement(child as React.ReactElement<any>, {
                       id: index > 0 ? `${radioItemId}-${index}` : radioItemId,
-                      data: value,
+                      checked: child.props.value === value,
                       name: name
                     })
                   }

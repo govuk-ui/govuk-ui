@@ -136,28 +136,27 @@ const withDivider: Story = {
 
 const conditional: Story = {
   name: 'Radio items with conditional',
-  args: {
-    name: 'contactPreference',
-    children: [
+  render: (args) => (
+    <Radios name="contact-preference">
       <Legend>
         <Typography variant='l' component='h1'>How would you prefer to be contacted?</Typography>
         <Hint>Select one option.</Hint>
-      </Legend>,
+      </Legend>
       <RadioItem value="email" conditional={
         <Input name="emailAddress" classes="govuk-!-width-one-third">
           <Label>Email address</Label>
         </Input>
       }>
         <Label>Email</Label>
-      </RadioItem>,
+      </RadioItem>
       <RadioItem value="phone">
         <Label>Phone</Label>
-      </RadioItem>,
+      </RadioItem>
       <RadioItem value="text">
         <Label>Text message</Label>
-      </RadioItem>,
-    ]
-  }
+      </RadioItem>
+    </Radios>
+  ),
 }
 
 const small: Story = {
@@ -206,28 +205,27 @@ const errors: Story = {
 
 const conditionalWithErrors: Story = {
   name: 'Radio items with conditional',
-  args: {
-    name: 'contactPreference',
-    children: [
+  render: (args) => (
+    <Radios name="conditional-with-errors">
       <Legend>
         <Typography variant='l' component='h1'>How would you prefer to be contacted?</Typography>
         <Hint>Select one option.</Hint>
-      </Legend>,
+      </Legend>
       <RadioItem value="email" conditional={
         <Input name="emailAddress" classes="govuk-!-width-one-third" errorMessage="Email address cannot be blank">
           <Label>Email address</Label>
         </Input>
       }>
         <Label>Email</Label>
-      </RadioItem>,
+      </RadioItem>
       <RadioItem value="phone">
         <Label>Phone</Label>
-      </RadioItem>,
+      </RadioItem>
       <RadioItem value="text">
         <Label>Text message</Label>
-      </RadioItem>,
-    ]
-  }
+      </RadioItem>
+    </Radios>
+  ),
 }
 
 export {

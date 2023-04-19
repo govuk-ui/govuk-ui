@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks';
 import * as CheckboxStories from './Checkboxes.stories';
 import { Hint, InsetText } from '../../../components';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Story } from '@storybook/addon-docs'; import { GovScript } from '../../extras/GovScript';
 
 <Meta title="Components/Checkboxes" />
 
@@ -11,9 +11,7 @@ import { Canvas, Story } from '@storybook/addon-docs';
 
 Let users select one or more options by using the checkboxes component.
 
-<Canvas>
-  <Story of={CheckboxStories.primary} />
-</Canvas>
+<Canvas of={CheckboxStories.primary} />
 
 ## When to use this component
 
@@ -49,25 +47,19 @@ Group checkboxes together in a `<Fieldset>` with a `<Legend>` that describes the
 
 If you’re asking just one question per page as recommended, you can set the contents of the `<Legend>` component as the page heading by setting the prop `isPageHeading` to `true`. This is good practice as it means that users of screen readers will only hear the contents once.
 
-<Canvas>
-  <Story of={CheckboxStories.primary} />
-</Canvas>
+<Canvas of={CheckboxStories.primary} />
 
 ## If you’re asking more than one question on the page
 
 If you’re asking more than one question on the page, do not set the contents of the `<Legend>` as the page heading. Read more about asking multiple questions on question pages.
 
-<Canvas>
-  <Story of={CheckboxStories.withoutHeading} />
-</Canvas>
+<Canvas of={CheckboxStories.withoutHeading} />
 
 ## Checkbox items with hints
 
 You can add hints to checkbox items to provide additional information about the options.
 
-<Canvas>
-  <Story of={CheckboxStories.itemsWithHints} />
-</Canvas>
+<Canvas of={CheckboxStories.itemsWithHints} />
 
 ## Add an option for ‘none’
 
@@ -83,15 +75,11 @@ For example, for the question ‘Will you be travelling to any of these countrie
 
 To enable some JavaScript that unchecks all other checkboxes when the user clicks ‘None’, add the `exclusive` behaviour to the ‘none’ checkbox.
 
-<Canvas>
-  <Story of={CheckboxStories.noneOption} />
-</Canvas>
+<Canvas of={CheckboxStories.noneOption} />
 
 If JavaScript is unavailable, and a user selects both the ‘none’ checkbox and another checkbox, display an error message.
 
-<Canvas>
-  <Story of={CheckboxStories.noneOptionError} />
-</Canvas>
+<Canvas of={CheckboxStories.noneOptionError} />
 
 ## Conditionally revealing a related question
 
@@ -99,9 +87,7 @@ You can ask the user a related question when they select a particular checkbox, 
 
 This might make 2 related questions easier to answer by grouping them on the same page. For example, you could reveal a phone number input when the user selects the ‘Contact me by phone’ option.
 
-<Canvas>
-  <Story of={CheckboxStories.conditional} />
-</Canvas>
+<Canvas of={CheckboxStories.conditional} />
 
 Keep it simple. If the related question is complicated or has more than one part, show it on the next page in the process instead.
 
@@ -119,9 +105,7 @@ Use standard-sized checkboxes in most cases. However, smaller checkboxes work we
 
 For example, on a page of search results, the main user need is to see the results. Using smaller checkboxes lets users see and change search filters without distracting them from the main content.
 
-<Canvas>
-  <Story of={CheckboxStories.small} />
-</Canvas>
+<Canvas of={CheckboxStories.small} />
 
 Small checkboxes can work well on information dense screens in services designed for repeat use, like caseworking systems.
 
@@ -131,9 +115,7 @@ In services like these, the risk that they will not be noticed is lower because 
 
 Error messages should be styled like this:
 
-<Canvas>
-  <Story of={CheckboxStories.error} />
-</Canvas>
+<Canvas of={CheckboxStories.error} />
 
 Make sure errors follow the guidance in error message and have specific error messages for specific error states.
 
@@ -163,4 +145,4 @@ For example:
   Select countries you will be travelling to, or select ‘No, I will not be travelling to any of these countries’
 </InsetText>
 
-
+<GovScript />

@@ -6,7 +6,7 @@ export default interface RadioItemProps {
   value?: string,
   children?: any,
   classes?: string,
-  data?: any,
+  checked?: boolean,
   conditional?: any,
   attributes?: any,
 }
