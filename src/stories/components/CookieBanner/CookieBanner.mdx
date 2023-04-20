@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as CookieBannerStories from './CookieBanner.stories';
 import { Hint, Tag } from '../../../components';
 
@@ -16,9 +16,7 @@ This component is currently experimental because [more research](https://design-
 
 Allow users to accept or reject cookies which are not essential to making your service work.
 
-<Canvas>
-  <Story of={CookieBannerStories.primary} />
-</Canvas>
+<Canvas of={CookieBannerStories.primary} />
 
 ## When to use this component
 
@@ -86,17 +84,13 @@ All users will be able to see the banner as this approach does not rely on JavaS
 
 Here’s an example of a cookie banner inside a form:
 
-<Canvas>
-  <Story of={CookieBannerStories.insideForm} />
-</Canvas>
+<Canvas of={CookieBannerStories.insideForm} />
 
 Once the user has accepted or rejected cookies and set their cookie preferences, reload the page to show a confirmation message.
 
 Here’s an example of a confirmation message inside a form:
 
-<Canvas>
-  <Story of={CookieBannerStories.confirmationMessage} />
-</Canvas>
+<Canvas of={CookieBannerStories.confirmationMessage} />
 
 ### Show the same message to all users
 
@@ -112,15 +106,11 @@ Include all possible messages that the user could see in the cookie banner when 
 
 Here’s an example of a progressively enhanced cookie banner that includes all possible messages which are hidden using HTML — the cookie banner message is shown using JavaScript to remove the `hidden` attribute:
 
-<Canvas>
-  <Story of={CookieBannerStories.hiddenMessages} />
-</Canvas>
+<Canvas of={CookieBannerStories.hiddenMessages} />
 
 Here’s the same example of a progressively enhanced cookie banner, with the confirmation message shown instead:
 
-<Canvas>
-  <Story of={CookieBannerStories.hiddenMessageShown} />
-</Canvas>
+<Canvas of={CookieBannerStories.hiddenMessageShown} />
 
 ### Option 3: If you set non-essential cookies, but only on the client
 
@@ -141,23 +131,17 @@ Write your own JavaScript code so that when the user accepts or rejects cookies,
 
 Here’s an example:
 
-<Canvas>
-  <Story of={CookieBannerStories.alertRole} />
-</Canvas>
+<Canvas of={CookieBannerStories.alertRole} />
 
 #### When the user has accepted cookies
 
 Show a confirmation message confirming that the user has either accepted or rejected cookies by removing the hidden attribute.
 
-<Canvas>
-  <Story of={CookieBannerStories.alertRoleAccepted} />
-</Canvas>
+<Canvas of={CookieBannerStories.alertRoleAccepted} />
 
 #### When the user has rejected cookies
 
-<Canvas>
-  <Story of={CookieBannerStories.alertRoleRejected} />
-</Canvas>
+<Canvas of={CookieBannerStories.alertRoleRejected} />
 
 ## What to cover in your cookie banner
 
@@ -175,9 +159,7 @@ For example, if you use more than one ‘functional’ cookie and there’s not 
 
 You can use this example text for a service which sets essential and analytics cookies. Analytics cookies are those set by your organisation to collect information about how people are using your digital service.
 
-<Canvas>
-  <Story of={CookieBannerStories.primary} />
-</Canvas>
+<Canvas of={CookieBannerStories.primary} />
 
 ### If you’re using more than one type of non-essential cookie
 
@@ -187,9 +169,7 @@ You can use this example text for a service that set:
 - analytics cookies
 - functional cookies to remember the user’s settings but are not essential
 
-<Canvas>
-  <Story of={CookieBannerStories.nonEssential} />
-</Canvas>
+<Canvas of={CookieBannerStories.nonEssential} />
 
 ## Creating a cookies page
 

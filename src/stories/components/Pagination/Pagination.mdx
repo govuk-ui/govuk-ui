@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks';
+import { Canvas } from '@storybook/addon-docs';
 import * as PaginationStories from './Pagination.stories';
 import { Hint } from '../../../components';
-import { Canvas, Story } from '@storybook/addon-docs';
 
 <Meta title="Components/Pagination" />
 
@@ -11,9 +11,7 @@ import { Canvas, Story } from '@storybook/addon-docs';
 
 Help users navigate forwards and backwards through a series of pages. For example, search results or guidance that’s divided into multiple website pages — like the GOV.UK mainstream guide format.
 
-<Canvas>
-  <Story of={PaginationStories.primary} />
-</Canvas>
+<Canvas of={PaginationStories.primary} />
 
 ## When to use this component
 
@@ -42,25 +40,19 @@ Redirect users to the first page if they enter a URL of a page that no longer ex
 
 Use ‘Previous’ and ‘Next’ links to let users navigate through a small number of pages. Stack the links vertically, so they’re more obvious to screen magnifier users when they’re zoomed in:
 
-<Canvas>
-  <Story of={PaginationStories.numberLabels} />
-</Canvas>
+<Canvas of={PaginationStories.numberLabels} />
 
 ### Add link labels to describe pages
 
 You can use link labels to give more context:
 
-<Canvas>
-  <Story of={PaginationStories.linkLabels} />
-</Canvas>
+<Canvas of={PaginationStories.linkLabels} />
 
 ## For larger numbers of pages
 
 Use a list-type layout if users need to navigate through large numbers of pages. For example, long lists of search results.
 
-<Canvas>
-  <Story of={PaginationStories.largeNumberOfPages} />
-</Canvas>
+<Canvas of={PaginationStories.largeNumberOfPages} />
 
 Show the page number in the page `<title>` so that screen reader users know they’ve navigated to a different page. For example, ‘Search results (page 1 of 4)’.
 
@@ -91,13 +83,9 @@ Use ellipses (…) to replace any skipped pages. For example:
 
 Do not show the previous page link on the first page — and do not show the next page link on the last page.
 
-<Canvas>
-  <Story of={PaginationStories.firstPage} />
-</Canvas>
+<Canvas of={PaginationStories.firstPage} />
 
-<Canvas>
-  <Story of={PaginationStories.lastPage} />
-</Canvas>
+<Canvas of={PaginationStories.lastPage} />
 
 ## Filtering and sorting
 

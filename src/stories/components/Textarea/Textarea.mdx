@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as TextareaStories from './Textarea.stories';
 import { Hint } from '../../../components';
 
@@ -9,9 +9,7 @@ import { Hint } from '../../../components';
 
 # Textarea
 
-<Canvas>
-  <Story of={TextareaStories.primary} />
-</Canvas>
+<Canvas of={TextareaStories.primary} />
 
 ## When to use this component
 
@@ -31,17 +29,13 @@ You must label textareas. Placeholder text is not a suitable substitute for a la
 
 Labels must be aligned above the textarea they refer to. They should be short, direct and written in sentence case. Do not use colons at the end of labels.
 
-<Canvas>
-  <Story of={TextareaStories.primary} />
-</Canvas>
+<Canvas of={TextareaStories.primary} />
 
 ## Use appropriately-sized textareas
 
 Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the rows attribute.
 
-<Canvas>
-  <Story of={TextareaStories.withRows} />
-</Canvas>
+<Canvas of={TextareaStories.withRows} />
 
 ## Do not disable copy and paste
 
@@ -51,9 +45,7 @@ Users will often need to copy and paste information into a textarea, so do not s
 
 If you’re asking more than one question on the page, do not set the contents of the `<label>` as the page heading.
 
-<Canvas>
-  <Story of={TextareaStories.withLabel} />
-</Canvas>
+<Canvas of={TextareaStories.withLabel} />
 
 ## Limiting the number of characters
 
@@ -63,9 +55,7 @@ If there’s a good reason to limit the number of characters users can enter, yo
 
 Error messages should be styled like this:
 
-<Canvas>
-  <Story of={TextareaStories.withError} />
-</Canvas>
+<Canvas of={TextareaStories.withError} />
 
 Make sure errors follow the guidance in [error message](?path=/docs/components-error-message--docs) and have specific error messages for specific error states.
 

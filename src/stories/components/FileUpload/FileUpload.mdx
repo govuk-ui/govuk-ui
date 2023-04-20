@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as FileUploadStories from './FileUpload.stories';
 import { Hint } from '../../../components';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components';
 
 Help users select and upload a file.
 
-<Canvas>
-  <Story of={FileUploadStories.primary} />
-</Canvas>
+<Canvas of={FileUploadStories.primary} />
 
 ## When to use this component
 
@@ -21,17 +19,13 @@ You should only ask users to upload something if it’s critical to the delivery
 
 ## How it works
 
-<Canvas>
-  <Story of={FileUploadStories.primary} />
-</Canvas>
+<Canvas of={FileUploadStories.primary} />
 
 ### Error messages
 
 Error messages should be styled like this:
 
-<Canvas>
-  <Story of={FileUploadStories.errorMessage} />
-</Canvas>
+<Canvas of={FileUploadStories.errorMessage} />
 
 Make sure errors follow the guidance in [error message](?path=/docs/components-error-message--docs) and have specific error messages for specific error states.
 

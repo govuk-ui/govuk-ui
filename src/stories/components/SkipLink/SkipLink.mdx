@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as SkipLinkStories from './SkipLink.stories';
-import { Hint } from '../../../components'; import { GovScript } from '../../extras/GovScript';
+import { Hint } from '../../../components';
+import { GovScript } from '../../extras/GovScript';
 
 <Meta title="Components/Skip link" />
 
@@ -11,9 +12,7 @@ import { Hint } from '../../../components'; import { GovScript } from '../../ext
 
 Use the skip link component to help keyboard-only users skip to the main content on a page.
 
-<Canvas>
-  <Story of={SkipLinkStories.primary} />
-</Canvas>
+<Canvas of={SkipLinkStories.primary} />
 
 If you use the page template, you’ll also get the skip link without having to add it, as it’s included by default. However, if you want to customise the default skip link, read the page template guidance about customising components.
 
@@ -31,8 +30,6 @@ Including the skip link component gives users the option to bypass the top-level
 
 The skip link component is visually hidden until a keyboard press activates it.
 
-<Canvas>
-  <Story of={SkipLinkStories.primary} />
-</Canvas>
+<Canvas of={SkipLinkStories.primary} />
 
 <GovScript />

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as BreadcrumbStories from './Breadcrumbs.stories';
 import { Hint } from '../../../components';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components';
 
 The breadcrumbs component helps users to understand where they are within a website’s structure and move between levels.
 
-<Canvas>
-  <Story of={BreadcrumbStories.primary} />
-</Canvas>
+<Canvas of={BreadcrumbStories.primary} />
 
 ## When to use this component
 
@@ -31,9 +29,7 @@ Always place breadcrumbs at the top of a page, before the `<main>` element. Plac
 
 The breadcrumb should start with your ‘home’ page and end with the parent section of the current page.
 
-<Canvas>
-  <Story of={BreadcrumbStories.primary} />
-</Canvas>
+<Canvas of={BreadcrumbStories.primary} />
 
 ## Collapsing breadcrumbs on mobile devices
 
@@ -41,6 +37,4 @@ If you have long breadcrumbs you can configure the component to only show the fi
 
 To do this, add the prop `collapseOnMobile` to the `Radios` component as shown in this example.
 
-<Canvas>
-  <Story of={BreadcrumbStories.collapseOnMobile} />
-</Canvas>
+<Canvas of={BreadcrumbStories.collapseOnMobile} />

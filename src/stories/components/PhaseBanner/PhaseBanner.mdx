@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as PhaseBannerStories from './PhaseBanner.stories';
 import { Hint } from '../../../components';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components';
 
 Use the phase banner component to show users your service is still being worked on.
 
-<Canvas>
-  <Story of={PhaseBannerStories.primary} />
-</Canvas>
+<Canvas of={PhaseBannerStories.primary} />
 
 ## When to use this component
 
@@ -25,13 +23,9 @@ Use an alpha banner when your service is in alpha, and a beta banner if your ser
 
 Your banner must be directly under the black GOV.UK header and colour bar.
 
-<Canvas>
-  <Story of={PhaseBannerStories.primary} />
-</Canvas>
+<Canvas of={PhaseBannerStories.primary} />
 
-<Canvas>
-  <Story of={PhaseBannerStories.beta} />
-</Canvas>
+<Canvas of={PhaseBannerStories.beta} />
 
 ## Add a feedback link
 

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as PanelStories from './Panel.stories';
 import { Hint } from '../../../components';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components';
 
 The panel component is a visible container used on confirmation or results pages to highlight important content.
 
-<Canvas>
-  <Story of={PanelStories.primary} />
-</Canvas>
+<Canvas of={PanelStories.primary} />
 
 ## When to use this component
 

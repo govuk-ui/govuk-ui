@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as FooterStories from './Footer.stories';
 import { Hint } from '../../../components';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components';
 
 The footer provides copyright, licensing and other information about your service.
 
-<Canvas>
-  <Story of={FooterStories.primary} />
-</Canvas>
+<Canvas of={FooterStories.primary} />
 
 If you use the page template, you’ll also get the footer without having to add it, as it’s included by default. However, if you want to customise the default footer, read the page template guidance about customising components.
 
@@ -29,15 +27,11 @@ Make it clear whether content is available for re-use - and if it is, under what
 
 ## Footer without links
 
-<Canvas>
-  <Story of={FooterStories.primary} />
-</Canvas>
+<Canvas of={FooterStories.primary} />
 
 ## Footer with links
 
-<Canvas>
-  <Story of={FooterStories.withLinks} />
-</Canvas>
+<Canvas of={FooterStories.withLinks} />
 
 ## Adding links
 
@@ -58,12 +52,8 @@ For example, you probably don’t want to encourage a user to navigate away from
 
 ## Footer with secondary navigation
 
-<Canvas>
-  <Story of={FooterStories.secondaryNavigation} />
-</Canvas>
+<Canvas of={FooterStories.secondaryNavigation} />
 
 ## Footer with links and secondary navigation
 
-<Canvas>
-  <Story of={FooterStories.linksAndSecondaryNavigation} />
-</Canvas>
+<Canvas of={FooterStories.linksAndSecondaryNavigation} />

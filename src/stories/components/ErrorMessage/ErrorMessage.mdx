@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as ErrorMessageStories from './ErrorMessage.stories';
 import { Hint } from '../../../components';
 
@@ -13,9 +13,7 @@ This guidance is for government teams that build online services. To find inform
 
 Follow the validation pattern and show an error message when there is a validation error. In the error message explain what went wrong and how to fix it.
 
-<Canvas>
-  <Story of={ErrorMessageStories.primary} />
-</Canvas>
+<Canvas of={ErrorMessageStories.primary} />
 
 ## When to use this component
 
@@ -47,23 +45,16 @@ To help screen reader users, the error message component includes a hidden ‘Er
 
 If your error message is written in another language, you can change the prefix as needed, as shown in this example.
 
-<Canvas>
-  <Story of={ErrorMessageStories.error} />
-</Canvas>
+<Canvas of={ErrorMessageStories.error} />
 
 Summarise all errors at the top of the page the user is on using an error summary.
 
 ## Legend
 
-<Canvas>
-  <Story of={ErrorMessageStories.legend} />
-</Canvas>
-
+<Canvas of={ErrorMessageStories.legend} />
 ## Label
 
-<Canvas>
-  <Story of={ErrorMessageStories.label} />
-</Canvas>
+<Canvas of={ErrorMessageStories.label} />
 
 ## Be clear and concise
 

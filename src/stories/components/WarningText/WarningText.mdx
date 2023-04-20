@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as WarningTextStories from './WarningText.stories';
 import { Hint } from '../../../components';
 
@@ -9,9 +9,7 @@ import { Hint } from '../../../components';
 
 # Warning text
 
-<Canvas>
-  <Story of={WarningTextStories.primary} />
-</Canvas>
+<Canvas of={WarningTextStories.primary} />
 
 ## When to use this component
 
@@ -19,8 +17,6 @@ Use the warning text component when you need to warn users about something impor
 
 ## How it works
 
-<Canvas>
-  <Story of={WarningTextStories.primary} />
-</Canvas>
+<Canvas of={WarningTextStories.primary} />
 
 You might need to rewrite the hidden text (‘Warning’ in the example) to make it appropriate for your context.

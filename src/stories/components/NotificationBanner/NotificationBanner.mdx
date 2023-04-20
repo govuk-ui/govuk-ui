@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as NotificationBannerStories from './NotificationBanner.stories';
 import { Hint } from '../../../components'; import { GovScript } from '../../extras/GovScript';
 
@@ -11,9 +11,7 @@ import { Hint } from '../../../components'; import { GovScript } from '../../ext
 
 Use a notification banner to tell the user about something they need to know about, but that’s not directly related to the page content.
 
-<Canvas>
-  <Story of={NotificationBannerStories.primary} />
-</Canvas>
+<Canvas of={NotificationBannerStories.primary} />
 
 ## When to use this component
 
@@ -53,9 +51,7 @@ For example:
 - in a service that lets the user register or apply for something, they might need to know that it’s taking longer than usual to process applications because of an emergency
 - in an account-type service, the user might need to know that the service will be down for scheduled maintenance
 
-<Canvas>
-  <Story of={NotificationBannerStories.coronavirus} />
-</Canvas>
+<Canvas of={NotificationBannerStories.coronavirus} />
 
 If your service is on GOV.UK and it’s affected by an emergency, ask your department’s content team to <a class="govuk-link" href="https://www.gov.uk/guidance/contact-the-government-digital-service/request-a-thing#change-govuk-content">request a change to the service start page</a>
 If your service is getting more demand than usual, check that you’ve set up <a class="govuk-link" href="/patterns/problem-with-the-service-pages/">There is a problem with the service pages</a> and <a class="govuk-link" href="/patterns/service-unavailable-pages/">Service unavailable pages</a>, and the wording is up to date.
@@ -67,9 +63,7 @@ Use a ‘neutral’ notification banner if the user needs to know about somethin
 - in a case working system, the user might need to know that there are new cases waiting for their attention
 - in an account-type service, you might need to tell the user that there’s a deadline approaching or that a payment is overdue
 
-<Canvas>
-  <Story of={NotificationBannerStories.primary} />
-</Canvas>
+<Canvas of={NotificationBannerStories.primary} />
 
 ## Reacting to something the user has done
 
@@ -79,9 +73,7 @@ Using a notification banner is unlikely to be the right approach in a linear ser
 
 Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.
 
-<Canvas>
-  <Story of={NotificationBannerStories.green} />
-</Canvas>
+<Canvas of={NotificationBannerStories.green} />
 
 Since you’re using the notification banner to tell the user about the outcome of something they’ve just done, add `role="alert"` so focus shifts to the notification banner on page load.
 

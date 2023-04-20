@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as BackLinkStories from './BackLink.stories';
 import { Hint } from '../../../components';
 
@@ -13,9 +13,7 @@ Use the back link component to help users go back to the previous page in a mult
 
 Although browsers have a back button, some sites break when you use it - so many users avoid it, instead of losing their progress in a service. Also, not all users are aware of the back button.
 
-<Canvas>
-  <Story of={BackLinkStories.primary} />
-</Canvas>
+<Canvas of={BackLinkStories.primary} />
 
 ## When to use this component
 
@@ -35,9 +33,7 @@ Make sure the link takes users to the previous page they were on, in the state t
 
 If this is not possible, you should hide the back link when JavaScript is not available.
 
-<Canvas>
-  <Story of={BackLinkStories.primary} />
-</Canvas>
+<Canvas of={BackLinkStories.primary} />
 
 Using the default link text (‘Back’) is ideal for services with a simple journey. For example, applying for a National Insurance number. Users will only ever go back to the previous page in the service.
 

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { Canvas, Story } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs';
 import * as ButtonStories from './Button.stories';
 import { Hint } from '../../../components'; import { GovScript } from '../../extras/GovScript';
 
@@ -9,9 +9,7 @@ import { Hint } from '../../../components'; import { GovScript } from '../../ext
 
 # Button
 
-<Canvas>
-  <Story of={ButtonStories.primary} />
-</Canvas>
+<Canvas of={ButtonStories.primary} />
 
 ## When to use this component
 
@@ -41,9 +39,7 @@ Use a default button for the main call to action on a page.
 
 Avoid using multiple default buttons on a single page. Having more than one main call to action reduces their impact, and makes it harder for users to know what to do next.
 
-<Canvas>
-  <Story of={ButtonStories.primary} />
-</Canvas>
+<Canvas of={ButtonStories.primary} />
 
 ## Start buttons
 
@@ -51,9 +47,7 @@ Use a start button for the main call to action on your service’s start page.
 
 Start buttons do not usually submit form data, so use a link tag instead of a button tag.
 
-<Canvas>
-  <Story of={ButtonStories.start} />
-</Canvas>
+<Canvas of={ButtonStories.start} />
 
 ## Secondary buttons
 
@@ -61,9 +55,7 @@ Use secondary buttons for secondary calls to action on a page.
 
 Pages with too many calls to action make it hard for users to know what to do next. Before adding lots of secondary buttons, try to simplify the page or break the content down across multiple pages.
 
-<Canvas>
-  <Story of={ButtonStories.secondary} />
-</Canvas>
+<Canvas of={ButtonStories.secondary} />
 
 You can also group default and secondary buttons together.
 
@@ -71,9 +63,7 @@ You can also group default and secondary buttons together.
 
 Warning buttons are designed to make users think carefully before they use them. They only work if used very sparingly. Most services should not need one.
 
-<Canvas>
-  <Story of={ButtonStories.warning} />
-</Canvas>
+<Canvas of={ButtonStories.warning} />
 
 Only use warning buttons for actions with serious destructive consequences that cannot be easily undone by a user. For example, permanently deleting an account.
 
@@ -89,23 +79,17 @@ Disabled buttons have poor contrast and can confuse some users, so avoid them if
 
 Only use disabled buttons if research shows it makes the user interface easier to understand.
 
-<Canvas>
-  <Story of={ButtonStories.disabled} />
-</Canvas>
+<Canvas of={ButtonStories.disabled} />
 
 ## Grouping buttons
 
 Use a button group when two or more buttons are placed together.
 
-<Canvas>
-  <Story of={ButtonStories.group} />
-</Canvas>
+<Canvas of={ButtonStories.group} />
 
 Any links within a button group will automatically align with the buttons.
 
-<Canvas>
-  <Story of={ButtonStories.groupWithLink} />
-</Canvas>
+<Canvas of={ButtonStories.groupWithLink} />
 
 ## Stop users from accidentally sending information more than once
 
@@ -123,9 +107,7 @@ If you are working in production and research shows that users are frequently se
 
 To do this, set the `preventDoubleClick` prop as shown in this example.
 
-<Canvas>
-  <Story of={ButtonStories.preventDoubleClick} />
-</Canvas>
+<Canvas of={ButtonStories.preventDoubleClick} />
 
 This feature will prevent double clicks for users that have JavaScript enabled, however you should also think about the issue server-side to protect against attacks.
 
