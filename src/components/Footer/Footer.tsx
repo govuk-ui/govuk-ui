@@ -20,21 +20,23 @@ export const Footer = ({
       <footer className={`govuk-footer${classes ? ` ${classes}` : ''}`} role="contentinfo" { ...attributes }>
         <div className={`govuk-width-container${containerClasses ? ` ${containerClasses}` : ''}`}>
           {navigation && (
-            <div className="govuk-footer__navigation">
-              { Children.map(arrayChildren, (child:any, _index) => {
-                if (isValidElement(child) && (child.type === FooterNavigation)) {
-                  return (
-                    <>
-                      {
-                        cloneElement(child as React.ReactElement<any>, {})
-                      }
-                    </>
-                  );
-                }
-              })}
-            </div>
+            <>
+              <div className="govuk-footer__navigation">
+                { Children.map(arrayChildren, (child:any, _index) => {
+                  if (isValidElement(child) && (child.type === FooterNavigation)) {
+                    return (
+                      <>
+                        {
+                          cloneElement(child as React.ReactElement<any>, {})
+                        }
+                      </>
+                    );
+                  }
+                })}
+              </div>
+              <hr className="govuk-footer__section-break"/>
+            </>
           )}
-          <hr className="govuk-footer__section-break"/>
           <div className="govuk-footer__meta">
             <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
               { Children.map(arrayChildren, (child:any, _index) => {
