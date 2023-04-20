@@ -28,8 +28,8 @@ export const Button = ({
   const buttonAttributes: any = {
     name,
     disabled,
-    ariaDisabled: disabled,
-    dataPreventDoubleClick: preventDoubleClick,
+    'aria-disabled': disabled,
+    'data-prevent-double-click': preventDoubleClick,
   };
 
   let iconHtml;
