@@ -7,9 +7,9 @@ export const MainWrapper = ({
   ...attributes
 }: MainWrapperProps) => {
   return (
-    <div className={`govuk-main-wrapper ${classes || ''}`} { ...attributes }>
+    <main className={`govuk-main-wrapper${classes ? ` ${classes}` : ''}`} { ...attributes }>
       { children }
-    </div>
+    </main>
   );
 };
 
