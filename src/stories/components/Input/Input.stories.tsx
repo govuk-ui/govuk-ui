@@ -18,8 +18,8 @@ const primary: Story = {
   args: {
     name: 'event-name',
     children: [
-      <Label>
-        <Typography component="h1" variant="l">What is the name of the event?</Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the name of the event?
       </Label>
     ]
   }
@@ -94,8 +94,8 @@ const hintText: Story = {
   args: {
     name: 'event-name',
     children: [
-      <Label>
-        <Typography component="h1" variant="l">What is the name of the event?</Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the name of the event?
       </Label>,
       <Hint>
         The name you’ll use on promotional material
@@ -111,8 +111,8 @@ const number: Story = {
     inputmode: 'numeric',
     spellcheck: false,
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">What is your account number?</Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is your account number?
       </Label>,
       <Hint>
         Must be between 6 and 8 digits long
@@ -145,10 +145,8 @@ const prefixAndSuffix: Story = {
     prefix: '£',
     suffix: 'per item',
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">
-          What is the cost per item, in pounds?
-        </Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the cost per item, in pounds?
       </Label>
     ]
   }
@@ -162,10 +160,8 @@ const prefix: Story = {
     spellcheck: false,
     prefix: '£',
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">
-          What is the cost in pounds?
-        </Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the cost in pounds?
       </Label>
     ]
   }
@@ -179,10 +175,8 @@ const suffix: Story = {
     spellcheck: false,
     suffix: 'kg',
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">
-          What is the weight in kilograms?
-        </Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the weight in kilograms?
       </Label>
     ]
   }
@@ -221,10 +215,8 @@ const error: Story = {
     name: 'event-name',
     errorMessage: "Enter an event name",
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">
-          What is the name of the event?
-        </Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the name of the event?
       </Label>,
       <Hint>
         The name you’ll use on promotional material
@@ -243,10 +235,8 @@ const prefixSuffixError: Story = {
     classes: "govuk-input--width-5",
     spellcheck: false,
     children: [
-      <Label>
-        <Typography component="h1" variant="l" classes="govuk-label--l">
-          What is the cost per item, in pounds?
-        </Typography>
+      <Label isPageHeading classes="govuk-label--l">
+        What is the cost per item, in pounds?
       </Label>
     ]
   }
