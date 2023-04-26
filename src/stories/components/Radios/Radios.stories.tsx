@@ -22,8 +22,8 @@ const withHeading: Story = {
   args: {
     name: 'whereDoYouLive',
     children: [
-      <Legend>
-        <Typography variant='l' component='h1'>Where do you live?</Typography>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        Where do you live?
       </Legend>,
       <RadioItem value="england">
         <Label>England</Label>
@@ -71,10 +71,10 @@ const inline: Story = {
     name: 'changedName',
     classes: 'govuk-radios--inline',
     children: [
-      <Legend>
-        <Typography variant='l' component='h1'>Have you changed your name?</Typography>
-        <Hint>This includes changing your last name or spelling your name differently.</Hint>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        Have you changed your name?
       </Legend>,
+      <Hint>This includes changing your last name or spelling your name differently.</Hint>,
       <RadioItem value="yes">
         <Label>Yes</Label>
       </RadioItem>,
@@ -90,10 +90,10 @@ const withHint: Story = {
   args: {
     name: 'signInMethod',
     children: [
-      <Legend>
-        <Typography variant='l' component='h1'>How do you want to sign in?</Typography>
-        <Hint>You’ll need an account to prove your identity and complete your Self Assessment.</Hint>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        How do you want to sign in?
       </Legend>,
+      <Hint>You’ll need an account to prove your identity and complete your Self Assessment.</Hint>,
       <RadioItem value="governmentGateway">
         <Label>Sign in with Government Gateway</Label>
         <Hint>You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.</Hint>
@@ -111,8 +111,8 @@ const withDivider: Story = {
   args: {
     name: 'whereDoYouLive',
     children: [
-      <Legend>
-        <Typography variant='l' component='h1'>Where do you live?</Typography>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        Where do you live?
       </Legend>,
       <RadioItem value="england">
         <Label>England</Label>
@@ -138,10 +138,10 @@ const conditional: Story = {
   name: 'Radio items with conditional',
   render: (args) => (
     <Radios name="contact-preference">
-      <Legend>
-        <Typography variant='l' component='h1'>How would you prefer to be contacted?</Typography>
-        <Hint>Select one option.</Hint>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        How would you prefer to be contacted?
       </Legend>
+      <Hint>Select one option.</Hint>,
       <RadioItem value="email" conditional={
         <Input name="emailAddress" classes="govuk-!-width-one-third">
           <Label>Email address</Label>
@@ -165,8 +165,8 @@ const small: Story = {
     name: 'filter',
     classes: 'govuk-radios--small',
     children: [
-      <Legend>
-        <Typography variant='m' component='h1'>Filter</Typography>
+      <Legend isPageHeading classes="govuk-fieldset__legend--m">
+        Filter
       </Legend>,
       <RadioItem value="monthly">
         <Label>Monthly</Label>
@@ -184,8 +184,8 @@ const errors: Story = {
     name: 'whereDoYouLive',
     errorMessage: 'Select the country where you live',
     children: [
-      <Legend>
-        <Typography variant='l' component='h1'>Where do you live?</Typography>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        Where do you live?
       </Legend>,
       <RadioItem value="england">
         <Label>England</Label>
@@ -207,10 +207,10 @@ const conditionalWithErrors: Story = {
   name: 'Radio items with conditional',
   render: (args) => (
     <Radios name="conditional-with-errors">
-      <Legend>
-        <Typography variant='l' component='h1'>How would you prefer to be contacted?</Typography>
-        <Hint>Select one option.</Hint>
+      <Legend isPageHeading classes="govuk-fieldset__legend--l">
+        How would you prefer to be contacted?
       </Legend>
+      <Hint>Select one option.</Hint>,
       <RadioItem value="email" conditional={
         <Input name="emailAddress" classes="govuk-!-width-one-third" errorMessage="Email address cannot be blank">
           <Label>Email address</Label>
