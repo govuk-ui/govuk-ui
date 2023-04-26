@@ -3,5 +3,6 @@ export default interface LabelProps {
   children?: any,
   classes?: string,
   htmlFor?: string,
+  isPageHeading?: boolean,
   attributes?: any,
 }
