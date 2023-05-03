@@ -42,7 +42,8 @@ export const CheckboxItem = ({
                 <>
                   {
                     cloneElement(child as React.ReactElement<any>, {
-                      classes: 'govuk-checkboxes__label'
+                      classes: 'govuk-checkboxes__label',
+                      htmlFor: id
                     })
                   }
                 </>
