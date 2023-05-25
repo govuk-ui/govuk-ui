@@ -37,7 +37,7 @@ export const Header = ({
                 ></path>
               </svg>
 
-              <span className="govuk-header__logotype-text">GOV.UK</span>
+              <span className="govuk-header__logotype-text"> GOV.UK </span>
             </span>
           </a>
         </div>
