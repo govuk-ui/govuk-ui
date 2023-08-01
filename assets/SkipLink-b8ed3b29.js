@@ -1,0 +1,16 @@
+import{j as t,a as o,F as m}from"./jsx-runtime-29545a09.js";import{M as l,C as r}from"./index-27d68b79.js";import"./chunk-S4VUQJ4A-622e07a9.js";import{primary as a}from"./SkipLink.stories-3e081b2a.js";import"./Textarea-22722f7a.js";import"./BackLink-db4a3555.js";import"./BreadcrumbItem-4c671eb0.js";import"./Button-c79cc17b.js";import"./CookieBanner-54ff0914.js";import"./Details-b31dbea0.js";import{H as h}from"./Radios-a3c37471.js";import"./Footer-c20a9c5d.js";import"./Header-19efd5f0.js";import"./InsetText-f9c5a393.js";import"./Pagination-e4f0cd70.js";import"./PhaseBanner-85bc883f.js";import"./SkipLink-7ef7355e.js";import"./WarningText-4cfd38cd.js";import{G as c}from"./GovScript-04710f98.js";import{u as s}from"./index-b6bb2acc.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";import"./iframe-2a142ad5.js";import"../sb-preview/runtime.js";import"./index-d475d2ea.js";import"./_commonjs-dynamic-modules-302442b1.js";import"./index-d893ea64.js";import"./assert-a1982797.js";import"./index-d37d4223.js";import"./index-356e4a49.js";import"./react-18-5d423019.js";import"./Typography-359fe8b4.js";import"./FormGroup-201d2661.js";import"./Fieldset-d9d8ba59.js";import"./Container-045493c7.js";import"./Grid-408885ec.js";function Q(i={}){const{wrapper:n}=Object.assign({},s(),i.components);return n?t(n,Object.assign({},i,{children:t(p,{})})):p();function p(){const e=Object.assign({h1:"h1",p:"p",h2:"h2",code:"code"},s(),i.components);return o(m,{children:[t(l,{title:"Components/Skip link"}),`
+`,t(h,{children:"Components"}),`
+`,t(e.h1,{id:"skip-link",children:"Skip link"}),`
+`,t(e.p,{children:"Use the skip link component to help keyboard-only users skip to the main content on a page."}),`
+`,t(r,{of:a}),`
+`,t(e.p,{children:"If you use the page template, you’ll also get the skip link without having to add it, as it’s included by default. However, if you want to customise the default skip link, read the page template guidance about customising components."}),`
+`,t(e.h2,{id:"when-to-use-this-component",children:"When to use this component"}),`
+`,o(e.p,{children:["All GOV.UK pages must include a skip link. Usually, you should place the skip link immediately after the opening ",t(e.code,{children:"<body>"})," tag. However, if you’re using a cookie banner, place the skip link immediately after the cookie banner."]}),`
+`,o(e.p,{children:["Some automated accessibility testing tools may warn that the skip link element is not inside a landmark. This warning does not apply to skip links, so you can ignore it. Do not wrap the skip link in a ",t(e.code,{children:"<nav>"})," region, or move it inside the header."]}),`
+`,t(e.h2,{id:"how-it-works",children:"How it works"}),`
+`,t(e.p,{children:"Some people use the tab key on their keyboard to navigate through the links and form elements on a web page."}),`
+`,t(e.p,{children:"Including the skip link component gives users the option to bypass the top-level navigation links and jump to the main content on a page."}),`
+`,t(e.p,{children:"The skip link component is visually hidden until a keyboard press activates it."}),`
+`,t(r,{of:a}),`
+`,t(c,{})]})}}export{Q as default};
+//# sourceMappingURL=SkipLink-b8ed3b29.js.map
