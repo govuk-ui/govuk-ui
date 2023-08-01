@@ -1,0 +1,52 @@
+import {Meta} from '@storybook/blocks';
+import {Canvas} from '@storybook/addon-docs';
+import * as TableStories from './Table.stories';
+import {Hint} from '../../../components';
+
+<Meta title="Components/Table"/>
+
+<Hint>Components</Hint>
+
+# Table
+
+Use the table component to make information easier to compare and scan for users.
+
+<Canvas of={TableStories.primary}/>
+
+## When to use this component
+
+Use the table component to let users compare information in rows and columns.
+
+## When not to use this component
+
+Never use the table component to layout content on a page. Instead, use the grid system.
+
+## How it works
+
+### Table captions
+
+Use the `caption` prop to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables.
+
+There are other styling options for table captions. You can use `govuk-table__caption--s`, `govuk-table__caption--m`, `govuk-table__caption--l` and `govuk-table__caption--xl` classes to make them larger or smaller from the default.
+
+<Canvas of={TableStories.customCaptionSize}/>
+
+### Table headers
+
+Use table headers to tell users what the rows and columns represent. Use the scope attribute to help users of assistive technology distinguish between row and column headers.
+
+<Canvas of={TableStories.primary}/>
+
+## Numbers in a table
+
+When comparing columns of numbers, align the numbers to the right in table cells.
+
+<Canvas of={TableStories.numbers}/>
+
+## Custom column widths
+
+You can use the width override classes to set the width of table columns.
+
+<Canvas of={TableStories.customColumnWidth}/>
+
+If the width override classes do not meet your needs you can create your own width classes and apply them to the cells in the table head. These can be added using the `classes` prop.
