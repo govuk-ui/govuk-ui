@@ -8,18 +8,14 @@
   "homepage": "https://govuk-ui.github.io/govuk-ui/",
   "scripts": {
     "dev": "storybook dev --docs -p 6006",
-    "test": "jest",
-    "gen-components": "node ./src/scripts/gen-components.js",
-    "gen-stories": "node ./src/scripts/gen-stories.js",
-    "build-ts": "tsc",
-    "build-sass": "sass ./src/scss:.storybook",
-    "build-lib": "rollup -c",
-    "patch": "npm version patch",
-    "push": "git push",
-    "publish-npm": "npm publish",
-    "build-storybook": "npm run build-sass && storybook build --docs -o ./docs",
-    "deploy-storybook": "npm run build-storybook && touch ./docs/.nojekyll && gh-pages -d docs -t true",
-    "smash": "npm-run-all test build-lib patch push publish-npm deploy-storybook"
+    "build": "run-p build:sass build:js",
+    "build:js": "rollup -c",
+    "build:sass": "sass ./src/scss:.storybook",
+    "build:storybook": "npm run build:sass && storybook build --docs -o ./docs",
+    "release:npm": "npm publish",
+    "release:storybook": "npm run build:storybook && touch ./docs/.nojekyll && gh-pages -d docs -t true",
+    "release": "run-s test build release:npm release:storybook",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "7.22.9",
