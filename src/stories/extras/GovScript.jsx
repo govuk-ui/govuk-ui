@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 /**
  * This component is used to hydrate the govuk-frontend javascript components when the page is loaded.
@@ -6,14 +6,14 @@ import React, { useEffect } from 'react';
  * of the document means components haven't rendered by the time the js tries to run.
  * This component needs to be added to the story file for each component that uses the govuk-frontend js.
  *
- * @param {string} fireAfter - The id of the component to wait for before running the js.
+ * @param {string} [fireAfter] - The id of the component to wait for before running the js.
  */
 export const GovScript = ({ fireAfter }) => {
   useEffect(() => {
     if (!fireAfter) {
       setTimeout(() => {
         window.GOVUKFrontend.initAll();
-      }, 100)
+      }, 100);
     } else {
       const componentLoaded = document.getElementById(fireAfter);
       if (componentLoaded) {
@@ -31,9 +31,7 @@ export const GovScript = ({ fireAfter }) => {
         return () => observer.disconnect();
       }
     }
-  }, [])
+  }, []);
 
-  return (
-    <></>
-  );
-}
+  return <></>;
+};
