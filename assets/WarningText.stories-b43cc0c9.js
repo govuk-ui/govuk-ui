@@ -1,2 +1,0 @@
-import{W as t}from"./WarningText-53f07e98.js";import"./jsx-runtime-670450c2.js";import"./index-f1f749bf.js";import"./_commonjsHelpers-042e6b4d.js";const a={title:"WarningText",component:t},i={name:"default",args:{iconFallbackText:"Warning",children:"You can be fined up to £5,000 if you do not register."}},m=["primary"];export{m as __namedExportsOrder,a as default,i as primary};
-//# sourceMappingURL=WarningText.stories-b43cc0c9.js.map
