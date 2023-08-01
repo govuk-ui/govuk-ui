@@ -5,19 +5,37 @@ export const TableCell = ({
   id,
   children,
   classes,
-  attributes,
- }: TableCellProps) => {
-  
+  isHeader,
+  format,
+  ...attributes
+}: TableCellProps) => {
   return (
     <>
-      <td className={`govuk-table__cell ${classes || ''}`} id={id} { ...attributes }>
-        { children }
-      </td>
+      {isHeader ? (
+        <th
+          className={`govuk-table__header
+            ${classes ? ` ${classes}` : ""}
+            ${format ? `govuk-table__header--${format}` : ""}
+          `}
+          id={id}
+          {...attributes}
+        >
+          {children}
+        </th>
+      ) : (
+        <td
+          className={`govuk-table__cell
+          ${classes ? ` ${classes}` : ""}
+          ${format ? `govuk-table__cell--${format}` : ""}
+        `}
+          id={id}
+          {...attributes}
+        >
+          {children}
+        </td>
+      )}
     </>
   );
 };
 
 export default TableCell;
-
-
-
