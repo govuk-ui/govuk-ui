@@ -6,6 +6,8 @@ import {
   SummaryListItem,
   SummaryListKey,
   SummaryListValue,
+  SummaryListCard,
+  SummaryListCardAction,
 } from "../../../components";
 import { Typography } from "../../../typography";
 
@@ -71,7 +73,7 @@ const primary: Story = {
 };
 
 const visuallyHidden: Story = {
-  name: "default",
+  name: "visually hidden text",
   render: (_args) => (
     <SummaryList>
       <SummaryListItem>
@@ -124,7 +126,7 @@ const visuallyHidden: Story = {
 };
 
 const noAction: Story = {
-  name: "default",
+  name: "no actions",
   render: (_args) => (
     <SummaryList>
       <SummaryListItem>
@@ -157,7 +159,7 @@ const noAction: Story = {
 };
 
 const rowNoAction: Story = {
-  name: "default",
+  name: "row no actions",
   render: (_args) => (
     <SummaryList>
       <SummaryListItem>
@@ -205,7 +207,7 @@ const rowNoAction: Story = {
 };
 
 const noBorders: Story = {
-  name: "default",
+  name: "no borders",
   render: (_args) => (
     <SummaryList classes="govuk-summary-list--no-border">
       <SummaryListItem>
@@ -237,4 +239,201 @@ const noBorders: Story = {
   ),
 };
 
-export { primary, visuallyHidden, noAction, noBorders, rowNoAction };
+const summaryCards: Story = {
+  name: "summary cards",
+  render: (_args) => (
+    <>
+      <SummaryListCard title="Person 1">
+        <SummaryList>
+          <SummaryListItem>
+            <SummaryListKey>Age</SummaryListKey>
+            <SummaryListValue>38</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Nationality</SummaryListKey>
+            <SummaryListValue>UK national resident in UK</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Working situation</SummaryListKey>
+            <SummaryListValue>Part time – less than 30 hours a week</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+        </SummaryList>
+      </SummaryListCard>
+      <SummaryListCard title="Person 2">
+        <SummaryList>
+          <SummaryListItem>
+            <SummaryListKey>Details known</SummaryListKey>
+            <SummaryListValue>Yes</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Relationship to lead tenant</SummaryListKey>
+            <SummaryListValue>Partner</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Age</SummaryListKey>
+            <SummaryListValue>42</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Working situation</SummaryListKey>
+            <SummaryListValue>
+              Unable to work because of long-term sickness or disability
+            </SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+        </SummaryList>
+      </SummaryListCard>
+      <SummaryListCard title="Person 3">
+        <SummaryList>
+          <SummaryListItem>
+            <SummaryListKey>Details known</SummaryListKey>
+            <SummaryListValue>Yes</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Relationship to lead tenant</SummaryListKey>
+            <SummaryListValue>Child</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Age</SummaryListKey>
+            <SummaryListValue>7</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Working situation</SummaryListKey>
+            <SummaryListValue>Child under 16</SummaryListValue>
+            <SummaryListActions>
+              <a className="govuk-link" href="#">
+                Change
+              </a>
+            </SummaryListActions>
+          </SummaryListItem>
+        </SummaryList>
+      </SummaryListCard>
+    </>
+  ),
+};
+
+const summaryCardsWithActions: Story = {
+  name: "summary cards with actions",
+  render: (_args) => (
+    <>
+      <SummaryListCard title="University of Gloucestershire">
+        <SummaryListCardAction>
+          <a className="govuk-link" href="#">
+            Delete choice
+          </a>
+        </SummaryListCardAction>
+        <SummaryListCardAction>
+          <a className="govuk-link" href="#">
+            Withdraw
+          </a>
+        </SummaryListCardAction>
+        <SummaryList>
+          <SummaryListItem>
+            <SummaryListKey>Course</SummaryListKey>
+            <SummaryListValue>
+              English (3DMD)
+              <br />
+              PGCE with QTS full time
+            </SummaryListValue>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Location</SummaryListKey>
+            <SummaryListValue>
+              School name
+              <br />
+              Road, City, SW1 1AA
+            </SummaryListValue>
+          </SummaryListItem>
+        </SummaryList>
+      </SummaryListCard>
+      <SummaryListCard title="University of Bristol">
+        <SummaryListCardAction>
+          <a className="govuk-link" href="#">
+            Delete choice
+          </a>
+        </SummaryListCardAction>
+        <SummaryListCardAction>
+          <a className="govuk-link" href="#">
+            Withdraw
+          </a>
+        </SummaryListCardAction>
+        <SummaryList>
+          <SummaryListItem>
+            <SummaryListKey>Course</SummaryListKey>
+            <SummaryListValue>
+              English (Q3X1)
+              <br />
+              PGCE with QTS full time
+            </SummaryListValue>
+          </SummaryListItem>
+          <SummaryListItem>
+            <SummaryListKey>Location</SummaryListKey>
+            <SummaryListValue>
+              School name
+              <br />
+              Road, City, SW2 1AA
+            </SummaryListValue>
+          </SummaryListItem>
+        </SummaryList>
+      </SummaryListCard>
+    </>
+  ),
+};
+
+export {
+  primary,
+  visuallyHidden,
+  noAction,
+  noBorders,
+  rowNoAction,
+  summaryCards,
+  summaryCardsWithActions,
+};

@@ -1,16 +1,17 @@
 import React from "react";
 import SummaryListActionsProps from "./SummaryListActions.types";
 
-export const SummaryListActions = ({ 
+export const SummaryListActions = ({
   id,
   classes,
   children,
   ...attributes
 }: SummaryListActionsProps) => {
   return (
-    <dt className={`govuk-summary-list__actions ${classes || ''}`}
+    <dt
+      className={`govuk-summary-list__actions${classes ? ` ${classes}` : ""}`}
       id={id}
-      { ...attributes }
+      {...attributes}
     >
       {children}
     </dt>
