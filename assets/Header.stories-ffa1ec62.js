@@ -1,0 +1,2 @@
+import{j as r}from"./jsx-runtime-29545a09.js";import{H as e}from"./Typography-f899da69.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";const n={title:"Header",component:e},s={name:"default",render:a=>r(e,{homepageUrl:"#"})},p={name:"default",render:a=>r(e,{homepageUrl:"#",serviceName:"Service name"})},c=["primary","withServiceName"];export{c as __namedExportsOrder,n as default,s as primary,p as withServiceName};
+//# sourceMappingURL=Header.stories-ffa1ec62.js.map

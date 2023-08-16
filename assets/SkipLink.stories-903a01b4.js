@@ -1,0 +1,2 @@
+import{a as r,F as i,j as e}from"./jsx-runtime-29545a09.js";import{S as t,T as a}from"./Typography-f899da69.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";const c={title:"SkipLink",component:t},d={name:"default",render:n=>r(i,{children:[e(a,{children:"To view the skip link component tab to this example, or click inside this example and press tab."}),e(t,{href:"#",children:"Skip to main content"})]})},l=["primary"];export{l as __namedExportsOrder,c as default,d as primary};
+//# sourceMappingURL=SkipLink.stories-903a01b4.js.map

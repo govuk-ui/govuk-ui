@@ -1,0 +1,2 @@
+import{j as e}from"./jsx-runtime-29545a09.js";import{E as t}from"./Typography-f899da69.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";const i={title:"Inset text",component:t},m={name:"Inset Text",render:r=>e(t,{children:"It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."})},p=["primary"];export{p as __namedExportsOrder,i as default,m as primary};
+//# sourceMappingURL=InsetText.stories-d3c25fe5.js.map
