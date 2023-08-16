@@ -2,16 +2,16 @@ import React from "react";
 import TypographyProps from "./Typography.types";
 
 export const Typography = ({
-  children,
-  classes,
-  variant,
-  captionSize,
-  component,
-  ...attributes
-}: TypographyProps) => {
+                             children,
+                             classes,
+                             variant,
+                             captionSize,
+                             component,
+                             ...attributes
+                           }: TypographyProps) => {
 
   let c = 'govuk-body';
-  let Tag: any = 'p';
+  let Tag: string = 'p';
 
   switch (variant) {
     case 'xl':
@@ -62,8 +62,8 @@ export const Typography = ({
   }
 
   return (
-    <Tag className={`${c} ${classes || ''}`} { ...attributes }>
-      { children }
+    <Tag className={`${c} ${classes || ''}`} {...attributes}>
+      {children}
     </Tag>
   );
 };

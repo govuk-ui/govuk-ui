@@ -1,5 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   SummaryList,
   SummaryListActions,
@@ -8,8 +9,8 @@ import {
   SummaryListValue,
   SummaryListCard,
   SummaryListCardAction,
-} from "../../../components";
-import { Typography } from "../../../typography";
+  Typography,
+} from "../../..";
 
 const meta: Meta<typeof SummaryList> = {
   title: "SummaryList",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import Header from "../../../components/Header";
+import { Header } from "../../../components";
 
 const meta: Meta<typeof Header> = {
   title: "Header",
@@ -13,15 +13,12 @@ type Story = StoryObj<typeof Header>;
 
 const primary: Story = {
   name: "default",
-  render: (args) => <Header homepageUrl="#" />,
+  render: (_args) => <Header homepageUrl="#" />,
 };
 
 const withServiceName: Story = {
   name: "default",
-  render: (args) => <Header homepageUrl="#" serviceName="Service name" />,
+  render: (_args) => <Header homepageUrl="#" serviceName="Service name" />,
 };
 
-export {
-  primary,
-  withServiceName,
-};
+export { primary, withServiceName };

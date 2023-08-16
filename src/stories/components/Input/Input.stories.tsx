@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import Input from "../../../components/Input";
-import {Hint, Label} from "../../../components";
-import {Typography} from "../../../typography";
+import { Hint, Label, Input } from "../../..";
 
 const meta: Meta<typeof Input> = {
   title: "Text input",
@@ -15,31 +13,27 @@ type Story = StoryObj<typeof Input>;
 
 const primary: Story = {
   name: "Text input",
-  args: {
-    name: 'event-name',
-    children: [
+  render: (_args) => (
+    <Input name="event-name">
       <Label isPageHeading classes="govuk-label--l">
         What is the name of the event?
       </Label>
-    ]
-  }
+    </Input>
+  ),
 };
 
 const withoutHeading: Story = {
   name: "Text input without heading",
-  args: {
-    name: 'event-name',
-    children: [
-      <Label>
-        What is the name of the event?
-      </Label>
-    ]
-  }
+  render: (_args) => (
+    <Input name="event-name">
+      <Label>What is the name of the event?</Label>
+    </Input>
+  ),
 };
 
 const fixedWidthInputs: Story = {
   name: "Fixed width inputs",
-  render: (args) => (
+  render: (_args) => (
     <>
       <Input name="width-20" classes="govuk-input--width-20">
         <Label>20 character width</Label>
@@ -60,12 +54,12 @@ const fixedWidthInputs: Story = {
         <Label>2 character width</Label>
       </Input>
     </>
-  )
-}
+  ),
+};
 
 const fluidWidthInputs: Story = {
   name: "Fluid width inputs",
-  render: (args) => (
+  render: (_args) => (
     <>
       <Input name="full" classes="govuk-!-width-full">
         <Label>Full width</Label>
@@ -86,160 +80,128 @@ const fluidWidthInputs: Story = {
         <Label>One-quarter width</Label>
       </Input>
     </>
-  )
-}
+  ),
+};
 
 const hintText: Story = {
   name: "Text input with hint text",
   args: {
-    name: 'event-name',
+    name: "event-name",
     children: [
       <Label isPageHeading classes="govuk-label--l">
         What is the name of the event?
       </Label>,
-      <Hint>
-        The name you’ll use on promotional material
-      </Hint>
-    ]
-  }
+      <Hint>The name you’ll use on promotional material</Hint>,
+    ],
+  },
 };
 
 const number: Story = {
   name: "Text input with hint text",
-  args: {
-    name: 'account-number',
-    inputmode: 'numeric',
-    spellcheck: false,
-    children: [
+  render: (_args) => (
+    <Input name="account-number" spellcheck={false} inputmode="numeric">
       <Label isPageHeading classes="govuk-label--l">
         What is your account number?
-      </Label>,
-      <Hint>
-        Must be between 6 and 8 digits long
-      </Hint>
-    ]
-  }
+      </Label>
+      <Hint>Must be between 6 and 8 digits long</Hint>
+    </Input>
+  ),
 };
 
 const numberWithDecimals: Story = {
   name: "Numeric text input with decimals",
-  args: {
-    name: 'weight',
-    classes: "govuk-input--width-5",
-    spellcheck: false,
-    suffix: 'kg',
-    children: [
-      <Label>
-        Weight, in kilograms
-      </Label>
-    ]
-  }
+  render: (_args) => (
+    <Input name="weight" classes="govuk-input--width-5" spellcheck={false} suffix="kg">
+      <Label>Weight, in kilograms</Label>
+    </Input>
+  ),
 };
 
 const prefixAndSuffix: Story = {
   name: "Prefix and suffix",
-  args: {
-    name: 'weight',
-    classes: "govuk-input--width-5",
-    spellcheck: false,
-    prefix: '£',
-    suffix: 'per item',
-    children: [
+  render: (_args) => (
+    <Input
+      name="weight"
+      classes="govuk-input--width-5"
+      spellcheck={false}
+      suffix="per item"
+      prefix="£"
+    >
       <Label isPageHeading classes="govuk-label--l">
         What is the cost per item, in pounds?
       </Label>
-    ]
-  }
+    </Input>
+  ),
 };
 
 const prefix: Story = {
   name: "Prefix",
-  args: {
-    name: 'cost',
-    classes: "govuk-input--width-5",
-    spellcheck: false,
-    prefix: '£',
-    children: [
+  render: (_args) => (
+    <Input name="cost" classes="govuk-input--width-5" spellcheck={false} prefix="£">
       <Label isPageHeading classes="govuk-label--l">
         What is the cost in pounds?
       </Label>
-    ]
-  }
+    </Input>
+  ),
 };
 
 const suffix: Story = {
   name: "Suffix",
-  args: {
-    name: 'weight',
-    classes: "govuk-input--width-5",
-    spellcheck: false,
-    suffix: 'kg',
-    children: [
+  render: (_args) => (
+    <Input name="weight" classes="govuk-input--width-5" spellcheck={false} suffix="kg">
       <Label isPageHeading classes="govuk-label--l">
         What is the weight in kilograms?
       </Label>
-    ]
-  }
+    </Input>
+  ),
 };
 
 const autocomplete: Story = {
   name: "Autocomplete",
-  args: {
-    name: 'postal-code',
-    classes: "govuk-input--width-10",
-    autocomplete: 'postal-code',
-    children: [
-      <Label>
-        Postcode
-      </Label>
-    ]
-  }
+  render: (_args) => (
+    <Input name="postal-code" classes="govuk-input--width-10" autocomplete="postal-code">
+      <Label>Postcode</Label>
+    </Input>
+  ),
 };
 
 const spellcheck: Story = {
   name: "Spellcheck",
-  args: {
-    name: 'name',
-    spellcheck: false,
-    children: [
-      <Label>
-        Reference number
-      </Label>
-    ]
-  }
+  render: (_args) => (
+    <Input name="name" spellcheck={false}>
+      <Label>Reference number</Label>
+    </Input>
+  ),
 };
 
 const error: Story = {
   name: "Error message",
-  args: {
-    name: 'event-name',
-    errorMessage: "Enter an event name",
-    children: [
+  render: (_args) => (
+    <Input name="event-name" errorMessage="Enter an event name">
       <Label isPageHeading classes="govuk-label--l">
         What is the name of the event?
-      </Label>,
-      <Hint>
-        The name you’ll use on promotional material
-      </Hint>
-    ]
-  }
+      </Label>
+      <Hint>The name you’ll use on promotional material</Hint>
+    </Input>
+  ),
 };
 
 const prefixSuffixError: Story = {
   name: "Error message on prefix and suffix",
-  args: {
-    name: 'cost-per-item-error',
-    errorMessage: "Enter a cost per item, in pounds",
-    prefix: "£",
-    suffix: "per item",
-    classes: "govuk-input--width-5",
-    spellcheck: false,
-    children: [
+  render: (_args) => (
+    <Input
+      name="cost-per-item-error"
+      classes="govuk-input--width-5"
+      spellcheck={false}
+      suffix="per item"
+      prefix="£"
+      errorMessage="Enter a cost per item, in pounds"
+    >
       <Label isPageHeading classes="govuk-label--l">
         What is the cost per item, in pounds?
       </Label>
-    ]
-  }
+    </Input>
+  ),
 };
 
 export {
@@ -256,5 +218,5 @@ export {
   autocomplete,
   spellcheck,
   error,
-  prefixSuffixError
+  prefixSuffixError,
 };

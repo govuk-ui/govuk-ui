@@ -1,16 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React, {useEffect} from "react";
+import React from "react";
 
-import {
-  Tabs,
-  TabItem,
-  TableHeader,
-  TableCell,
-  TableRow,
-  Tag,
-  Table
-} from "../../../components";
-import {Typography} from "../../../typography";
+import { Tabs, TabItem, TableHeader, TableCell, TableRow, Table } from "../../../components";
 
 const meta: Meta<typeof Tabs> = {
   title: "Tabs",
@@ -22,9 +13,9 @@ type Story = StoryObj<typeof Tabs>;
 
 const primary: Story = {
   name: "default",
-  render: (args) => (
+  render: (_args) => (
     <Tabs>
-      <TabItem id="past-day" label='Past day'>
+      <TabItem id="past-day" label="Past day">
         <Table>
           <TableHeader classes="govuk-table__header">
             <TableCell>Case manager</TableCell>
@@ -48,7 +39,7 @@ const primary: Story = {
           </TableRow>
         </Table>
       </TabItem>
-      <TabItem id="past-week" label='Past week'>
+      <TabItem id="past-week" label="Past week">
         <Table>
           <TableHeader classes="govuk-table__header">
             <TableCell>Case manager</TableCell>
@@ -72,7 +63,7 @@ const primary: Story = {
           </TableRow>
         </Table>
       </TabItem>
-      <TabItem id="past-month" label='Past month'>
+      <TabItem id="past-month" label="Past month">
         <Table>
           <TableHeader classes="govuk-table__header">
             <TableCell>Case manager</TableCell>
@@ -96,7 +87,7 @@ const primary: Story = {
           </TableRow>
         </Table>
       </TabItem>
-      <TabItem id="past-year" label='Past year'>
+      <TabItem id="past-year" label="Past year">
         <Table>
           <TableHeader classes="govuk-table__header">
             <TableCell>Case manager</TableCell>
@@ -121,9 +112,7 @@ const primary: Story = {
         </Table>
       </TabItem>
     </Tabs>
-  )
+  ),
 };
 
-export {
-  primary
-};
+export { primary };

@@ -1,0 +1,29 @@
+import {Meta} from '@storybook/blocks';
+import {Canvas} from '@storybook/addon-docs';
+import * as PageTemplateStories from './PageTemplate.stories';
+import {Hint} from '../../../components';
+
+<Meta title="Styles/Page template"/>
+
+<Hint>Styles</Hint>
+
+# Page template
+
+Use this template to keep your pages consistent with the rest of GOV.UK.
+
+This page template combines the boilerplate markup and components needed for a basic GOV.UK page.
+
+## Default
+
+This example shows the minimum required for a GOV.UK page.
+
+<Canvas of={PageTemplateStories.primary}/>
+
+## Customised page template
+
+You can customise the page template, for example, by:
+
+- adding a service name and navigation
+- including a back link or phase banner
+
+<Canvas of={PageTemplateStories.customised}/>
