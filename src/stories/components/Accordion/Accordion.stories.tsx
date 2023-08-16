@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import Accordion from "../../../components/Accordion";
-import AccordionItem from "../../../components/AccordionItem/AccordionItem";
-import { Typography } from "../../..";
+import { Typography, Accordion, AccordionItem } from "../../..";
 
 const meta: Meta<typeof Accordion> = {
   title: "Accordion",
@@ -15,7 +13,7 @@ type Story = StoryObj<typeof Accordion>;
 
 const primary: Story = {
   name: "default",
-  render: (args) => (
+  render: (_args) => (
     <Accordion id={"example-accordion"}>
       <AccordionItem heading="Writing well for the web" expanded>
         <Typography>This is the content for Writing well for the web.</Typography>
@@ -35,7 +33,7 @@ const primary: Story = {
 
 const summary: Story = {
   name: "summary",
-  render: (args) => (
+  render: (_args) => (
     <Accordion id={"example-summary-accordion"}>
       <AccordionItem
         heading="Understanding agile project management"

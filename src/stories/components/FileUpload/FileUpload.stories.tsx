@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import FileUpload from "../../../components/FileUpload";
-import {Label} from "../../../components";
+import { Label, FileUpload } from "../../../components";
 
 const meta: Meta<typeof FileUpload> = {
   title: "FileUpload",
@@ -14,27 +13,24 @@ type Story = StoryObj<typeof FileUpload>;
 
 const primary: Story = {
   name: "default",
-  render: (args) => (
+  render: (_args) => (
     <FileUpload id="file-upload-1" name="file-upload-1">
-      <Label>
-        Upload a file
-      </Label>
+      <Label>Upload a file</Label>
     </FileUpload>
-  )
+  ),
 };
 
 const errorMessage: Story = {
   name: "default",
-  render: (args) => (
-    <FileUpload id="file-upload-1" name="file-upload-1" errorMessage="The CSV must be smaller than 2MB">
-      <Label>
-        Upload a file
-      </Label>
+  render: (_args) => (
+    <FileUpload
+      id="file-upload-1"
+      name="file-upload-1"
+      errorMessage="The CSV must be smaller than 2MB"
+    >
+      <Label>Upload a file</Label>
     </FileUpload>
-  )
+  ),
 };
 
-export {
-  primary,
-  errorMessage,
-};
+export { primary, errorMessage };

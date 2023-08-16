@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 
-import WarningText from "../../../components/WarningText";
+import { WarningText } from "../../../components";
 
 const meta: Meta<typeof WarningText> = {
   title: "WarningText",
@@ -12,12 +13,11 @@ type Story = StoryObj<typeof WarningText>;
 
 const primary: Story = {
   name: "default",
-  args: {
-    iconFallbackText: 'Warning',
-    children: 'You can be fined up to £5,000 if you do not register.'
-  }
+  render: (_args) => (
+    <WarningText iconFallbackText="Warning">
+      You can be fined up to £5,000 if you do not register.
+    </WarningText>
+  ),
 };
 
-export {
-  primary
-};
+export { primary };

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
-import Button from '../../../components/Button';
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
+import { Button } from "../../../components";
+
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: "Button",
   component: Button,
 };
 
@@ -12,79 +12,55 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const primary: Story = {
-  name: 'Primary button',
-  args: {
-    children: "Save and continue"
-  }
-}
+  name: "Primary button",
+  render: (_args) => <Button>Save and continue</Button>,
+};
 
 const start: Story = {
-  name: 'Start button',
-  args: {
-    isStartButton: true,
-    children: "Start now"
-  }
-}
+  name: "Start button",
+  render: (_args) => <Button isStartButton>Start now</Button>,
+};
 
 const secondary: Story = {
-  name: 'Secondary button',
-  args: {
-    classes: 'govuk-button--secondary',
-    children: "Find address"
-  }
-}
+  name: "Secondary button",
+  render: (_args) => <Button classes="govuk-button--secondary">Find address</Button>,
+};
 
 const warning: Story = {
-  name: 'Warning button',
-  args: {
-    classes: 'govuk-button--warning',
-    children: "Delete account"
-  }
-}
+  name: "Warning button",
+  render: (_args) => <Button classes="govuk-button--warning">Delete account</Button>,
+};
 
 const disabled: Story = {
-  name: 'Disabled button',
-  args: {
-    disabled: true,
-    children: "Disabled button"
-  }
-}
+  name: "Disabled button",
+  render: (_args) => <Button disabled>Disabled button</Button>,
+};
 
-const group = {
-  name: 'Button group',
-  render: () => (
+const group: Story = {
+  name: "Button group",
+  render: (_args) => (
     <div className="govuk-button-group">
       <Button>Save and continue</Button>
       <Button classes="govuk-button--secondary">Save as draft</Button>
     </div>
-  )
-}
+  ),
+};
 
-const groupWithLink = {
-  name: 'Button group with link',
-  render: () => (
+const groupWithLink: Story = {
+  name: "Button group with link",
+  render: (_args) => (
     <div className="govuk-button-group">
       <Button>Continue</Button>
-      <a href="#" className="govuk-link">Cancel</a>
+      <a href="#" className="govuk-link">
+        Cancel
+      </a>
     </div>
-  )
-}
+  ),
+};
 
 const preventDoubleClick: Story = {
-  name: 'Prevent double click button',
-  args: {
-    preventDoubleClick: true,
-    children: "Confirm and send"
-  }
-}
+  name: "Prevent double click button",
+  render: (_args) => <Button preventDoubleClick>Confirm and send</Button>,
+};
 
-export {
-  primary,
-  start,
-  secondary,
-  warning,
-  disabled,
-  group,
-  groupWithLink,
-  preventDoubleClick,
-}
+export { primary, start, secondary, warning, disabled, group, groupWithLink, preventDoubleClick };

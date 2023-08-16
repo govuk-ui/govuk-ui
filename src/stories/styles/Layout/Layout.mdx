@@ -1,0 +1,47 @@
+import {Meta} from '@storybook/blocks';
+import {Canvas} from '@storybook/addon-docs';
+import * as LayoutStories from './Layout.stories';
+import {Hint} from '../../../components';
+
+<Meta title="Styles/Layout"/>
+
+<Hint>Styles</Hint>
+
+# Layout
+
+## Screen size
+
+Design for small screens first, starting with a single-column layout.
+
+For most types of page, we recommend using either a ‘two-thirds’ or a ‘two-thirds and one-third’ layout. That stops lines of text getting so long that the page becomes difficult to read on desktop devices. This would usually mean no more than 75 characters per line.
+
+Never make assumptions about what devices people are using. Design for different screen sizes rather than specific devices.
+
+The default maximum page width is 1020px, but you can make it wider if your content requires it.
+
+## Common layouts
+
+### Two-thirds
+
+<Canvas of={LayoutStories.twoThirds}/>
+
+### Two-thirds and one-third
+
+<Canvas of={LayoutStories.twoThirdsOneThird}/>
+
+### Row 1: Two-thirds
+### Row 2: Two-thirds and one-third
+
+<Canvas of={LayoutStories.twoRows}/>
+
+## Building your own layout
+
+If you want to build your layout from scratch, or understand what each of the parts are responsible for, here’s an explanation of how the page wrappers and grid system works.
+
+## Page wrappers
+
+### Limiting width of content
+
+To set up your layout you will need to create 2 wrappers. The first should be a `<Container>` component, which sets the maximum width of the content but does not add any vertical margin or padding.
+
+If your design requires them, you should place components such as breadcrumbs, back link and phase banner inside this wrapper so that they sit directly underneath the header.

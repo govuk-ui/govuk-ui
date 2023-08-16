@@ -1,11 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
-import CharacterCount from '../../../components/CharacterCount';
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Hint, Label, Typography } from '../../..';
+
+import { Hint, Label, Typography, CharacterCount } from "../../..";
 
 const meta: Meta<typeof CharacterCount> = {
-  title: 'CharacterCount',
+  title: "CharacterCount",
   component: CharacterCount,
 };
 
@@ -13,59 +12,51 @@ export default meta;
 type Story = StoryObj<typeof CharacterCount>;
 
 const primary: Story = {
-  name: 'Primary character count',
-  render: (args) => (
-    <CharacterCount
-      id="example-textarea"
-      maxLength={200}
-    >
+  name: "Primary character count",
+  render: (_args) => (
+    <CharacterCount id="example-textarea" maxLength={200}>
       <Label>
         <Typography component="h1" variant="l">
           Can you provide more detail?
         </Typography>
       </Label>
       <Hint>
-      Do not include personal or financial information like your National Insurance number or credit card details.
+        Do not include personal or financial information like your National Insurance number or
+        credit card details.
       </Hint>
     </CharacterCount>
-  )
-}
+  ),
+};
 
 const multipleQuestions: Story = {
-  name: 'Multiple questions character count',
-  render: (args) => (
-    <CharacterCount
-      id="example-textarea"
-      maxLength={200}
-    >
+  name: "Multiple questions character count",
+  render: (_args) => (
+    <CharacterCount id="example-textarea" maxLength={200}>
       <Label>
         <Typography component="h1" variant="body">
           Describe the nature of your event
         </Typography>
       </Label>
     </CharacterCount>
-  )
-}
+  ),
+};
 
 const oneFiftyWords: Story = {
-  name: 'One fifty words character count',
-  render: (args) => (
-    <CharacterCount
-      id="example-textarea"
-      maxWords={150}
-    >
+  name: "One fifty words character count",
+  render: (_args) => (
+    <CharacterCount id="example-textarea" maxWords={150}>
       <Label>
         <Typography component="h1" variant="l">
           Enter a job description
         </Typography>
       </Label>
     </CharacterCount>
-  )
-}
+  ),
+};
 
 const threshold: Story = {
-  name: 'Threshold character count',
-  render: (args) => (
+  name: "Threshold character count",
+  render: (_args) => (
     <CharacterCount
       id="example-textarea"
       maxLength={112}
@@ -78,12 +69,12 @@ const threshold: Story = {
         </Typography>
       </Label>
     </CharacterCount>
-  )
-}
+  ),
+};
 
 const errorInPlace: Story = {
-  name: 'Error in place character count',
-  render: (args) => (
+  name: "Error in place character count",
+  render: (_args) => (
     <CharacterCount
       id="example-textarea"
       maxWords={150}
@@ -96,13 +87,7 @@ const errorInPlace: Story = {
         </Typography>
       </Label>
     </CharacterCount>
-  )
-}
+  ),
+};
 
-export {
-  primary,
-  multipleQuestions,
-  oneFiftyWords,
-  threshold,
-  errorInPlace,
-}
+export { primary, multipleQuestions, oneFiftyWords, threshold, errorInPlace };

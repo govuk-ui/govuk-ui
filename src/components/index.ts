@@ -1,4 +1,5 @@
 export { default as Accordion } from "./Accordion";
+export { default as AccordionItem } from "./AccordionItem";
 export { default as BackLink } from "./BackLink";
 export { default as Breadcrumbs } from "./Breadcrumbs";
 export { default as BreadcrumbItem } from "./BreadcrumbItem";

@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import Footer from "../../../components/Footer";
-import FooterNavigation from "../../../components/FooterNavigation";
-import FooterNavigationItem from "../../../components/FooterNavigationItem";
-import FooterMeta from "../../../components/FooterMeta";
-import FooterMetaItem from "../../../components/FooterMetaItem";
+import {
+  Footer,
+  FooterMeta,
+  FooterNavigation,
+  FooterNavigationItem,
+  FooterMetaItem,
+} from "../../../components";
 
 const meta: Meta<typeof Footer> = {
   title: "Footer",
@@ -21,7 +23,7 @@ const primary: Story = {
 
 const withLinks: Story = {
   name: "with links",
-  render: (args) => (
+  render: (_args) => (
     <Footer>
       <FooterMeta>
         <FooterMetaItem href="#">Item 1</FooterMetaItem>
@@ -29,12 +31,12 @@ const withLinks: Story = {
         <FooterMetaItem href="#">Item 3</FooterMetaItem>
       </FooterMeta>
     </Footer>
-  )
+  ),
 };
 
 const secondaryNavigation: Story = {
   name: "secondary navigation",
-  render: (args) => (
+  render: (_args) => (
     <Footer>
       <FooterNavigation title="Two column list" width="two-thirds" columns={2}>
         <FooterNavigationItem href="#">Navigation item 1</FooterNavigationItem>
@@ -50,12 +52,12 @@ const secondaryNavigation: Story = {
         <FooterNavigationItem href="#">Navigation item 3</FooterNavigationItem>
       </FooterNavigation>
     </Footer>
-  )
+  ),
 };
 
 const linksAndSecondaryNavigation: Story = {
   name: "lnks and secondary navigation",
-  render: (args) => (
+  render: (_args) => (
     <Footer>
       <FooterNavigation title="Services and information" width="two-thirds" columns={2}>
         <FooterNavigationItem href="#">Benefits</FooterNavigationItem>
@@ -89,16 +91,13 @@ const linksAndSecondaryNavigation: Story = {
         <FooterMetaItem href="#">Contact</FooterMetaItem>
         <FooterMetaItem href="#">Terms and conditions</FooterMetaItem>
         <FooterMetaItem href="#">Rhestr o Wasanaethau Cymraeg</FooterMetaItem>
-        Built by the&nbsp;<a href="#" className="govuk-footer__link">Government Digital Service</a>
+        Built by the&nbsp;
+        <a href="#" className="govuk-footer__link">
+          Government Digital Service
+        </a>
       </FooterMeta>
     </Footer>
-  )
+  ),
 };
 
-
-export {
-  primary,
-  withLinks,
-  secondaryNavigation,
-  linksAndSecondaryNavigation,
-};
+export { primary, withLinks, secondaryNavigation, linksAndSecondaryNavigation };

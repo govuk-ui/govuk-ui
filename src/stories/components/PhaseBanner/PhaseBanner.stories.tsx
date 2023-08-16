@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import PhaseBanner from "../../../components/PhaseBanner";
+import { PhaseBanner } from "../../../components";
 
 const meta: Meta<typeof PhaseBanner> = {
   title: "PhaseBanner",
@@ -13,23 +13,28 @@ type Story = StoryObj<typeof PhaseBanner>;
 
 const primary: Story = {
   name: "default",
-  render: (args) => (
+  render: (_args) => (
     <PhaseBanner phase="alpha">
-      This is a new service – your <a className="govuk-link" href="/feedback">feedback</a> will help us to improve it.
+      This is a new service – your{" "}
+      <a className="govuk-link" href="/feedback">
+        feedback
+      </a>{" "}
+      will help us to improve it.
     </PhaseBanner>
   ),
 };
 
 const beta: Story = {
   name: "default",
-  render: (args) => (
-      <PhaseBanner phase="beta">
-        This is a new service – your <a className="govuk-link" href="/feedback">feedback</a> will help us to improve it.
-      </PhaseBanner>
+  render: (_args) => (
+    <PhaseBanner phase="beta">
+      This is a new service – your{" "}
+      <a className="govuk-link" href="/feedback">
+        feedback
+      </a>{" "}
+      will help us to improve it.
+    </PhaseBanner>
   ),
 };
 
-export {
-  primary,
-  beta,
-};
+export { primary, beta };
